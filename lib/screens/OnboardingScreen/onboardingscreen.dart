@@ -24,46 +24,37 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             child: Stack(
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, -0.9),
+                                  alignment: const AlignmentDirectional(0.0, -0.98),
                                   child: Image.asset("assets/images/healthker_icon.png",
                                   width: 60,),
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 0, 0),
-                                  child: CarouselSlider(
-                                    items: [
-        Center(
-          child:Image.asset(
-                "assets/images/man_pharmacist.png",
-                                      ),
-        ),
-        Center(
-          child: Image.asset("assets/images/man_with_phone.png",
-          ),
-          
-        ),
-        Center(
-          child: Image.asset("assets/images/delivery_man.png",
-          ),
-          
-        ),
-        
-      ], 
-      options: CarouselOptions(
-        height: 400.0,
-        autoPlay: true,
-        enlargeCenterPage: true,
-        aspectRatio: 16 / 9,
-        autoPlayCurve: Curves.fastOutSlowIn,
-        enableInfiniteScroll: true,
-        autoPlayAnimationDuration: const Duration(milliseconds: 800),
-        viewportFraction: 0.8,
-      ),
-                                  ),
-                                ),
+                                      child: CarouselSlider(
+            items: [
+              _buildCarouselItem('Buying medicine just \n           got easier', 'assets/images/man_pharmacist.png'),
+              _buildCarouselItem('    Search drug or \nupload prescription', 'assets/images/man_with_phone.png'),
+              _buildCarouselItem('      Pickup or \nget it Delivered', 'assets/images/delivery_man.png'),
+            ],
+            options: CarouselOptions(
+              height: 400.0,
+              enlargeCenterPage: true,
+              enableInfiniteScroll: true,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 2),
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              pauseAutoPlayOnTouch: true,
+              aspectRatio: 16/9,
+              onPageChanged: (index, reason) {
+                setState(() {
+               
+                });
+              },
+            ),
+          )          ),
                                 Align(
-                                  alignment: const AlignmentDirectional(0.00, -0.10),
+                                  alignment: const AlignmentDirectional(0.00, 0.15),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0, 0, 0, 16),
@@ -153,5 +144,31 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
     );
      
+  }
+
+    Widget _buildCarouselItem(String text, String imagePath) {
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        Image.asset(
+          imagePath,
+          // fit: BoxFit.cover,
+          width: 400,
+          height: 400,
+        ),
+        Container(
+          padding: const EdgeInsets.all(0.0),
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontSize: 27.0,
+              color: Color.fromARGB(255, 43, 43, 43),
+              // fontWeight: FontWeight.bold,
+              fontFamily: 'KumbhSans',
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
