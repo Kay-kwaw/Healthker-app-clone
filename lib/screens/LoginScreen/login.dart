@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/textfieldscontants.dart';
+import 'package:healthker/screens/Dashboard/dashboard.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);
@@ -77,7 +78,11 @@ class _LoginWidgetState extends State<LoginWidget> {
               ),
               Align(
               alignment: AlignmentDirectional(-0.00, 0.30),
-              child:AppTexts.customButton((){})
+              child:AppTexts.customButton((){
+                 Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const DashboardScreen ()),);
+              })
                ),
               Align(
               alignment: const AlignmentDirectional(-0.00, 0.49),

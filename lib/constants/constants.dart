@@ -26,7 +26,7 @@ class AppTexts {
         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
           const EdgeInsets.symmetric(
             horizontal: 145,
-            vertical: 13,
+            vertical: 10,
           ),
         ),
       ),
@@ -63,7 +63,7 @@ class AppTexts {
         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
           const EdgeInsets.symmetric(
             horizontal: 90,
-            vertical: 13,
+            vertical: 10,
           ),
         ),
       ),

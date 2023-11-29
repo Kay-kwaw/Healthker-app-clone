@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:healthker/LoginScreen/login.dart';
-import 'package:healthker/OnboardingScreen/onboardingscreen.dart';
+import 'package:healthker/screens/OnboardingScreen/onboardingscreen.dart';
+
 
 void main() {
   runApp(const MyApp());
