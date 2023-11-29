@@ -9,6 +9,7 @@ class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoginWidgetState createState() => _LoginWidgetState();
 }
 
@@ -36,9 +37,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                 alignment: const AlignmentDirectional(-0.98, -0.94),
                 child: IconButton(
                   icon: const Icon(Icons.chevron_left),
-                  color:Color.fromARGB(255, 82, 82, 82),
+                  color:const Color.fromARGB(255, 82, 82, 82),
                   iconSize: 30,
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.pop(context);
+                  },
                 ),
               ),
               Align(
@@ -73,11 +76,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                 ),
               ),
                Align(
-                alignment: AlignmentDirectional(0.73, 0.10),
+                alignment: const AlignmentDirectional(0.73, 0.10),
                 child: AppTexts.GetStarted('Forgotten Password?', 16, primaryColor)
               ),
               Align(
-              alignment: AlignmentDirectional(-0.00, 0.30),
+              alignment: const AlignmentDirectional(-0.00, 0.30),
               child:AppTexts.customButton((){
                  Navigator.push(
                     context,
@@ -101,7 +104,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     child: AppTexts.images(),
   ),
   Align(
-  alignment: AlignmentDirectional(0.25, 0.99),
+  alignment: const AlignmentDirectional(0.25, 0.99),
     child: AppTexts.Pharmacy(),
   ),
            
