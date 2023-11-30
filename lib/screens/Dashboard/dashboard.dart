@@ -58,8 +58,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              SingleChildScrollView(
-                child: Column(
+                 Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -67,7 +66,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
                       child: Container(
                         width: 396,
-                        height: 131,
+                        height: 151,
                         decoration: BoxDecoration(
                           color:primaryColor,
                           borderRadius: BorderRadius.circular(20),
@@ -204,7 +203,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                     ),
                   ],
                 ),
-              ),
+              
             ],
           ),
       )

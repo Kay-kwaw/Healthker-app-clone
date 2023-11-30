@@ -93,6 +93,32 @@ class AppTexts {
       fit: BoxFit.cover,
     );
   }
+
+   Widget _buildCarouselItem(String text, String imagePath) {
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        Image.asset(
+          imagePath,
+          // fit: BoxFit.cover,
+          width: 400,
+          height: 400,
+        ),
+        Container(
+          padding: const EdgeInsets.all(0.0),
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontSize: 27.0,
+              color: Color.fromARGB(255, 43, 43, 43),
+              // fontWeight: FontWeight.bold,
+              fontFamily: 'KumbhSans',
+            ),
+          ),
+        ),
+      ],
+    );
+  }
   
   
 }

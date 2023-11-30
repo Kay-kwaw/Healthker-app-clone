@@ -48,7 +48,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               aspectRatio: 16/9,
               onPageChanged: (index, reason) {
                 setState(() {
-               
+               controller;
                 });
               },
             ),
