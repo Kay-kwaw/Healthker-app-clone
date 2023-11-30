@@ -84,7 +84,7 @@ class _LoginWidgetState extends State<LoginWidget> {
               child:AppTexts.customButton((){
                  Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const DashboardScreen ()),);
+                    MaterialPageRoute(builder: (context) => const DashboardWidget ()),);
               })
                ),
               Align(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthker/constants/constants.dart';
 
 class DashboardWidget extends StatefulWidget {
   const DashboardWidget({Key? key}) : super(key: key);
@@ -21,9 +22,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   Widget build(BuildContext context) {
 return GestureDetector(
       child: Scaffold(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
+          backgroundColor: primaryColor,
           automaticallyImplyLeading: false,
           title: Stack(
             children: [
@@ -47,7 +48,7 @@ return GestureDetector(
                 alignment: AlignmentDirectional(-0.70, -2.32),
                 child: Text(
                   'Current location',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  style: TextStyle(
                         fontFamily: 'Readex Pro',
                         color: Color(0xFFF7F7F7),
                       ),
@@ -70,7 +71,7 @@ return GestureDetector(
                   width: 391,
                   height: 133,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primary,
+                    color: primaryColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Stack(
@@ -87,27 +88,25 @@ return GestureDetector(
                           ),
                         ),
                       ),
-                      Align(
+                      const Align(
                         alignment: AlignmentDirectional(-0.93, -0.68),
                         child: Text(
                           'You are in good\nhands with us',
                           style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
+                             TextStyle(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
                                     fontSize: 20,
                                   ),
                         ),
                       ),
-                      Align(
+                      const Align(
                         alignment: AlignmentDirectional(-0.92, 0.77),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 2, 0),
                           child: Text(
                             'We are delighted to\nprovide the best of service',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
+                            style: TextStyle(
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
                                   fontWeight: FontWeight.w300,
@@ -130,7 +129,7 @@ return GestureDetector(
                           alignment: AlignmentDirectional(-0.82, 0.00),
                           child: Text(
                             'Welcome Kwaw!\nHere are actions for you',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: TextStyle(),
                           ),
                         ),
                       ],
