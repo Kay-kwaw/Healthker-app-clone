@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
+import 'package:healthker/constants/gridconstants.dart';
 
 class DashboardWidget extends StatefulWidget {
   const DashboardWidget({super.key});
@@ -13,13 +14,13 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       child:  Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         appBar: AppBar(
           backgroundColor: primaryColor,
           automaticallyImplyLeading: false,
-          title: Stack(
+          title: const Stack(
             children: [
-              const Align(
+              Align(
                 alignment: AlignmentDirectional(-1.02, 0.00),
                 child: Icon(
                   Icons.location_on,
@@ -27,7 +28,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                   size: 30,
                 ),
               ),
-              const Align(
+              Align(
                 alignment: AlignmentDirectional(0.94, 0.00),
                 child: Icon(
                   Icons.shopping_cart,
@@ -42,6 +43,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                   style: TextStyle(
                         fontFamily: 'Readex Pro',
                         color: Color(0xFFF7F7F7),
+                        fontSize: 12
                       ),
                 ),
               ),
@@ -65,7 +67,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
                       child: Container(
                         width: 396,
-                        height: 151,
+                        height: 131,
                         decoration: BoxDecoration(
                           color:primaryColor,
                           borderRadius: BorderRadius.circular(20),
@@ -134,141 +136,12 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                     ),
                     Padding(
                       padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
-                      child: GridView(
-                        padding: EdgeInsets.zero,
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10,
-                          childAspectRatio: 1,
-                        ),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        children: [
-                          Container(
-                            width: MediaQuery.sizeOf(context).width * 0.4,
-                            height: 160,
-                            decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 213, 136, 108),
-                              borderRadius: BorderRadius.circular(24),
-                            ),
-                            child: Stack(
-                              children: [
-                                const Align(
-                                  alignment: AlignmentDirectional(-0.72, -0.67),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(6.0),
-                                    child: Text(
-                                      'Buy drug/ \nUpload prescription',
-                                      style:
-                                         TextStyle(
-                                          fontFamily: 'KumbhSans',
-                                          color: Color.fromARGB(255, 255, 255, 255),
-                                          fontSize: 18,
-                                         ),
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: const AlignmentDirectional(0.00, 0.00),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: Image.asset(
-                                      'assets/images/pharmacist_lady.png',
-                                      width: 200,
-                                      height: 200,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            width: MediaQuery.sizeOf(context).width * 0.4,
-                            height: 160,
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 102, 100, 100),
-                              borderRadius: BorderRadius.circular(24),
-                            ),
-                            child:  Stack(
-                              children: [
-                                 const Align(
-                                  alignment: AlignmentDirectional(-0.72, -0.67),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(3.0),
-                                    child: Text(
-                                      'Find \nPharmacy',
-                                      style:
-                                         TextStyle(
-                                          fontFamily: 'KumbhSans',
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                         ),
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: const AlignmentDirectional(0.00, .00),
-                                  child: ClipRRect(
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(25,30,0,0),
-                                      child: Image.asset(
-                                        'assets/images/my_black_booking.png',
-                                        width: 200,
-                                        height: 200,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            width: MediaQuery.sizeOf(context).width * 0.4,
-                            height: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(24),
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12, 12, 12, 12),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                 
-                                ],
-                              ),
-                            ),
-                          ),
-                          Container(
-                            width: MediaQuery.sizeOf(context).width * 0.4,
-                            height: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(24),
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12, 12, 12, 12),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  
-                                ],
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
+                      child: Grid.grid(),
                     ),
                     const SizedBox(
                       height: 15,
                     ),
+                   
                     Container(
                       width: 396,
                       height: 60,
@@ -286,23 +159,29 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       ),
                       child:  Stack(
                         children: [
-                          Align(
-                            alignment: const AlignmentDirectional(-0.64, 0.18),
-                            child: IconButton(
-                              icon: const Icon(Icons.home),
-                              color: Colors.black,
-                              iconSize: 30,
-                              onPressed: () {
-                                print('Onpressed');
-                                
-                              },
+                          Expanded(
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(-0.64, 0.18),
+                                  child: IconButton(
+                                    icon: const Icon(Icons.home),
+                                    color: primaryColor,
+                                    iconSize: 30,
+                                    onPressed: () {
+                                      print('Onpressed');
+                                      
+                                    },
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Align(
                             alignment: const AlignmentDirectional(-0.0, 0.18),
                             child: IconButton(
-                              icon: const Icon(Icons.sailing),
-                              color: Colors.black,
+                              icon: const Icon(Icons.bookmark),
+                              color: primaryColor,
                               iconSize: 30,
                               onPressed: () {
                                 print('Onpressed');
@@ -313,7 +192,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                             alignment: const AlignmentDirectional(0.64, 0.18),
                             child: IconButton(
                               icon: const Icon(Icons.person),
-                              color: Colors.black,
+                              color:primaryColor,
                               iconSize: 30,
                               onPressed: () {
                                 print('Onpressed');
