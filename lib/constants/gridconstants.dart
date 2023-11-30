@@ -11,46 +11,48 @@ class Grid {
         childAspectRatio: 1,
       ),
       shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
+      // physics: const NeverScrollableScrollPhysics(),
       scrollDirection: Axis.vertical,
       children: [
         Container(
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 213, 136, 108),
-            borderRadius: BorderRadius.circular(24),
+            color:  Color.fromARGB(255, 208, 122, 57),
+            borderRadius: BorderRadius.circular(15),
           ),
           child: Stack(
             children: [
-              const Align(
-                alignment: AlignmentDirectional(-0.72, -0.67),
-                child: Padding(
-                  padding: EdgeInsets.all(6.0),
+               const Align(
+                alignment: AlignmentDirectional(-0.72, -0.77),             
                   child: Text(
-                    'Buy drug/ \nUpload prescription',
+                    'Buy drug \nUpload\nPrescription',
                     style: TextStyle(
                       fontFamily: 'KumbhSans',
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 18,
+                      color: Colors.white,
+                      fontSize: 15,
                     ),
                   ),
-                ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.00, 0.00),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(00, 30, 0, 0),
-                  child: Image.asset(
-                    'assets/images/buying.png',
-                  ),
-                ),
-              ),
+  alignment: const AlignmentDirectional(8.57, 1.18),
+  child: ClipRRect(
+    child: Padding(
+      padding:  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+      child: Image.asset(
+         'assets/images/buying.png',
+        width: 167,
+        height: 120,
+        // fit: BoxFit.scaleDown,
+      ),
+    ),
+  ),
+)
             ],
           ),
         ),
         Container(
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 102, 100, 100),
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(15),
           ),
           child: Stack(
             children: [
@@ -63,7 +65,7 @@ class Grid {
                     style: TextStyle(
                       fontFamily: 'KumbhSans',
                       color: Colors.white,
-                      fontSize: 18,
+                      fontSize: 17,
                     ),
                   ),
                 ),
@@ -71,9 +73,11 @@ class Grid {
               Align(
                 alignment: const AlignmentDirectional(0.00, .00),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(30, 30, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 75, 0, 0),
                   child: Image.asset(
                     'assets/images/my_black_booking.png',
+                    width: 147,
+                    height: 120,
                   ),
                 ),
               ),
@@ -83,7 +87,7 @@ class Grid {
         Container(
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 53, 131, 55),
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(15),
           ),
           child: Padding(
               padding: EdgeInsets.all(3.0),
@@ -98,7 +102,7 @@ class Grid {
                         style: TextStyle(
                           fontFamily: 'KumbhSans',
                           color: Colors.white,
-                          fontSize: 18,
+                          fontSize: 17,
                         ),
                       ),
                     ),
@@ -108,9 +112,11 @@ class Grid {
                     child: ClipRRect(
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(20, 40, 0, 0),
+                            const EdgeInsetsDirectional.fromSTEB(0, 70, 0, 0),
                         child: Image.asset(
                           'assets/images/complain.png',
+                          width: 170,
+                          // 
                         ),
                       ),
                     ),
@@ -121,7 +127,7 @@ class Grid {
         Container(
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 218, 107, 107),
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(15),
           ),
           child: Padding(
               padding: EdgeInsets.all(3.0),
@@ -136,7 +142,7 @@ class Grid {
                         style: TextStyle(
                           fontFamily: 'KumbhSans',
                           color: Colors.white,
-                          fontSize: 18,
+                          fontSize: 17,
                         ),
                       ),
                     ),
@@ -149,6 +155,7 @@ class Grid {
                             const EdgeInsetsDirectional.fromSTEB(30, 50, 0, 0),
                         child: Image.asset(
                           'assets/images/call_center.png',
+                          width: 130,
                         ),
                       ),
                     ),

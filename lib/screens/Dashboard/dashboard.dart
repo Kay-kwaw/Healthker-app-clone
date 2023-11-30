@@ -63,7 +63,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                      padding: const EdgeInsetsDirectional.fromSTEB(15, 15, 20, 20),
                       child: AppTexts.goodhands()
                     ),
                     const Padding(
@@ -72,7 +72,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                         'Welcome! Kwaw',
                         style: TextStyle(
                           fontFamily: 'KumbhSans',
-                          fontSize: 24,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

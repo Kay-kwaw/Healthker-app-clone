@@ -102,7 +102,7 @@ class AppTexts {
                       height: 60,
                       decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 255, 255, 255),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10),
                         boxShadow: const [
                         
                           BoxShadow(
@@ -166,7 +166,7 @@ class AppTexts {
                         height: 151,
                         decoration: BoxDecoration(
                           color:primaryColor,
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Stack(
                           children: [
