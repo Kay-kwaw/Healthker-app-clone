@@ -70,6 +70,10 @@ flutter:
     - assets/images/gnepp_logo.png
     - assets/images/pharmacy_council_logo.png
     - assets/images/pharmacist_lady.png
+    - assets/images/buying.png
+    - assets/images/call_center.png
+    - assets/images/complain.png
+    - assets/images/my_black_booking.png
    
 
   # An image asset can refer to one or more resolution-specific "variants", see

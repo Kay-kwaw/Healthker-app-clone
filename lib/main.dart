@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthker/screens/Dashboard/dashboard.dart';
 import 'package:healthker/screens/OnboardingScreen/onboardingscreen.dart';
 
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: OnboardingScreen(),
+      home: DashboardWidget(),
     );
   }
 }
