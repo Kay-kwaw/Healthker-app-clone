@@ -14,7 +14,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       child:  Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         appBar: AppBar(
           backgroundColor: primaryColor,
           automaticallyImplyLeading: false,
@@ -64,53 +64,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                   children: [
                     Padding(
                       padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
-                      child: Container(
-                        width: 396,
-                        height: 151,
-                        decoration: BoxDecoration(
-                          color:primaryColor,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Stack(
-                          children: [
-                            Align(
-                              alignment: const AlignmentDirectional(0.85, -1.82),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: Image.asset(
-                                  'assets/images/pharmacist_lady.png',
-                                  width: 197,
-                                  height: 150,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                             const Align(
-      alignment: AlignmentDirectional(-0.81, -0.68),
-      child: Text(
-        'You are in good \nhands with us',
-        style:TextStyle(
-          fontFamily: 'KumbhSans',
-          color: Colors.white,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        )
-      ),
-    ),
-    const Align(
-      alignment: AlignmentDirectional(-0.80, 0.57),
-      child: Text(
-        'We are delighted to \nprovide the best of service',
-        style: TextStyle(
-          fontFamily: 'KumbhSans-meduim',
-          color: Colors.white,
-          fontSize: 13,
-        )
-      ),
-    ),
-                          ],
-                        ),
-                      ),
+                      child: AppTexts.goodhands()
                     ),
                     const Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
@@ -140,67 +94,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                     const SizedBox(
                       height: 15,
                     ),
-                   
-                    Container(
-                      width: 396,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color.fromARGB(26, 241, 241, 240),
-                            offset: Offset(0, 6),
-                            blurRadius: 12,
-                          )
-                        ],
-                        
-                      ),
-                      child:  Stack(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Align(
-                                  alignment: const AlignmentDirectional(-0.64, 0.18),
-                                  child: IconButton(
-                                    icon: const Icon(Icons.home),
-                                    color: primaryColor,
-                                    iconSize: 30,
-                                    onPressed: () {
-                                      print('Onpressed');
-                                      
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(-0.0, 0.18),
-                            child: IconButton(
-                              icon: const Icon(Icons.bookmark),
-                              color: primaryColor,
-                              iconSize: 30,
-                              onPressed: () {
-                                print('Onpressed');
-                              },
-                            ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(0.64, 0.18),
-                            child: IconButton(
-                              icon: const Icon(Icons.person),
-                              color:primaryColor,
-                              iconSize: 30,
-                              onPressed: () {
-                                print('Onpressed');
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                   AppTexts.bottomnavcontainer(),
                   ],
                 ),
               

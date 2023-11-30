@@ -13,7 +13,8 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  final controller = PageController(viewportFraction: 0.8, keepPage: true);
+  // final controller = PageController(viewportFraction: 0.8, keepPage: true);
+   int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               aspectRatio: 16/9,
               onPageChanged: (index, reason) {
                 setState(() {
-               controller;
+               _currentIndex = index;
                 });
               },
             ),
@@ -58,28 +59,42 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0, 0, 0, 16),
-                                    child: 
-                                          SmoothPageIndicator(
-                                      count: 3,
-                                      axisDirection: Axis.horizontal,
-                                      onDotClicked: (i) async {
-                                        await controller.animateToPage(
-                                          i,
-                                          duration: const Duration(milliseconds: 500),
-                                          curve: Curves.ease,
-                                        );
-                                      },
-                                      effect: WormEffect(
-                                        spacing: 8,
-                                        radius: 16,
-                                        dotWidth: 16,
-                                        dotHeight: 8,
-                                        dotColor: Colors.grey.shade400,   
-                                        activeDotColor: Color.fromARGB(255, 22, 21, 83),
-                                        paintStyle: PaintingStyle.fill,
-                                      ), 
-                                      controller: controller,
-                                    ),
+                                    child:  Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(3, (index) {
+            return Container(
+              width: _currentIndex == index ? 25.0 : 18.0,
+              height: 9.0,
+              margin: const EdgeInsets.symmetric(horizontal: 4.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4.0),
+                shape: BoxShape.rectangle,
+                color: _currentIndex == index ? const Color.fromARGB(255, 41, 120, 255) : Color.fromARGB(255, 200, 219, 253),
+              ),
+            );
+          }),
+        ),
+                                    //       SmoothPageIndicator(
+                                    //   count: 3,
+                                    //   axisDirection: Axis.horizontal,
+                                    //   onDotClicked: (i) async {
+                                    //     await controller.animateToPage(
+                                    //       i,
+                                    //       duration: const Duration(milliseconds: 500),
+                                    //       curve: Curves.ease,
+                                    //     );
+                                    //   },
+                                    //   effect: WormEffect(
+                                    //     spacing: 8,
+                                    //     radius: 16,
+                                    //     dotWidth: 16,
+                                    //     dotHeight: 8,
+                                    //     dotColor: Colors.grey.shade400,   
+                                    //     activeDotColor: Color.fromARGB(255, 22, 21, 83),
+                                    //     paintStyle: PaintingStyle.fill,
+                                    //   ), 
+                                    //   controller: controller,
+                                    // ),
                                   ),
                                 ),
                                 
