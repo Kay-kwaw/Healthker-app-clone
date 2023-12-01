@@ -65,7 +65,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 alignment: const AlignmentDirectional(0.00, -0.29),
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
-                  child: Fields.textFormField()
+                  child: Fields.EmailTextField()
                 ),
               ),
               Align(

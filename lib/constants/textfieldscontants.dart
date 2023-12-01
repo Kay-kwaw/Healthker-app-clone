@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
 
 class Fields{
-  static Widget textFormField(){
+  static Widget EmailTextField(){
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
