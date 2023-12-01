@@ -103,11 +103,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                       ),
                       Align(
   alignment: const AlignmentDirectional(-0.25, 1.00),
-    child: AppTexts.images(),
+    child: AppTexts.GnepImage(),
   ),
   Align(
   alignment: const AlignmentDirectional(0.25, 0.99),
-    child: AppTexts.Pharmacy(),
+    child: AppTexts.PharmcacyImage(),
   ),
            
             ],

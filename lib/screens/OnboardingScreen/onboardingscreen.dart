@@ -108,7 +108,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         })),
                       Align(
                         alignment: const AlignmentDirectional(-0.03, 0.00),
-                        child: AppTexts.customButton2(
+                        child: AppTexts.CreateAccount(
                           (){}
                         )
                       ),
@@ -122,11 +122,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                       Align(
   alignment: const AlignmentDirectional(-0.25, 0.87),
-    child: AppTexts.images(),
+    child: AppTexts.GnepImage(),
   ),
   Align(
   alignment: const AlignmentDirectional(0.25, 0.83),
-    child: AppTexts.Pharmacy(),
+    child: AppTexts.PharmcacyImage(),
   ),
                     ],
                   ),
