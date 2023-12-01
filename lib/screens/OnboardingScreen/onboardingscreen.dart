@@ -74,27 +74,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             );
           }),
         ),
-                                    //       SmoothPageIndicator(
-                                    //   count: 3,
-                                    //   axisDirection: Axis.horizontal,
-                                    //   onDotClicked: (i) async {
-                                    //     await controller.animateToPage(
-                                    //       i,
-                                    //       duration: const Duration(milliseconds: 500),
-                                    //       curve: Curves.ease,
-                                    //     );
-                                    //   },
-                                    //   effect: WormEffect(
-                                    //     spacing: 8,
-                                    //     radius: 16,
-                                    //     dotWidth: 16,
-                                    //     dotHeight: 8,
-                                    //     dotColor: Colors.grey.shade400,   
-                                    //     activeDotColor: Color.fromARGB(255, 22, 21, 83),
-                                    //     paintStyle: PaintingStyle.fill,
-                                    //   ), 
-                                    //   controller: controller,
-                                    // ),
                                   ),
                                 ),
                                 
@@ -121,7 +100,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                       Align(
                         alignment: const AlignmentDirectional(-0.03, -0.45),
-                        child: AppTexts.customButton((){
+                        child: AppTexts.LoginButton((){
                           Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const LoginWidget()),);

@@ -81,15 +81,17 @@ class _LoginWidgetState extends State<LoginWidget> {
               ),
               Align(
               alignment: const AlignmentDirectional(-0.00, 0.30),
-              child:AppTexts.customButton((){
-                 Navigator.push(
+              child: AppTexts.LoginButton(
+                (){
+                  Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const DashboardWidget ()),);
-              })
+                }
+              ),
                ),
               Align(
               alignment: const AlignmentDirectional(-0.00, 0.49),
-              child:AppTexts.customButton2((){})
+              child:AppTexts.CreateAccount((){})
                ),
                const Align(
                         alignment: AlignmentDirectional(-0.03, 0.84),
