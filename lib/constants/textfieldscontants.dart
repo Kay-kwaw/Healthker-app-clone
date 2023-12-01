@@ -10,7 +10,7 @@ class Fields{
         obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Email...',
-                        labelStyle: TextStyle(),
+                        labelStyle: const TextStyle(),
                         hintStyle: TextStyle(),
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(

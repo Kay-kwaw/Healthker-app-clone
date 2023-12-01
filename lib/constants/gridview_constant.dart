@@ -33,7 +33,7 @@ class Grid {
                   ),
               ),
               Align(
-  alignment: const AlignmentDirectional(8.57, 1.18),
+ alignment: const AlignmentDirectional(8.57, 1.18),
   child: ClipRRect(
     child: Padding(
       padding:  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),

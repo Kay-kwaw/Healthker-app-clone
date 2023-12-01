@@ -14,8 +14,6 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-  
-
   @override
   void initState() {
     super.initState();

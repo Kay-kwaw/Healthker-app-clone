@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
-import 'package:healthker/constants/gridconstants.dart';
+import 'package:healthker/constants/gridview_constant.dart';
 
 class DashboardWidget extends StatefulWidget {
   const DashboardWidget({super.key});
@@ -18,25 +18,31 @@ class _DashboardWidgetState extends State<DashboardWidget> {
         appBar: AppBar(
           backgroundColor: primaryColor,
           automaticallyImplyLeading: false,
-          title: const Stack(
+          title:  Stack(
             children: [
-              Align(
-                alignment: AlignmentDirectional(-1.02, 0.00),
-                child: Icon(
-                  Icons.location_on,
+               Align(
+                alignment: const AlignmentDirectional(-1.02, 0.00),
+                child: IconButton(
+                  icon: const Icon(Icons.location_on),
                   color: Colors.white,
-                  size: 30,
+                  iconSize: 30,
+                  onPressed: () {
+                    print('Location pressed ...');
+                  },
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.94, 0.00),
-                child: Icon(
-                  Icons.shopping_cart,
+                alignment: const AlignmentDirectional(0.94, 0.00),
+                child: IconButton(
+                  icon: const Icon(Icons.shopping_cart),
                   color: Colors.white,
-                  size: 30,
+                  iconSize: 30,
+                  onPressed: () {
+                    print('Shopping cart pressed ...');
+                  },
                 ),
               ),
-              Align(
+              const Align(
                 alignment: AlignmentDirectional(-0.70, -2.32),
                 child: Text(
                   'Current location',

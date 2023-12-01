@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
+//Primary colors and secondary colors
 const primaryColor = Color.fromARGB(255, 7, 28, 183);
 const secondaryColor = Color.fromARGB(255, 171, 180, 248);
 
 class AppTexts {
-  static Widget customText(String text, double fontSize, Color color) {
-    return Text(
-      text,
-      style: TextStyle(
-        fontFamily: 'Readex Pro',
-        color: color,
-        fontSize: fontSize,
-      ),
-    );
-  }
-  static Widget customButton(Function onPressed) {
+  static Widget LoginButton(Function onPressed) {
     return ElevatedButton(
       style: ButtonStyle(
         
@@ -50,7 +41,7 @@ class AppTexts {
       ),
     );
 }
-  static Widget customButton2(Function onPressed) {
+  static Widget CreateAccount(Function onPressed) {
     return ElevatedButton(
       style: ButtonStyle(
         
@@ -77,7 +68,7 @@ class AppTexts {
       ),),
     );
   }
-  static Widget images() {
+  static Widget GnepImage() {
     return Image.asset(
       'assets/images/gnepp_logo.png',
       width: 80,
@@ -85,7 +76,7 @@ class AppTexts {
       fit: BoxFit.cover,
     );
   }
-  static Widget Pharmacy() {
+  static Widget PharmcacyImage() {
     return Image.asset(
       'assets/images/pharmacy_council_logo.png',
       width: 50,
