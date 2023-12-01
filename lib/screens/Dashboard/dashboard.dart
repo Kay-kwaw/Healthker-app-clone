@@ -47,7 +47,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                 child: Text(
                   'Current location',
                   style: TextStyle(
-                        fontFamily: 'Readex Pro',
+                        fontFamily: 'KumbhSans-light',
                         color: Color(0xFFF7F7F7),
                         fontSize: 12
                       ),
