@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:healthker/screens/Dashboard/dashboard.dart';
 import 'package:healthker/screens/OnboardingScreen/onboardingscreen.dart';
 
 

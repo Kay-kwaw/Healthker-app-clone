@@ -25,14 +25,14 @@ class AppTexts {
         onPressed();
       },
       child: const Text('Login', style: TextStyle(
-        fontFamily: 'Readex Pro',
+        fontFamily: 'KumbhSans',
         color: Colors.white,
         fontSize: 18,
       ),),
     );
   }
 
-  ElevatedButton buildElevatedButton({
+  static Widget buildElevatedButton({
     required String buttontext,
     required Function onPressed,
     Color? buttonColor,
@@ -40,7 +40,11 @@ class AppTexts {
   }) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        primary: buttonColor ?? Colors.blue, // Use the provided color or fallback to a default
+        
+      backgroundColor: buttonColor ?? primaryColor,
+      shape: RoundedRectangleBorder(
+        
+        ),
       ),
       onPressed: () {
         onPressed();

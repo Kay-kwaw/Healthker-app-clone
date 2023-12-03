@@ -15,6 +15,8 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   // final controller = PageController(viewportFraction: 0.8, keepPage: true);
    int _currentIndex = 0;
+   
+   
 
   @override
   Widget build(BuildContext context) {
@@ -91,21 +93,26 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                   child: Stack(
                     children: [
-                       Align(
-                        alignment: const AlignmentDirectional(-0.80, -0.81),
-                        child: AppTexts.GetStarted(
-                          "Get Started", 
-                          22, Colors.black
-                          )
-                      ),
+                       Column(
+                         children: [
+                           Align(
+                            alignment: const AlignmentDirectional(-0.80, -0.81),
+                            child: AppTexts.GetStarted(
+                              "Get Started", 
+                              22, Colors.black
+                              )
+                                                 ),
+                         ],
+                       ),
                       Align(
                         alignment: const AlignmentDirectional(-0.03, -0.45),
-                        child: AppTexts.LoginButton((){
-                          Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginWidget()),);
-                         
-                        })),
+                        child: AppTexts.buildElevatedButton(
+                          buttontext: "Login",
+                         onPressed: (){},
+                         buttonColor: primaryColor,
+                          textColor: Colors.white,
+                         )
+                        ),
                       Align(
                         alignment: const AlignmentDirectional(-0.03, 0.00),
                         child: AppTexts.CreateAccount(
