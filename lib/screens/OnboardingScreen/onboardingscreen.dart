@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/screens/LoginScreen/login.dart';
 import 'package:healthker/constants/constants.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -28,25 +28,28 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               children: [
                                 Align(
                                   alignment: const AlignmentDirectional(0.0, -0.98),
-                                  child: Image.asset("assets/images/healthker_icon.png",
-                                  width: 60,),
+                                  child: Image.asset(
+                                    ImageConstants.healthkerIcon,
+                                    width: 60,
+                                    height: 60,
+                                  ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 0, 0),
                                       child: CarouselSlider(
             items: [
-              _buildCarouselItem('Buying medicine just \n           got easier', 'assets/images/man_pharmacist.png'),
-              _buildCarouselItem('    Search drug or \nupload prescription', 'assets/images/man_with_phone.png'),
-              _buildCarouselItem('      Pickup or \nget it Delivered', 'assets/images/delivery_man.png'),
+              _buildCarouselItem('Buying medicine just \n           got easier', ImageConstants.man_pharmacist),
+              _buildCarouselItem('    Search drug or \nupload prescription', ImageConstants.man_with_phone),
+              _buildCarouselItem('      Pickup or \nget it Delivered', ImageConstants.delivery_man),
             ],
             options: CarouselOptions(
               height: 400.0,
               enlargeCenterPage: true,
               enableInfiniteScroll: true,
               autoPlay: true,
-              autoPlayInterval: Duration(seconds: 2),
-              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              autoPlayInterval: const Duration(seconds: 2),
+              autoPlayAnimationDuration: const Duration(milliseconds: 800),
               pauseAutoPlayOnTouch: true,
               aspectRatio: 16/9,
               onPageChanged: (index, reason) {

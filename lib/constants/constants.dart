@@ -13,7 +13,6 @@ class AppTexts {
   }) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        
       backgroundColor: buttonColor ?? primaryColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -35,11 +34,6 @@ class AppTexts {
     ),
   );
 }
-
-
-
-
-
 
   static Widget GetStarted(String text, double fontSize, Color color) {
     return Text(
