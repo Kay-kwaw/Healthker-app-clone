@@ -108,7 +108,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         alignment: const AlignmentDirectional(-0.03, -0.45),
                         child: AppTexts.buildElevatedButton(
                           buttontext: "Login",
-                         onPressed: (){},
+                         onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> const LoginWidget()));
+                         },
                          buttonColor: primaryColor,
                           textColor: Colors.white,
 
