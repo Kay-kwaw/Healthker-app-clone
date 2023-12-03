@@ -71,7 +71,7 @@ flutter:
     - assets/images/healthker_icon.png
     - assets/images/gnepp_logo.png
     - assets/images/pharmacy_council_logo.png
-    - assets/images/pharmacist_lady.png
+    # - assets/images/pharmacist_lady.png
     - assets/images/buying.png
     - assets/images/call_center.png
     - assets/images/complain.png

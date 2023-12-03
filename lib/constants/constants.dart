@@ -68,6 +68,7 @@ class AppTexts {
       ),),
     );
   }
+  // ignore: non_constant_identifier_names
   static Widget GnepImage() {
     return Image.asset(
       'assets/images/gnepp_logo.png',
@@ -76,6 +77,7 @@ class AppTexts {
       fit: BoxFit.cover,
     );
   }
+  // ignore: non_constant_identifier_names
   static Widget PharmcacyImage() {
     return Image.asset(
       'assets/images/pharmacy_council_logo.png',
