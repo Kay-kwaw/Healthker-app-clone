@@ -31,6 +31,34 @@ class AppTexts {
       ),),
     );
   }
+
+  ElevatedButton buildElevatedButton({
+    required String buttontext,
+    required Function onPressed,
+    Color? buttonColor,
+    Color? textColor,
+  }) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: buttonColor ?? Colors.blue, // Use the provided color or fallback to a default
+      ),
+      onPressed: () {
+        onPressed();
+      },
+      child: Text(
+      buttontext,
+      style: TextStyle(
+        color: textColor ?? Colors.white, // Use the provided text color or fallback to a default
+      ),
+    ),
+  );
+}
+
+
+
+
+
+
   static Widget GetStarted(String text, double fontSize, Color color) {
     return Text(
       text,
