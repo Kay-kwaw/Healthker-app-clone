@@ -4,47 +4,24 @@ const primaryColor = Color.fromARGB(255, 7, 28, 183);
 const secondaryColor = Color.fromARGB(255, 171, 180, 248);
 
 class AppTexts {
-  static Widget LoginButton(Function onPressed) {
-    return ElevatedButton(
-      style: ButtonStyle(
-        
-        backgroundColor: MaterialStateProperty.all<Color>(primaryColor),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
-        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-          const EdgeInsets.symmetric(
-            horizontal: 145,
-            vertical: 10,
-          ),
-        ),
-      ),
-      onPressed: (){
-        onPressed();
-      },
-      child: const Text('Login', style: TextStyle(
-        fontFamily: 'KumbhSans',
-        color: Colors.white,
-        fontSize: 18,
-      ),),
-    );
-  }
-
   static Widget buildElevatedButton({
     required String buttontext,
     required Function onPressed,
     Color? buttonColor,
     Color? textColor,
+    Size? size,
   }) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         
       backgroundColor: buttonColor ?? primaryColor,
       shape: RoundedRectangleBorder(
-        
+        borderRadius: BorderRadius.circular(10),
         ),
+        padding: const EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 100
+        )
       ),
       onPressed: () {
         onPressed();
@@ -52,7 +29,8 @@ class AppTexts {
       child: Text(
       buttontext,
       style: TextStyle(
-        color: textColor ?? Colors.white, // Use the provided text color or fallback to a default
+        color: textColor ?? Colors.white,
+        fontSize: 18 // Use the provided text color or fallback to a default
       ),
     ),
   );
@@ -73,33 +51,7 @@ class AppTexts {
       ),
     );
 }
-  static Widget CreateAccount(Function onPressed) {
-    return ElevatedButton(
-      style: ButtonStyle(
-        
-        backgroundColor: MaterialStateProperty.all<Color>(secondaryColor),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
-        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-          const EdgeInsets.symmetric(
-            horizontal: 90,
-            vertical: 10,
-          ),
-        ),
-      ),
-      onPressed: (){
-        onPressed();
-      },
-      child: const Text('Create an account', style: TextStyle(
-        fontFamily: 'Readex Pro',
-        color: Colors.white,
-        fontSize: 18,
-      ),),
-    );
-  }
+  
   // ignore: non_constant_identifier_names
   static Widget GnepImage() {
     return Image.asset(

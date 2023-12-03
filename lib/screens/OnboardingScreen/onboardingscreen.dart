@@ -111,13 +111,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                          onPressed: (){},
                          buttonColor: primaryColor,
                           textColor: Colors.white,
+
                          )
                         ),
                       Align(
-                        alignment: const AlignmentDirectional(-0.03, 0.00),
-                        child: AppTexts.CreateAccount(
-                          (){}
-                        )
+                        alignment: const AlignmentDirectional(-0.03, -0.05),
+                        child:  AppTexts.buildElevatedButton(
+                          buttontext: "Create an Account",
+                         onPressed: (){},
+                         buttonColor: secondaryColor,
+                          textColor: primaryColor,
+
+                         )
+                        
                       ),
                       const Align(
                         alignment: AlignmentDirectional(-0.03, 0.54),
