@@ -5,7 +5,26 @@ const secondaryColor = Color.fromARGB(255, 171, 180, 248);
 
 class AppTexts {
 
-  
+  static AppBar appBar(String title, Color color, Icon icon, {required IconButton action}) {
+    return AppBar(
+      title: Text(
+        title,
+        style: TextStyle(
+          fontFamily: 'KumbhSans',
+          color: color,
+          fontSize: 20,
+        ),
+      ),
+      actions: [
+        action,
+      ],
+      leading: icon,
+      backgroundColor: primaryColor,
+       centerTitle: true,
+       elevation: 2,
+    );
+  }
+
   static Widget buildElevatedButton({
     required String buttontext,
     required Function onPressed,
@@ -70,67 +89,24 @@ class AppTexts {
    
 //Bottom navbar for dashboard
   static Widget bottomnavcontainer(){
-    return  Container(
-                      width: 396,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                        
-                          BoxShadow(
-                            color: Colors.white,
-                            offset: Offset(0, 6),
-                            blurRadius: 12,
-                          )
-                        ],
-                        
-                      ),
-                      child:  Stack(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Align(
-                                  alignment: const AlignmentDirectional(-0.64, 0.18),
-                                  child: IconButton(
-                                    icon: const Icon(Icons.home),
-                                    color: primaryColor,
-                                    iconSize: 30,
-                                    onPressed: () {
-                                      print('Onpressed');
-                                      
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(-0.0, 0.18),
-                            child: IconButton(
-                              icon: const Icon(Icons.bookmark),
-                              color: primaryColor,
-                              iconSize: 30,
-                              onPressed: () {
-                                print('Onpressed');
-                              },
-                            ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(0.64, 0.18),
-                            child: IconButton(
-                              icon: const Icon(Icons.person),
-                              color:primaryColor,
-                              iconSize: 30,
-                              onPressed: () {
-                                print('Onpressed');
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
+    return  BottomNavigationBar(
+      items: const [
+        BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+      ],
+      
+      
+    );
   }
 
   static Widget goodhands() {

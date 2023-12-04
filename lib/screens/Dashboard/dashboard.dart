@@ -11,60 +11,29 @@ class DashboardWidget extends StatefulWidget {
 
 class _DashboardWidgetState extends State<DashboardWidget> {
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      child:  Scaffold(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        appBar: AppBar(
-          backgroundColor: primaryColor,
-          automaticallyImplyLeading: false,
-          title:  Stack(
-            children: [
-               Align(
-                alignment: const AlignmentDirectional(-1.02, 0.00),
-                child: IconButton(
-                  icon: const Icon(Icons.location_on),
-                  color: Colors.white,
-                  iconSize: 30,
-                  onPressed: () {
-                    print('Location pressed ...');
-                  },
-                ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(0.94, 0.00),
-                child: IconButton(
-                  icon: const Icon(Icons.shopping_cart),
-                  color: Colors.white,
-                  iconSize: 30,
-                  onPressed: () {
-                    print('Shopping cart pressed ...');
-                  },
-                ),
-              ),
-              const Align(
-                alignment: AlignmentDirectional(-0.70, -2.32),
-                child: Text(
-                  'Current location',
-                  style: TextStyle(
-                        fontFamily: 'KumbhSans-light',
-                        color: Color(0xFFF7F7F7),
-                        fontSize: 12
-                      ),
-                ),
-              ),
-            ],
+ Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppTexts.appBar(
+          'Current location',
+          Colors.black,
+          const Icon(
+            Icons.location_on_outlined,
+            color: Colors.white,
           ),
-          actions: [],
-          centerTitle: false,
-          elevation: 2,
+          action: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.shopping_cart_outlined,
+              color: Colors.white,
+            ),
+          ),
         ),
-        body: SafeArea(
-          top: true,
+        body:  SafeArea(
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-                 Column(
+              Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -98,17 +67,17 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       child: Grid.grid(),
                     ),
                     const SizedBox(
-                      height: 15,
+                      height: 20,
                     ),
-                   AppTexts.bottomnavcontainer(),
                   ],
                 ),
-              
             ],
           ),
-      )
-      )
-    );
+          
+        ),
+        bottomNavigationBar: AppTexts.bottomnavcontainer(),
+        ),
+      );
   }
 }
 
