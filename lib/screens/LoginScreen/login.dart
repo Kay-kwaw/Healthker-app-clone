@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
+import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/constants/textfieldscontants.dart';
 import 'package:healthker/screens/Dashboard/dashboard.dart';
 
@@ -45,7 +46,7 @@ class _LoginWidgetState extends State<LoginWidget> {
               Align(
                 alignment: const AlignmentDirectional(-0.00, -0.90),
                   child: Image.asset(
-                    "assets/images/healthker_icon.png",
+                    ImageConstants.healthkerIcon,
                     width: 90,
                     height: 87,
                     fit: BoxFit.cover,

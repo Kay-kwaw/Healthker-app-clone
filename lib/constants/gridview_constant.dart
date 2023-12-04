@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthker/constants/imageconstants.dart';
 
 class Grid {
   static Widget grid() {
@@ -38,7 +39,7 @@ class Grid {
     child: Padding(
       padding:  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
       child: Image.asset(
-         'assets/images/buying.png',
+        ImageConstants.buying,
         width: 167,
         height: 120,
         // fit: BoxFit.scaleDown,
@@ -75,7 +76,7 @@ class Grid {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 75, 0, 0),
                   child: Image.asset(
-                    'assets/images/my_black_booking.png',
+                    ImageConstants.my_black_booking,
                     width: 147,
                     height: 120,
                   ),
@@ -114,7 +115,7 @@ class Grid {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 70, 0, 0),
                         child: Image.asset(
-                          'assets/images/complain.png',
+                          ImageConstants.complain,
                           width: 170,
                           // 
                         ),
@@ -154,7 +155,7 @@ class Grid {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(30, 50, 0, 0),
                         child: Image.asset(
-                          'assets/images/call_center.png',
+                          ImageConstants.call_center,
                           width: 130,
                         ),
                       ),
