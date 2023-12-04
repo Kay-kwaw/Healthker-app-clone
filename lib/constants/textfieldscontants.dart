@@ -3,29 +3,17 @@ import 'package:healthker/constants/constants.dart';
 
 class Fields{
   static Widget EmailTextField(){
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextFormField(
-        autofocus: true,
-        obscureText: false,
+    return  Padding(
+      padding: EdgeInsets.all(8.0),
+      child: TextField(
                       decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        fillColor: textColor,
+                        filled: true,
                         labelText: 'Email...',
-                        labelStyle: const TextStyle(),
-                        hintStyle: TextStyle(),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Colors.white,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Colors.white,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
                         prefix:  const Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 10, 0),
@@ -49,27 +37,15 @@ class Fields{
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
-        autofocus: true,
-        obscureText: false,
-                      decoration: InputDecoration(
-                        labelText: 'Password...',
-                        labelStyle: TextStyle(),
-                        hintStyle: TextStyle(),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Colors.white,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.all(Radius.circular(8)),
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Colors.white,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ), 
-                         prefix: const Padding(
+                        labelText: 'Password...',
+                        fillColor: textColor,
+                        filled: true,
+                         prefix: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 10, 0),
                           child: Icon(
@@ -78,7 +54,7 @@ class Fields{
                               size: 20,
                             ),
                          ),
-                         suffix: const Padding(
+                         suffix: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 10, 0),
                           child: Icon(

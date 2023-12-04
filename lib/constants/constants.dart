@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 //Primary colors and secondary colors
 const primaryColor = Color.fromARGB(255, 7, 28, 183);
 const secondaryColor = Color.fromARGB(255, 171, 180, 248);
+const textColor = Color.fromARGB(255, 255, 255, 255);
 
 class AppTexts {
-
   static AppBar appBar(String title, Color color, Icon icon, {required IconButton action}) {
     return AppBar(
       title: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           fontFamily: 'KumbhSans',
-          color: color,
-          fontSize: 20,
+          color: textColor,
+          fontSize: 16,
         ),
       ),
       actions: [
@@ -20,7 +20,7 @@ class AppTexts {
       ],
       leading: icon,
       backgroundColor: primaryColor,
-       centerTitle: true,
+       centerTitle: false,
        elevation: 2,
     );
   }
