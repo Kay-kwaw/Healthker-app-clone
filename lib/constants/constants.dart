@@ -4,6 +4,8 @@ const primaryColor = Color.fromARGB(255, 7, 28, 183);
 const secondaryColor = Color.fromARGB(255, 171, 180, 248);
 
 class AppTexts {
+
+  
   static Widget buildElevatedButton({
     required String buttontext,
     required Function onPressed,

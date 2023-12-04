@@ -13,11 +13,12 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  // final controller = PageController(viewportFraction: 0.8, keepPage: true);
    int _currentIndex = 0;
-   
-   
-
+   final List<CarouselItem> carouselItems = [
+    CarouselItem('Buying medicine just \n           got easier', ImageConstants.man_pharmacist),
+    CarouselItem('    Search drug or \nupload prescription', ImageConstants.man_with_phone),
+    CarouselItem('      Pickup or \nget it Delivered', ImageConstants.delivery_man),
+  ]; 
   @override
   Widget build(BuildContext context) {
     return  GestureDetector(
@@ -38,11 +39,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 0, 0),
                                       child: CarouselSlider(
-            items: [
-              _buildCarouselItem('Buying medicine just \n           got easier', ImageConstants.man_pharmacist),
-              _buildCarouselItem('    Search drug or \nupload prescription', ImageConstants.man_with_phone),
-              _buildCarouselItem('      Pickup or \nget it Delivered', ImageConstants.delivery_man),
-            ],
+            items: carouselItems.map(_buildCarouselItem).toList(),
             options: CarouselOptions(
               height: 400.0,
               enlargeCenterPage: true,
@@ -66,18 +63,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                         0, 0, 0, 16),
                                     child:  Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(3, (index) {
-            return Container(
-              width: _currentIndex == index ? 25.0 : 18.0,
-              height: 9.0,
-              margin: const EdgeInsets.symmetric(horizontal: 4.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4.0),
-                shape: BoxShape.rectangle,
-                color: _currentIndex == index ? const Color.fromARGB(255, 41, 120, 255) : Color.fromARGB(255, 200, 219, 253),
-              ),
-            );
-          }),
+          
         ),
                                   ),
                                 ),
@@ -158,12 +144,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
      
   }
 
-    Widget _buildCarouselItem(String text, String imagePath) {
+    Widget _buildCarouselItem(CarouselItem item)  {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
         Image.asset(
-          imagePath,
+          item.imagePath,
           // fit: BoxFit.cover,
           width: 400,
           height: 400,
@@ -171,7 +157,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         Container(
           padding: const EdgeInsets.all(0.0),
           child: Text(
-            text,
+            item.text,
             style: const TextStyle(
               fontSize: 27.0,
               color: Color.fromARGB(255, 43, 43, 43),
@@ -183,4 +169,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ],
     );
   }
+}
+
+class CarouselItem {
+  final String text;
+  final String imagePath;
+
+  CarouselItem(this.text, this.imagePath);
 }
