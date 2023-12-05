@@ -1,11 +1,9 @@
-
-
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/constants/textfieldscontants.dart';
-import 'package:healthker/screens/Dashboard/dashboard.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);
@@ -16,11 +14,33 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-  @override
-  void initState() {
-    super.initState();
-  
+  final String baseUrl = 'https://mobile-api-test.gnepplatform.com';
+  final Map<String, String> baseApi = {
+    "api_key": "d37e4e08a0fc40b39abf5ce36a8d70c75fe05b83",
+    "guid": "F83420D0-9A83-11E9-99B4-002590DD14B1",
+    "user": "mobile",
+    "passcode": "35c5f3f25f9fa1b503a1c016ae5f1c670d22f22d",
+    "method": "SIGNIN_REQUEST",
+    "email_address": "andygadri@gmail.com",
+    "password": "1234565"
+  };
+
+  Future<void> login() async {
+    const String baseUrl = 'https://mobile-api-test.gnepplatform.com';
     
+    try {
+      final response = await http.post(Uri.parse(baseUrl), body: baseApi);
+      if (response.statusCode == 200) {
+        final jsonResponse = jsonDecode(response.body);
+        print(jsonResponse);
+      } 
+      else {
+        print('Error: ${response.statusCode}');
+        print('Response: ${response.body}');
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 
 

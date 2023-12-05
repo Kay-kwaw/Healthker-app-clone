@@ -3,6 +3,7 @@
         "ARGB",
         "bottomnavcontainer",
         "buttontext",
+        "cupertino",
         "Feilds",
         "Gnep",
         "goodhands",
@@ -13,7 +14,9 @@
         "Orderscreen",
         "passcode",
         "Pharmcacy",
+        "screenutil",
         "SIGNIN",
+        "spinkit",
         "STEB",
         "textfieldscontants"
     ]
