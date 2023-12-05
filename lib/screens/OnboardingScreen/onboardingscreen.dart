@@ -20,6 +20,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     CarouselItem('      Pickup or \nget it Delivered', ImageConstants.delivery_man),
   ];
    
+   
+   
   @override
   Widget build(BuildContext context) {
     return  GestureDetector(
@@ -40,7 +42,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 0, 0),
                                       child: CarouselSlider(
-            items: carouselItems.map(_buildCarouselItem).toList(),
+                                      items: carouselItems.map((item) => _buildCarouselItem(item)).toList(),  
+           
             options: CarouselOptions(
               height: 400.0,
               enlargeCenterPage: true,

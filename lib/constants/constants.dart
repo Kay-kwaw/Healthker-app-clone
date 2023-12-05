@@ -30,7 +30,7 @@ class AppTexts {
     required Function onPressed,
     Color? buttonColor,
     Color? textColor,
-    Size? size,
+    
   }) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
@@ -38,10 +38,6 @@ class AppTexts {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
         ),
-        padding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 100
-        )
       ),
       onPressed: () {
         onPressed();
@@ -88,26 +84,26 @@ class AppTexts {
 
    
 //Bottom navbar for dashboard
-  static Widget bottomnavcontainer(){
-    return  BottomNavigationBar(
-      items: const [
-        BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Search',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-      ],
+  // static Widget bottomnavcontainer(){
+  //   return  BottomNavigationBar(
+  //     items: const [
+  //       BottomNavigationBarItem(
+  //             icon: Icon(Icons.home),
+  //             label: 'Home',
+  //           ),
+  //           BottomNavigationBarItem(
+  //             icon: Icon(Icons.search),
+  //             label: 'Search',
+  //           ),
+  //           BottomNavigationBarItem(
+  //             icon: Icon(Icons.person),
+  //             label: 'Profile',
+  //           ),
+  //     ],
       
       
-    );
-  }
+  //   );
+  // }
 
   static Widget goodhands() {
     return Container(
@@ -161,3 +157,5 @@ class AppTexts {
   
   
 }
+
+

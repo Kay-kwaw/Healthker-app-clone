@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/gridview_constant.dart';
 
@@ -10,6 +11,7 @@ class DashboardWidget extends StatefulWidget {
 }
 
 class _DashboardWidgetState extends State<DashboardWidget> {
+   int _currentIndex = 0;
   @override
  Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,7 +31,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
             ),
           ),
         ),
-        body:  SafeArea(
+        body:SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -75,7 +77,13 @@ class _DashboardWidgetState extends State<DashboardWidget> {
           ),
           
         ),
-        bottomNavigationBar: AppTexts.bottomnavcontainer(),
+        bottomNavigationBar:MyBottomNavigationBar(
+          currentIndex: _currentIndex, 
+          onTap: (int value) { 
+            setState(() {
+              _currentIndex = value;
+            });
+           },),
         ),
       );
   }
