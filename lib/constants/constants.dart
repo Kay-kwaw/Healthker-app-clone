@@ -32,24 +32,32 @@ class AppTexts {
     Color? textColor,
     
   }) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-      backgroundColor: buttonColor ?? primaryColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+    return Container(
+      width: 300,
+      height: 50,
+      child: ElevatedButton(
+        style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(buttonColor ?? primaryColor),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+        onPressed: () {
+          onPressed();
+        },
+        
+        child: Text(
+        buttontext,
+        style: TextStyle(
+          color: textColor ?? Colors.white,
+          fontSize: 18 // Use the provided text color or fallback to a default
         ),
       ),
-      onPressed: () {
-        onPressed();
-      },
-      child: Text(
-      buttontext,
-      style: TextStyle(
-        color: textColor ?? Colors.white,
-        fontSize: 18 // Use the provided text color or fallback to a default
-      ),
-    ),
-  );
+      
+        ),
+    );
 }
 
   static Widget GetStarted(String text, double fontSize, Color color) {

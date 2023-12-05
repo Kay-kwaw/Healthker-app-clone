@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/screens/Dashboard/dashboard.dart';
+import 'package:healthker/screens/Order/cart_screen.dart';
 import 'package:healthker/screens/Order/order_screen.dart';
 import 'package:healthker/screens/profile/account.dart';
 
@@ -21,7 +22,7 @@ class _IndexState extends State<Index> {
         children: const [
           DashboardWidget(),
           Orderscreen(),
-          AccountScreen()
+          AccountScreen(),
         ],
       ),
        bottomNavigationBar: MyBottomNavigationBar(

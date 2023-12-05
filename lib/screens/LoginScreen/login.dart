@@ -83,13 +83,15 @@ class _LoginWidgetState extends State<LoginWidget> {
               alignment: const AlignmentDirectional(-0.00, 0.30),
               child: AppTexts.buildElevatedButton(
                           buttontext: "Login",
+                          
                          onPressed: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> const Index()));
                          },
                          buttonColor: primaryColor,
                           textColor: Colors.white,
-
                          )
+                         
+                         
                ),
               Align(
               alignment: const AlignmentDirectional(-0.00, 0.49),

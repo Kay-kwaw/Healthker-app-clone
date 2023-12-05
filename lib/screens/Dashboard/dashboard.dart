@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/gridview_constant.dart';
+import 'package:healthker/screens/Order/cart_screen.dart';
+import 'package:healthker/screens/Order/order_screen.dart';
 
 class DashboardWidget extends StatefulWidget {
   const DashboardWidget({super.key});
@@ -23,7 +25,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
             color: Colors.white,
           ),
           action: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const  CartScreen()));
+            },
             icon: const Icon(
               Icons.shopping_cart_outlined,
               color: Colors.white,
@@ -77,13 +81,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
           ),
           
         ),
-        // bottomNavigationBar:MyBottomNavigationBar(
-        //   currentIndex: _currentIndex, 
-        //   onTap: (int value) { 
-        //     setState(() {
-        //       _currentIndex = value;
-        //     });
-        //    },),
         ),
       );
   }
