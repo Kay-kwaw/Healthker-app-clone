@@ -29,6 +29,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
               color: Colors.white,
             ),
           ),
+          centerTitle: false
         ),
         body:SafeArea(
           child: Column(

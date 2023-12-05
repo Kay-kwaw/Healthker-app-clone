@@ -12,6 +12,7 @@ class ImageConstants {
   static const String my_black_booking = 'assets/images/my_black_booking.png';
   static const String pharmacy_council_logo = 'assets/images/pharmacy_council_logo.png';
   static const String pharmacist_lady = 'assets/images/pharmacist_lady.png';
+  static const String orders = 'assets/images/order.png';
   
   
 }

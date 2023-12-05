@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/screens/Dashboard/dashboard.dart';
 import 'package:healthker/screens/Order/order_screen.dart';
+import 'package:healthker/screens/profile/account.dart';
 
 class Index extends StatefulWidget {
   const Index({super.key});
@@ -20,6 +21,7 @@ class _IndexState extends State<Index> {
         children: const [
           DashboardWidget(),
           Orderscreen(),
+          AccountScreen()
         ],
       ),
        bottomNavigationBar: MyBottomNavigationBar(

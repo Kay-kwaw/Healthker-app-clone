@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 const primaryColor = Color.fromARGB(255, 7, 28, 183);
 const secondaryColor = Color.fromARGB(255, 171, 180, 248);
 const textColor = Color.fromARGB(255, 255, 255, 255);
+const textSecondaryColor = Colors.black;
 
 class AppTexts {
-  static AppBar appBar(String title, Color color, Icon icon, {required IconButton action}) {
+  static AppBar appBar(String title, Color color, Icon icon, { required IconButton action, required bool centerTitle}) {
     return AppBar(
       title: Text(
         title,
@@ -20,7 +21,6 @@ class AppTexts {
       ],
       leading: icon,
       backgroundColor: primaryColor,
-       centerTitle: false,
        elevation: 2,
     );
   }
