@@ -11,7 +11,6 @@ class DashboardWidget extends StatefulWidget {
 }
 
 class _DashboardWidgetState extends State<DashboardWidget> {
-   int _currentIndex = 0;
   @override
  Widget build(BuildContext context) {
     return MaterialApp(
@@ -77,13 +76,13 @@ class _DashboardWidgetState extends State<DashboardWidget> {
           ),
           
         ),
-        bottomNavigationBar:MyBottomNavigationBar(
-          currentIndex: _currentIndex, 
-          onTap: (int value) { 
-            setState(() {
-              _currentIndex = value;
-            });
-           },),
+        // bottomNavigationBar:MyBottomNavigationBar(
+        //   currentIndex: _currentIndex, 
+        //   onTap: (int value) { 
+        //     setState(() {
+        //       _currentIndex = value;
+        //     });
+        //    },),
         ),
       );
   }

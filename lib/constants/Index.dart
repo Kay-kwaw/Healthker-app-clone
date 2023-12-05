@@ -15,9 +15,10 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body:  IndexedStack(
-        children: [
-          Screen1(),
+      body: IndexedStack(
+        index: _currentIndex,
+        children: const [
+          DashboardWidget(),
           Orderscreen(),
         ],
       ),
@@ -62,12 +63,5 @@ class _IndexState extends State<Index> {
   }
 }
 
-class Screen1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Screen 1 Content'),
-    );
-  }
-}
+
 

@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/constants/textfieldscontants.dart';
@@ -83,7 +84,7 @@ class _LoginWidgetState extends State<LoginWidget> {
               child: AppTexts.buildElevatedButton(
                           buttontext: "Login",
                          onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const DashboardWidget()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const Index()));
                          },
                          buttonColor: primaryColor,
                           textColor: Colors.white,
