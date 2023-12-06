@@ -19,6 +19,9 @@ class _LoginWidgetState extends State<LoginWidget> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
+  bool _isPasswordVisible = false;
+
+ 
 
 
   //Snipper of a login function that communicates with the API
@@ -116,11 +119,11 @@ class _LoginWidgetState extends State<LoginWidget> {
               child: AppTexts.buildElevatedButton(
                           buttontext: "Login",  
                          onPressed: (){
-                            if (_formKey.currentState?.validate() ?? false) {
-                  _formKey.currentState?.save();
-                  login(context); // Call the login function with context
-                }
-                          // Navigator.push(context, MaterialPageRoute(builder: (context)=> const Index()));
+                //             if (_formKey.currentState?.validate() ?? false) {
+                //   _formKey.currentState?.save();
+                //   login(context); // Call the login function with context
+                // }
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const Index()));
                          },
                          buttonColor: primaryColor,
                           textColor: Colors.white,
