@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:healthker/constants/Index.dart';
+import 'package:healthker/screens/LoginScreen/login.dart';
 import 'package:healthker/screens/OnboardingScreen/onboardingscreen.dart';
 import 'package:healthker/screens/OnboardingScreen/splashscreen.dart';
 
@@ -16,10 +18,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     ScreenUtil.init(context,
     designSize: const Size(300, 200)
-    
     );
-    return const MaterialApp(
-      home: OnboardingScreen(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/onboarding',
+      routes: {
+        '/login': (context) => const LoginWidget(),
+        '/index': (context) => const Index(),
+      }
+      // home: OnboardingScreen(),
     );
   }
 }

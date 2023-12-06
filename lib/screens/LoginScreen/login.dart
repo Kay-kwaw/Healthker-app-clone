@@ -34,7 +34,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     try {
       final response = await http.post(Uri.parse(baseUrl), body: baseApi);
       if (response.statusCode == 200) {
-        //Json response is used to decode the response from the API and stored in the response body.
+        //Json response is used to decode the response from the API and converts Json format to dart object and stored in the JsonResponse.
         final jsonResponse = jsonDecode(response.body);
         print(jsonResponse);
       } 
@@ -121,7 +121,9 @@ class _LoginWidgetState extends State<LoginWidget> {
               alignment: const AlignmentDirectional(-0.00, 0.49),
                child:  AppTexts.buildElevatedButton(
                           buttontext: "Create an Account",
-                         onPressed: login(),
+                         onPressed: (){
+                           login();
+                         },
                          buttonColor: secondaryColor,
                           textColor: primaryColor,
 
