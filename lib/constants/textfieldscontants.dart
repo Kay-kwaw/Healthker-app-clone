@@ -4,9 +4,6 @@ import 'package:healthker/constants/constants.dart';
 class Fields{
   static Widget EmailTextField(){
     String email = "";
-   
-
-    
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
