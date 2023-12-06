@@ -116,7 +116,10 @@ class _LoginWidgetState extends State<LoginWidget> {
               child: AppTexts.buildElevatedButton(
                           buttontext: "Login",  
                          onPressed: (){
-                            login(context);
+                            if (_formKey.currentState?.validate() ?? false) {
+                  _formKey.currentState?.save();
+                  login(context); // Call the login function with context
+                }
                           // Navigator.push(context, MaterialPageRoute(builder: (context)=> const Index()));
                          },
                          buttonColor: primaryColor,

@@ -91,28 +91,6 @@ class AppTexts {
   }
 
    
-//Bottom navbar for dashboard
-  // static Widget bottomnavcontainer(){
-  //   return  BottomNavigationBar(
-  //     items: const [
-  //       BottomNavigationBarItem(
-  //             icon: Icon(Icons.home),
-  //             label: 'Home',
-  //           ),
-  //           BottomNavigationBarItem(
-  //             icon: Icon(Icons.search),
-  //             label: 'Search',
-  //           ),
-  //           BottomNavigationBarItem(
-  //             icon: Icon(Icons.person),
-  //             label: 'Profile',
-  //           ),
-  //     ],
-      
-      
-  //   );
-  // }
-
   static Widget goodhands() {
     return Container(
                         width: 396,

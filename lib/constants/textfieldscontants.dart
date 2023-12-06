@@ -42,8 +42,9 @@ class Fields{
     );
   }
   static Widget passwordField(){
+    bool _isPasswordVisible = false;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding:  EdgeInsets.all(8.0),
       child: TextFormField(
         obscureText: true,
         validator: (value){
@@ -52,15 +53,15 @@ class Fields{
                                   }
                                   return null;
                                 },
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(
+                      decoration: InputDecoration(
+                        border: const OutlineInputBorder(
                           borderSide: BorderSide.none,
                           borderRadius: BorderRadius.all(Radius.circular(8)),
                         ),
                         labelText: 'Password...',
                         fillColor: textColor,
                         filled: true,
-                         prefix: Padding(
+                         prefix: const Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 10, 0),
                           child: Icon(
@@ -70,12 +71,17 @@ class Fields{
                             ),
                          ),
                          suffix: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 10, 0),
-                          child: Icon(
-                              Icons.visibility,
+                          child: IconButton(
+                              onPressed: (){
+                //                 setState(() {
+                //   _isPasswordVisible = !_isPasswordVisible;
+                // });
+                              },
+                            icon: const Icon(Icons.visibility),
                               color: primaryColor,
-                              size: 20,
+                              iconSize: 20,
                             ),
                          ),
                     ),
