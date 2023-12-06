@@ -5,6 +5,7 @@ import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/constants/textfieldscontants.dart';
+import 'package:http/http.dart' as http;
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);
@@ -15,9 +16,15 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-  //Snipper of a login fuction that communicates with the API
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  String email = '';
+  String password = '';
+
+
+  //Snipper of a login function that communicates with the API
   final String baseUrl = 'https://mobile-api-test.gnepplatform.com';
   //Representation of data as key pair values which consist of the API key and the value;
+  //baseApi is a map of key value pairs
   final Map<String, String> baseApi = {
     "api_key": "d37e4e08a0fc40b39abf5ce36a8d70c75fe05b83",
     "guid": "F83420D0-9A83-11E9-99B4-002590DD14B1",
@@ -28,7 +35,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     "password": "1234565"
   };
 
-  Future<void> login() async {
+  Future<void> login(BuildContext context) async {
     const String baseUrl = 'https://mobile-api-test.gnepplatform.com';
     
     try {
@@ -52,6 +59,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Scaffold(
+        key: _formKey,
         backgroundColor: const Color.fromARGB(255, 234, 234, 234),
         body: SafeArea(
           top: true,
@@ -106,10 +114,10 @@ class _LoginWidgetState extends State<LoginWidget> {
               Align(
               alignment: const AlignmentDirectional(-0.00, 0.30),
               child: AppTexts.buildElevatedButton(
-                          buttontext: "Login",
-                          
+                          buttontext: "Login",  
                          onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const Index()));
+                            login(context);
+                          // Navigator.push(context, MaterialPageRoute(builder: (context)=> const Index()));
                          },
                          buttonColor: primaryColor,
                           textColor: Colors.white,
@@ -122,7 +130,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                child:  AppTexts.buildElevatedButton(
                           buttontext: "Create an Account",
                          onPressed: (){
-                           login();
+                           
                          },
                          buttonColor: secondaryColor,
                           textColor: primaryColor,

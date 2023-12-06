@@ -19,14 +19,14 @@ class MyApp extends StatelessWidget {
     ScreenUtil.init(context,
     designSize: const Size(300, 200)
     );
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/onboarding',
-      routes: {
-        '/login': (context) => const LoginWidget(),
-        '/index': (context) => const Index(),
-      }
-      // home: OnboardingScreen(),
+      // initialRoute: '/onboarding',
+      // routes: {
+      //   '/login': (context) => const LoginWidget(),
+      //   '/index': (context) => const Index(),
+      // }
+      home: OnboardingScreen(),
     );
   }
 }
