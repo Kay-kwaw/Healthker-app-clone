@@ -49,9 +49,9 @@ class _AccountScreenState extends State<AccountScreen> {
                       children: [
                         Container(
                           width: 90,
-                          height: 70,
+                          height: 60,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: secondaryColor,
                             shape: BoxShape.circle,
                             border: Border.all(
                               color: Color(0xFF39D2C0),
@@ -62,15 +62,11 @@ class _AccountScreenState extends State<AccountScreen> {
                             padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(30),
-                              child: CachedNetworkImage(
-                                fadeInDuration: Duration(milliseconds: 500),
-                                fadeOutDuration: Duration(milliseconds: 500),
-                                imageUrl:
-                                    'https://images.unsplash.com/photo-1531123414780-f74242c2b052?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHByb2ZpbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60',
-                                width: 40,
-                                height: 40,
-                                // fit: BoxFit.cover,
-                              ),
+                              child: const Icon(
+                                Icons.person,
+                                color: primaryColor,
+                                size: 50
+                              )
                             ),
                           ),
                         ),
@@ -107,16 +103,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 40,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: 5,
-                        color: Color(0x3416202A),
-                        offset: Offset(0, 2),
-                      )
-                    ],
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -154,16 +143,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 40,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: 5,
-                        color: Color(0x3416202A),
-                        offset: Offset(0, 2),
-                      )
-                    ],
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -173,7 +155,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         const Icon(
-                          Icons.language_outlined,
+                          Icons.link,
                           color: Color(0xFF57636C),
                           size: 24,
                         ),
@@ -201,16 +183,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 40,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: 5,
-                        color: Color(0x3416202A),
-                        offset: Offset(0, 2),
-                      )
-                    ],
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -220,15 +195,15 @@ class _AccountScreenState extends State<AccountScreen> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         const Icon(
-                          Icons.notifications_none,
-                          color: Color(0xFF57636C),
+                          Icons.location_on_rounded,
+                          color:textSecondaryColor,
                           size: 24,
                         ),
                         Expanded(
                           child: Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                            child:AppTexts.GetStarted("Address", 15, textSecondaryColor)
+                            child:AppTexts.GetStarted("Addresses", 15, textSecondaryColor)
                           ),
                         ),
                         const Align(
@@ -248,16 +223,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 40,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: 5,
-                        color: Color(0x3416202A),
-                        offset: Offset(0, 2),
-                      )
-                    ],
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -267,8 +235,8 @@ class _AccountScreenState extends State<AccountScreen> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         const Icon(
-                          Icons.account_circle_outlined,
-                          color: Color(0xFF57636C),
+                          Icons.add_home,
+                          color: textSecondaryColor,
                           size: 24,
                         ),
                         Expanded(
@@ -292,23 +260,16 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 16, 0, 0),
-                child: AppTexts.GetStarted("Location settings", 15, textSecondaryColor)
+                padding: EdgeInsetsDirectional.fromSTEB(16, 16, 0, 10),
+                child: AppTexts.GetStarted("Account settings", 15, textSecondaryColor)
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 40,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: 5,
-                        color: Color(0x3416202A),
-                        offset: Offset(0, 2),
-                      )
-                    ],
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -318,8 +279,8 @@ class _AccountScreenState extends State<AccountScreen> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         const Icon(
-                          Icons.help_outline_rounded,
-                          color: Color(0xFF57636C),
+                          Icons.notification_add,
+                          color:textSecondaryColor,
                           size: 24,
                         ),
                         Expanded(
@@ -346,16 +307,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 40,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: 5,
-                        color: Color(0x3416202A),
-                        offset: Offset(0, 2),
-                      )
-                    ],
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -364,7 +318,47 @@ class _AccountScreenState extends State<AccountScreen> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Icon(
+                        const Icon(
+                          Icons.location_searching,
+                          color: textSecondaryColor,
+                          size: 24,
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                            child:AppTexts.GetStarted('Locations settings', 15, textSecondaryColor)
+                          ),
+                        ),
+                        const Align(
+                          alignment: AlignmentDirectional(0.90, 0.00),
+                          child: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Color(0xFF57636C),
+                            size: 18,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                child: Container(
+                  width: double.infinity,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    shape: BoxShape.rectangle,
+                  ),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        const Icon(
                           Icons.privacy_tip_rounded,
                           color: Color(0xFF57636C),
                           size: 24,
@@ -372,7 +366,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         Expanded(
                           child: Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: AppTexts.GetStarted("Share App", 15, textSecondaryColor)
                           ),
                         ),
@@ -393,16 +387,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 40,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: 5,
-                        color: Color(0x3416202A),
-                        offset: Offset(0, 2),
-                      )
-                    ],
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -411,7 +398,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.ios_share,
                           color: Color(0xFF57636C),
                           size: 24,

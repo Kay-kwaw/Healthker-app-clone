@@ -3,10 +3,16 @@ import 'package:healthker/constants/constants.dart';
 
 class Fields{
   static Widget EmailTextField(){
+    String email = "";
+   
+
+    
     return Padding(
-      padding: EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0),
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
+        onChanged: (value) {
+             email = value; },
         validator: (value){
                                   if(value!.isEmpty){
                                     return 'Please enter your email';
@@ -42,9 +48,12 @@ class Fields{
     );
   }
   static Widget passwordField(){
+     String password = "";
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        onChanged: (value) {
+             password = value; },
         obscureText: true,
         validator: (value){
                                   if(value!.isEmpty){

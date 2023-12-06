@@ -5,6 +5,7 @@ import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/constants/textfieldscontants.dart';
+import 'package:healthker/screens/Dashboard/dashboard.dart';
 import 'package:http/http.dart' as http;
 
 class LoginWidget extends StatefulWidget {
@@ -19,7 +20,6 @@ class _LoginWidgetState extends State<LoginWidget> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
-  bool _isPasswordVisible = false;
 
  
 
@@ -34,15 +34,21 @@ class _LoginWidgetState extends State<LoginWidget> {
     "user": "mobile",
     "passcode": "35c5f3f25f9fa1b503a1c016ae5f1c670d22f22d",
     "method": "SIGNIN_REQUEST",
-    "email_address": "andygadri@gmail.com",
-    "password": "1234565"
+    "email_address": "",
+    "password": ""
   };
 
   Future<void> login(BuildContext context) async {
     const String baseUrl = 'https://mobile-api-test.gnepplatform.com';
     
     try {
-      final response = await http.post(Uri.parse(baseUrl), body: baseApi);
+      final response = await http.post(Uri.parse(baseUrl), 
+      headers: {
+        "Content-Type": "application/json", 
+        "Accept": "application/json"
+      },
+      body: baseApi);
+
       if (response.statusCode == 200) {
         //Json response is used to decode the response from the API and converts Json format to dart object and stored in the JsonResponse.
         final jsonResponse = jsonDecode(response.body);
@@ -118,18 +124,30 @@ class _LoginWidgetState extends State<LoginWidget> {
               alignment: const AlignmentDirectional(-0.00, 0.30),
               child: AppTexts.buildElevatedButton(
                           buttontext: "Login",  
-                         onPressed: (){
-                //             if (_formKey.currentState?.validate() ?? false) {
-                //   _formKey.currentState?.save();
-                //   login(context); // Call the login function with context
-                // }
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const Index()));
-                         },
+                         onPressed: () async {
+                          bool success =  await baseApi.login();
+                            if (success) {
+                 // ignore: use_build_context_synchronously
+                 Navigator.push(
+                 context,
+                MaterialPageRoute(
+                builder: (context) => const DashboardWidget(),
+              ),
+             );
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Wrong details'),
+      ),
+    );
+  }
+}
+                           
+                         
+                         ,
                          buttonColor: primaryColor,
                           textColor: Colors.white,
                          )
-                         
-                         
                ),
               Align(
               alignment: const AlignmentDirectional(-0.00, 0.49),
