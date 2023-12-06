@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/constants.dart';
@@ -14,7 +15,9 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
+  //Snipper of a login fuction that communicates with the API
   final String baseUrl = 'https://mobile-api-test.gnepplatform.com';
+  //Representation of data as key pair values which consist of the API key and the value;
   final Map<String, String> baseApi = {
     "api_key": "d37e4e08a0fc40b39abf5ce36a8d70c75fe05b83",
     "guid": "F83420D0-9A83-11E9-99B4-002590DD14B1",
@@ -31,6 +34,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     try {
       final response = await http.post(Uri.parse(baseUrl), body: baseApi);
       if (response.statusCode == 200) {
+        //Json response is used to decode the response from the API and stored in the response body.
         final jsonResponse = jsonDecode(response.body);
         print(jsonResponse);
       } 
@@ -117,7 +121,7 @@ class _LoginWidgetState extends State<LoginWidget> {
               alignment: const AlignmentDirectional(-0.00, 0.49),
                child:  AppTexts.buildElevatedButton(
                           buttontext: "Create an Account",
-                         onPressed: (){},
+                         onPressed: login(),
                          buttonColor: secondaryColor,
                           textColor: primaryColor,
 
