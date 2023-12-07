@@ -144,14 +144,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                     showDialog(
                       context: context,
                       barrierDismissible: false,
-                      builder: (context) => const AlertDialog(
-                        content: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            CircularProgressIndicator(color: secondaryColor),
-                            // SizedBox(height: 16.0),
-                            Text('Logging in...'),
-                          ],
+                      builder: (context) => const Center(
+                        child: CircularProgressIndicator(
+                          color: primaryColor,
                         ),
                       ),
                     );
