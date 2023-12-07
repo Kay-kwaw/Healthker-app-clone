@@ -1,11 +1,13 @@
 import 'dart:convert';
 import 'dart:async';
+import 'dart:ffi';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/constants/textfieldscontants.dart';
+import 'package:healthker/screens/Dashboard/dashboard.dart';
 import 'package:http/http.dart' as http;
 
 class LoginWidget extends StatefulWidget {
@@ -18,15 +20,21 @@ class LoginWidget extends StatefulWidget {
 
 class _LoginWidgetState extends State<LoginWidget> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String email = '';
-  String password = '';
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
 
   //Snipper of a login function that communicates with the API
   final String baseUrl = 'https://mobile-api-test.gnepplatform.com';
   //Representation of data as key pair values which consist of the API key and the value;
   //baseApi is a map of key value pairs
-  Future<({bool status, String message})> login(
+  Future<({String message, bool status})> login(
       {context, required String email, required String password}) async {
+      
+      showDialog(context: context, builder: (context) => const Center(
+        child: CircularProgressIndicator(color: secondaryColor),
+      ));
+
+
     final Map<String, String> loginRequest = {
       "api_key": "d37e4e08a0fc40b39abf5ce36a8d70c75fe05b83",
       "guid": "F83420D0-9A83-11E9-99B4-002590DD14B1",
@@ -36,7 +44,9 @@ class _LoginWidgetState extends State<LoginWidget> {
       "email_address": email,
       "password": password,
     };
+    
 
+    debugPrint(loginRequest.toString());
     try {
       final response = await http.post(Uri.parse(baseUrl),
           headers: {
@@ -44,6 +54,7 @@ class _LoginWidgetState extends State<LoginWidget> {
             "Accept": "application/json"
           },
           body: jsonEncode(loginRequest));
+          Navigator.pop(context);
 
       if (response.statusCode == 200) {
         //Json response is used to decode the response from the API and converts Json format to dart object and stored in the JsonResponse.
@@ -113,13 +124,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                 alignment: const AlignmentDirectional(0.00, -0.29),
                 child: Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
-                    child: Fields.EmailTextField()),
+                    child: Fields.emailTextField(
+                      emailController
+                    )),
               ),
               Align(
                 alignment: const AlignmentDirectional(0.00, -0.05),
                 child: Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
-                    child: Fields.passwordField()),
+                    child: Fields.passwordField(
+                      passwordController
+                    )),
               ),
               Align(
                   alignment: const AlignmentDirectional(0.73, 0.10),
@@ -129,28 +144,30 @@ class _LoginWidgetState extends State<LoginWidget> {
                   alignment: const AlignmentDirectional(-0.00, 0.30),
                   child: AppTexts.buildElevatedButton(
                     buttontext: "Login",
+                    buttonColor: primaryColor,
+                    textColor: Colors.white, 
                     onPressed: () async {
                       final loginResponse =
-                          await login(email: email, password: password);
-                      if (loginResponse.status == true) {
-                        // ignore: use_build_context_synchronously
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Index(),
-                          ),
-                        );
-                      } else {
-                        // ignore: use_build_context_synchronously
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Invalid details'),
-                          ),
-                        );
-                      }
-                    },
-                    buttonColor: primaryColor,
-                    textColor: Colors.white,
+                          await login(email: emailController.text, password: passwordController.text);
+                          if(loginResponse == true){
+                            // ignore: use_build_context_synchronously
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const DashboardWidget(),
+                              ),
+                            );
+                          }else{
+                            // ignore: use_build_context_synchronously
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Invalid details'),
+                              ),
+                            );
+                          }
+
+                          
+                    }
                   )),
               Align(
                   alignment: const AlignmentDirectional(-0.00, 0.49),

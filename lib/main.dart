@@ -15,11 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context,
-    designSize: const Size(300, 200)
+    designSize: const Size(360, 690)
     );
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      
       home: OnboardingScreen(),
     );
   }

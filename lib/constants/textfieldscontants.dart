@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
 
 class Fields{
-  static Widget EmailTextField(){
-    String email = "";
+  static Widget emailTextField( TextEditingController emailController){
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        controller: emailController,
         keyboardType: TextInputType.emailAddress,
-        onChanged: (value) {
-             email = value; },
         validator: (value){
                                   if(value!.isEmpty){
                                     return 'Please enter your email';
@@ -44,13 +42,14 @@ class Fields{
                     )
     );
   }
-  static Widget passwordField(){
-     String password = "";
+  static Widget passwordField(
+    TextEditingController passwordController,
+  ){
+    
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
-        onChanged: (value) {
-             password = value; },
+        controller: passwordController,
         obscureText: true,
         validator: (value){
                                   if(value!.isEmpty){
