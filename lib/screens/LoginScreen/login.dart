@@ -29,11 +29,6 @@ class _LoginWidgetState extends State<LoginWidget> {
   //baseApi is a map of key value pairs
   Future<({String message, bool status})> login(
       {context, required String email, required String password}) async {
-      
-      showDialog(context: context, builder: (context) => const Center(
-        child: CircularProgressIndicator(color: secondaryColor),
-      ));
-
 
     final Map<String, String> loginRequest = {
       "api_key": "d37e4e08a0fc40b39abf5ce36a8d70c75fe05b83",
@@ -54,8 +49,6 @@ class _LoginWidgetState extends State<LoginWidget> {
             "Accept": "application/json"
           },
           body: jsonEncode(loginRequest));
-          Navigator.pop(context);
-
       if (response.statusCode == 200) {
         //Json response is used to decode the response from the API and converts Json format to dart object and stored in the JsonResponse.
         final jsonResponse = jsonDecode(response.body);
@@ -141,34 +134,69 @@ class _LoginWidgetState extends State<LoginWidget> {
                   child: AppTexts.GetStarted(
                       'Forgotten Password?', 16, primaryColor)),
               Align(
-                  alignment: const AlignmentDirectional(-0.00, 0.30),
-                  child: AppTexts.buildElevatedButton(
-                    buttontext: "Login",
-                    buttonColor: primaryColor,
-                    textColor: Colors.white, 
-                    onPressed: () async {
-                      final loginResponse =
-                          await login(email: emailController.text, password: passwordController.text);
-                          if(loginResponse == true){
-                            // ignore: use_build_context_synchronously
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const DashboardWidget(),
-                              ),
-                            );
-                          }else{
-                            // ignore: use_build_context_synchronously
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Invalid details'),
-                              ),
-                            );
-                          }
+                alignment: const AlignmentDirectional(0.00, 0.30),
+                child: AppTexts.buildElevatedButton(
+                  buttontext: "Login",
+                  buttonColor: primaryColor,
+                  textColor: Colors.white,
+                  onPressed: () async {
+                    // Show loading dialog
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (context) => const AlertDialog(
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            CircularProgressIndicator(color: secondaryColor),
+                            // SizedBox(height: 16.0),
+                            Text('Logging in...'),
+                          ],
+                        ),
+                      ),
+                    );
 
-                          
+                    try {
+                      final loginResponse = await login(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+
+                      // Close the loading dialog
+                      // ignore: use_build_context_synchronously
+                      Navigator.pop(context);
+
+                      if (loginResponse.status) {
+                        // ignore: use_build_context_synchronously
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Index(),
+                          ),
+                        );
+                      } else {
+                        // ignore: use_build_context_synchronously
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(loginResponse.message),
+                          ),
+                        );
+                      }
+                    } catch (e) {
+                      // Close the loading dialog in case of an error
+                      // ignore: use_build_context_synchronously
+                      Navigator.pop(context);
+
+                      // ignore: use_build_context_synchronously
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('An error occurred: $e'),
+                        ),
+                      );
                     }
-                  )),
+                  },
+                ),
+              ),
               Align(
                   alignment: const AlignmentDirectional(-0.00, 0.49),
                   child: AppTexts.buildElevatedButton(
