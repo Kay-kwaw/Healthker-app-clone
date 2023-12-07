@@ -17,7 +17,7 @@ class Grid {
       children: [
         Container(
           decoration: BoxDecoration(
-            color:  Color.fromARGB(255, 208, 122, 57),
+            color:  const Color.fromARGB(255, 208, 122, 57),
             borderRadius: BorderRadius.circular(15),
           ),
           child: Stack(
@@ -91,7 +91,7 @@ class Grid {
             borderRadius: BorderRadius.circular(15),
           ),
           child: Padding(
-              padding: EdgeInsets.all(3.0),
+              padding: const EdgeInsets.all(3.0),
               child: Stack(
                 children: [
                   const Align(
@@ -109,7 +109,7 @@ class Grid {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.00, .00),
+                    alignment: const AlignmentDirectional(0.00, .00),
                     child: ClipRRect(
                       child: Padding(
                         padding:
@@ -131,7 +131,7 @@ class Grid {
             borderRadius: BorderRadius.circular(15),
           ),
           child: Padding(
-              padding: EdgeInsets.all(3.0),
+              padding: const EdgeInsets.all(3.0),
               child: Stack(
                 children: [
                   const Align(
@@ -149,7 +149,7 @@ class Grid {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.00, .00),
+                    alignment: const AlignmentDirectional(0.00, .00),
                     child: ClipRRect(
                       child: Padding(
                         padding:

@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
 
@@ -16,9 +15,9 @@ class _AccountScreenState extends State<AccountScreen> {
        appBar: AppTexts.appBar(
          'User Details',
           textColor,
-         centerTitle: true, 
+         centerTitle: false, 
          const Icon(
-            Icons.remove_circle_sharp,
+            Icons.arrow_back_ios_new_sharp,
             color: Colors.white,
           ),
           action: IconButton(
@@ -36,14 +35,14 @@ class _AccountScreenState extends State<AccountScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+                    padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -54,12 +53,12 @@ class _AccountScreenState extends State<AccountScreen> {
                             color: secondaryColor,
                             shape: BoxShape.circle,
                             border: Border.all(
-                              color: Color(0xFF39D2C0),
+                              color: const Color(0xFF39D2C0),
                               // width: 2,
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
+                            padding: const EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(30),
                               child: const Icon(
@@ -71,7 +70,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -100,7 +99,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -110,7 +109,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     shape: BoxShape.rectangle,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -122,7 +121,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         Expanded(
                           child: Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: AppTexts.GetStarted("Personal Info", 15, textSecondaryColor)
                           ),
                         ),
@@ -140,7 +139,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -150,7 +149,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     shape: BoxShape.rectangle,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -180,7 +179,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -190,7 +189,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     shape: BoxShape.rectangle,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -202,7 +201,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         Expanded(
                           child: Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child:AppTexts.GetStarted("Addresses", 15, textSecondaryColor)
                           ),
                         ),
@@ -220,7 +219,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -230,7 +229,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     shape: BoxShape.rectangle,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -242,7 +241,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         Expanded(
                           child: Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: AppTexts.GetStarted("Preferred facilities", 15, textSecondaryColor)
                           ),
                         ),
@@ -260,11 +259,11 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 16, 0, 10),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 0, 10),
                 child: AppTexts.GetStarted("Account settings", 15, textSecondaryColor)
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -274,7 +273,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     shape: BoxShape.rectangle,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -286,7 +285,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         Expanded(
                           child: Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child:AppTexts.GetStarted('Notification settings', 15, textSecondaryColor)
                           ),
                         ),
@@ -304,7 +303,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -314,7 +313,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     shape: BoxShape.rectangle,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -326,7 +325,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         Expanded(
                           child: Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child:AppTexts.GetStarted('Locations settings', 15, textSecondaryColor)
                           ),
                         ),
@@ -344,7 +343,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -354,7 +353,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     shape: BoxShape.rectangle,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -384,7 +383,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -394,7 +393,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     shape: BoxShape.rectangle,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -406,7 +405,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         Expanded(
                           child: Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: AppTexts.GetStarted("Rate app", 15, textSecondaryColor)
                           ),
                         ),
@@ -420,6 +419,39 @@ class _AccountScreenState extends State<AccountScreen> {
                   ),
                 ),
               ),
+              
+              // Padding(
+              //   padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+              //   child: Container(
+              //     width: double.infinity,
+              //     height: 40,
+              //     decoration: BoxDecoration(
+              //       color: Colors.white,
+              //       borderRadius: BorderRadius.circular(12),
+              //       shape: BoxShape.rectangle,
+              //     ),
+              //     child: Padding(
+              //       padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+              //       child: Row(
+              //         mainAxisSize: MainAxisSize.max,
+              //         children: [
+              //           const Icon(
+              //             Icons.ios_share,
+              //             color: Color(0xFF57636C),
+              //             size: 24,
+              //           ),
+              //           Expanded(
+              //             child: Padding(
+              //               padding:
+              //                   EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+              //               child: AppTexts.GetStarted("Rate app", 15, textSecondaryColor)
+              //             ),
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),

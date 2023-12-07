@@ -60,7 +60,8 @@ class AppTexts {
     );
 }
 
-  static Widget GetStarted(String text, double fontSize, Color color) {
+  // ignore: non_constant_identifier_names
+  static Widget GetStarted(String text, double fontSize, Color color,) {
     return Text(
       text,
       style: TextStyle(

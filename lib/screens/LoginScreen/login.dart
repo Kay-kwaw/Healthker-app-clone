@@ -7,7 +7,6 @@ import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/constants/textfieldscontants.dart';
-import 'package:healthker/screens/Dashboard/dashboard.dart';
 import 'package:http/http.dart' as http;
 
 class LoginWidget extends StatefulWidget {
@@ -41,7 +40,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     };
     
 
-    debugPrint(loginRequest.toString());
+   
     try {
       final response = await http.post(Uri.parse(baseUrl),
           headers: {
@@ -52,7 +51,7 @@ class _LoginWidgetState extends State<LoginWidget> {
       if (response.statusCode == 200) {
         //Json response is used to decode the response from the API and converts Json format to dart object and stored in the JsonResponse.
         final jsonResponse = jsonDecode(response.body);
-        debugPrint(jsonResponse);
+        // debugPrint('Decoded message: $jsonResponse');
         return(
           status: jsonResponse['resp_code'] == '000',
           message: jsonResponse['resp_msg'] as String,
@@ -129,10 +128,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                       passwordController
                     )),
               ),
-              Align(
-                  alignment: const AlignmentDirectional(0.73, 0.10),
-                  child: AppTexts.GetStarted(
-                      'Forgotten Password?', 16, primaryColor)),
+              
+                 Align(
+                    alignment: const AlignmentDirectional(0.73, 0.10),
+                    child: AppTexts.GetStarted(
+                        'Forgotten Password?', 16, primaryColor)),
+              
               Align(
                 alignment: const AlignmentDirectional(0.00, 0.30),
                 child: AppTexts.buildElevatedButton(
@@ -156,6 +157,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                         email: emailController.text,
                         password: passwordController.text,
                       );
+
+
+                      debugPrint('This is my login Response: $loginResponse');
 
                       // Close the loading dialog
                       // ignore: use_build_context_synchronously
@@ -196,7 +200,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                   alignment: const AlignmentDirectional(-0.00, 0.49),
                   child: AppTexts.buildElevatedButton(
                     buttontext: "Create an Account",
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Index(),
+                          ),
+                        );
+                    },
                     buttonColor: secondaryColor,
                     textColor: primaryColor,
                   )),
@@ -217,8 +228,8 @@ class _LoginWidgetState extends State<LoginWidget> {
               ),
             ],
           ),
-        ),
       ),
+    )
     );
   }
 }

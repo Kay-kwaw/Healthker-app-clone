@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:healthker/screens/OnboardingScreen/Onboarding_screen.dart';
 import 'package:healthker/screens/OnboardingScreen/onboardingscreen.dart';
-import 'package:healthker/screens/OnboardingScreen/splashscreen.dart';
+import 'package:healthker/screens/profile/account.dart';
 
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     );
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnboardingScreen(),
+      home: OnboardingWidget(),
     );
   }
 }
