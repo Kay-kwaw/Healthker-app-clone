@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
+import 'package:healthker/screens/Forgotpassword/forgot_password_screen.dart';
 
 class LoginPageWidget extends StatefulWidget {
   const LoginPageWidget({Key? key}) : super(key: key);
@@ -185,7 +186,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(0, 20, 0, 24),
                                                       child: InkWell(
-                                                        onTap: (){},
+                                                        onTap: (){
+                                                                                      Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) => const ForgotPasswordWidget(),
+                                                      ),
+                                                    );
+                                                        },
                                                         child: AppTexts.GetStarted("Forgotten Password?", 16, Colors.white)
                                                         ),
                                                   
@@ -196,53 +204,53 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   child: AppTexts.buildElevatedButton(buttontext: 'Login', onPressed: (){})
                                                 ),
                                                  
-                                                  const Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 150, 0, 0),
-            child: Stack(
-              children: [
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                      child: Text('powered by:', style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white
-                      ),),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  child: Image.asset(
-                    ImageConstants.gneppLogo,
-                    width: 90,
-                    height: 70,
-                    fit: BoxFit.fitHeight,
-                  )
-                ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  child: Image.asset(
-                    ImageConstants.pharmacy_council_logo,
-                    width: 90,
-                    height: 50,
-                    fit: BoxFit.fitHeight,
-                  )
-                ),
-              ],
-            ),
-          ),
+                                                                                              const Padding(
+                                                        padding: EdgeInsetsDirectional.fromSTEB(0, 150, 0, 0),
+                                                        child: Stack(
+                                                          children: [
+                                                            Column(
+                                                              mainAxisSize: MainAxisSize.max,
+                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                  child: Text('powered by:', style: TextStyle(
+                                                                    fontSize: 14,
+                                                                    color: Colors.white
+                                                                  ),),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                        child: Row(
+                                                          mainAxisSize: MainAxisSize.max,
+                                                          mainAxisAlignment: MainAxisAlignment.center,
+                                                          children: [
+                                                            Padding(
+                                                              padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                              child: Image.asset(
+                                                                ImageConstants.gneppLogo,
+                                                                width: 90,
+                                                                height: 70,
+                                                                fit: BoxFit.fitHeight,
+                                                              )
+                                                            ),
+                                                            Padding(
+                                                              padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                              child: Image.asset(
+                                                                ImageConstants.pharmacy_council_logo,
+                                                                width: 90,
+                                                                height: 50,
+                                                                fit: BoxFit.fitHeight,
+                                                              )
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
                                               ],
                                             ),
                                           ),
