@@ -57,9 +57,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   child: Stack(
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                        padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 20),
                         child: PageView(
-                          // controller: controller,
+                          controller: controller,
                           scrollDirection: Axis.horizontal,
                           children: [
                             Container(
@@ -79,7 +79,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                             0, 0, 0, 20),
                                         child: Image.asset(
                                           ImageConstants.man_pharmacist,
-                                          width: 320,
+                                          width: 270,
                                           height: 300,
                                           fit: BoxFit.fitWidth,
                                         ),
@@ -113,14 +113,17 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Expanded(
-                                          child: Text(
-                                            'Buying of medicine just got very easier.',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              fontFamily: 'KumbhSans',
-                                              fontSize: 16,
-                                              color: Colors.white
-                                            )
+                                          child: Padding(
+                                            padding: EdgeInsets.all(8.0),
+                                            child: Text(
+                                              'Buying of medicine just got very easier.',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                fontFamily: 'KumbhSans',
+                                                fontSize: 16,
+                                                color: Colors.white
+                                              )
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -146,7 +149,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                             0, 0, 0, 20),
                                         child: Image.asset(
                                           ImageConstants.man_with_phone,
-                                          width: 300,
+                                          width: 270,
                                           height: 270,
                                           fit: BoxFit.fitHeight,
                                         ),
@@ -155,13 +158,13 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                   ),
                                   const Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 0, 20, 8),
+                                        40, 0, 20, 8),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            'Schedule Appointments',
+                                            'Search Drug',
                                             textAlign: TextAlign.center,
                                               style: TextStyle(
                                                  fontFamily: "KumbhSans",
@@ -181,14 +184,17 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Expanded(
-                                          child: Text(
-                                            'Search drug or securely your prescription for further assistance.',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              fontFamily: 'KumbhSans',
-                                              fontSize: 16,
-                                              color: Colors.white
-                                            )
+                                          child: Padding(
+                                            padding: EdgeInsets.all(8.0),
+                                            child: Text(
+                                              'Search drug or secure prescription for further assistance.',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                fontFamily: 'KumbhSans',
+                                                fontSize: 16,
+                                                color: Colors.white
+                                              )
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -214,7 +220,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                             0, 30, 0, 30),
                                         child: Image.asset(
                                           ImageConstants.delivery_man,
-                                          width: 300,
+                                          width: 270,
                                           height: 250,
                                           fit: BoxFit.fitWidth,
                                         ),
@@ -248,14 +254,17 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Expanded(
-                                          child: Text(
-                                            'Convenient pickup or seamless delivery options for your added convenience.',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              fontFamily: 'KumbhSans',
-                                              fontSize: 16,
-                                              color: Colors.white
-                                            )
+                                          child: Padding(
+                                            padding: EdgeInsets.all(12.0),
+                                            child: Text(
+                                              'Convenient pickup or seamless delivery options for your added convenience.',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                fontFamily: 'KumbhSans',
+                                                fontSize: 16,
+                                                color: Colors.white
+                                              )
+                                            ),
                                           ),
                                         ),
                                       ],

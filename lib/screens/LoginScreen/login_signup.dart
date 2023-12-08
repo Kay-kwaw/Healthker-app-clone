@@ -143,10 +143,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                          border: OutlineInputBorder(
                                                           borderSide: BorderSide.none,
                                                             borderRadius: BorderRadius.circular(8),
+                                                            ),
+                                                            prefix: const Icon(
+                                                              Icons.email,
+                                                              color: Colors.white,
                                                             )
                                                     ),
-                                                    style: const TextStyle(),
                                                     
+                                                    style: const TextStyle(),
+                                                  
                                                   ),
                                                 ),
                                                 Padding(
@@ -164,19 +169,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                          border: OutlineInputBorder(
                                                           borderSide: BorderSide.none,
                                                             borderRadius: BorderRadius.circular(8),),
+                                                            prefix: const Icon(
+                                                              Icons.password,
+                                                              color: Colors.white,
+                                                            ),
+                                                            suffix: InkWell(
+                                                              onTap: (){},
+                                                              child: const Icon(Icons.visibility,
+                                                              color: Colors.white,
+                                                              ),
+                                                            )
                                                     
-                                                      // suffixIcon: InkWell(
-                                                      //   onTap: () => setState(
-                                                        
-                                                      //   ),
-                                                      //   focusNode: FocusNode(
-                                                      //       skipTraversal: true),
-                                                      //   child: const Icon(
-                                                      //     color:
-                                                      //         Color(0x98FFFFFF),
-                                                      //     size: 20,
-                                                      //   ),
-                                                      // ),
                                                     ),
                                                     style: const TextStyle(),
                                                    

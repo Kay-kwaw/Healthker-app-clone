@@ -13,6 +13,7 @@ class ImageConstants {
   static const String pharmacy_council_logo = 'assets/images/pharmacy_council_logo.png';
   static const String pharmacist_lady = 'assets/images/pharmacist_lady.png';
   static const String orders = 'assets/images/order.png';
+  static const String waving = 'assets/images/waving.png';
   
   
 }

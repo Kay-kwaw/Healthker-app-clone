@@ -11,12 +11,15 @@ class HomePageWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageWidgetState createState() => _HomePageWidgetState();
 }
 
 class _HomePageWidgetState extends State<HomePageWidget> {
  
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  
+  get bottomNavigationBar => null;
 
   @override
   void initState() {
@@ -57,9 +60,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
-                              child: Image.asset(
-                                'assets/images/UI_avatar_2@3x.png',
-                              ),
+                              child: const Icon(
+                                Icons.location_disabled ,
+                                color: Colors.white,
+                                size: 24,
+                              )
+                    
                             ),
                           ),
                         ),
@@ -95,9 +101,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
-                            ImageConstants.buying,
+                            ImageConstants.waving,
                             width: 36,
                             height: 36,
                             fit: BoxFit.cover,
@@ -176,10 +182,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             fit: BoxFit.cover,
                                           ),
                                         ),
-                                        const Expanded(
+                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     10, 15, 10, 0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -188,17 +194,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                Text(
-                                                  'Book Appointment',
-                                                  textAlign: TextAlign.start,
-                                                  style: TextStyle(
-                                                        fontFamily: 'Outfit',
-                                                        color:
-                                                            Colors.white,
-                                                        fontSize: 19,
-                                                      ),
-                                                ),
-                                                Expanded(
+                                                AppTexts.GetStarted(
+                                                    'Buy Drug / Upload Prescription',
+                                                    15,
+                                                    Colors.white),
+                                                const Expanded(
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -258,15 +258,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     15, 0, 0, 0),
                                             child: Image.asset(
-                                              ImageConstants.call_center,
+                                              ImageConstants.my_black_booking,
                                               width: 60,
                                               height: 60,
                                               fit: BoxFit.cover,
                                             ),
                                           ),
-                                          const Expanded(
+                                           Expanded(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(10, 15, 10, 0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -275,15 +275,93 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  Text(
-                                                    'Call the Office',
-                                                    textAlign: TextAlign.start,
-                                                    style: TextStyle(
-                                                          fontFamily: 'Outfit',
-                                                          color: Colors.white,
-                                                        ),
+                                                 AppTexts.GetStarted(
+                                                    'Find Pharmacy',
+                                                    15,
+                                                    Colors.white),
+                                                  const Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 0, 8),
+                                                      child: Text(
+                                                        'Give us a call in order to schedule your appointment.',
+                                                        style:
+                                                            TextStyle(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: Color(
+                                                                      0xB4FFFFFF),
+                                                                ),
+                                                      ),
+                                                    ),
                                                   ),
-                                                  Expanded(
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    // await launchURL('tel:1234567890');
+                                  },
+                                  child: Material(
+                                    color: Colors.transparent,
+                                    elevation: 3,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.86,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        color:Colors.black,
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    15, 0, 0, 0),
+                                            child: Image.asset(
+                                              ImageConstants.complain,
+                                              width: 60,
+                                              height: 60,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                           Expanded(
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(10, 15, 10, 0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                 AppTexts.GetStarted(
+                                                    'Report Side-Effect',
+                                                    15,
+                                                    Colors.white),
+                                                  const Expanded(
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -345,15 +423,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     15, 0, 0, 0),
                                             child: Image.asset(
-                                              ImageConstants.complain,
+                                              ImageConstants.call_center,
                                               width: 60,
                                               height: 60,
                                               fit: BoxFit.cover,
                                             ),
                                           ),
-                                          const Expanded(
+                                           Expanded(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(10, 15, 10, 0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -362,15 +440,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  Text(
-                                                    'Email Us',
-                                                    textAlign: TextAlign.start,
-                                                    style: TextStyle(
-                                                          fontFamily: 'Outfit',
-                                                          color:Colors.white,
-                                                        ),
-                                                  ),
-                                                  Expanded(
+                                                  AppTexts.GetStarted(
+                                                    'Help & Support Center',
+                                                    15,
+                                                    Colors.white),
+                                                  const Expanded(
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -404,10 +478,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ],
                     ),
                   ),
-                ],
+                  
+                ]
               ),
+              
             ),
+            
           ),
+          
         );
       }
   }
