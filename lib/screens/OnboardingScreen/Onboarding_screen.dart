@@ -38,8 +38,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
               children: [
                   Image.asset(
                     ImageConstants.healthkerIcon,
-                    width: 200,
-                    height: 100,
+                    width: 150,
+                    height: 80,
                     fit: BoxFit.fitHeight,
                   ),
 
@@ -299,7 +299,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
             ],
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -325,7 +325,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
               children: [
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  child: Text('powered by', style: TextStyle(
+                  child: Text('powered by:', style: TextStyle(
                     fontSize: 14,
                     color: Colors.white
                   ),),
