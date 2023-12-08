@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:healthker/screens/LoginScreen/login_signup.dart';
 import 'package:healthker/screens/OnboardingScreen/Onboarding_screen.dart';
 import 'package:healthker/screens/OnboardingScreen/onboardingscreen.dart';
-import 'package:healthker/screens/profile/account.dart';
 
 
 void main() {

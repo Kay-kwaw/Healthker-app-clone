@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
+import 'package:healthker/screens/LoginScreen/login_signup.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingWidget extends StatefulWidget {
@@ -308,7 +309,12 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                   child: AppTexts.buildElevatedButton(
                     onPressed: () {
-                      print('Button pressed ...');
+                       Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginPageWidget(),
+                          ),
+                        );
                     },
                     buttontext: 'Get Started',
                   
@@ -317,30 +323,34 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 14, 0, 0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
+             const Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+            child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  child: Text('powered by:', style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white
-                  ),),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                      child: Text('powered by:', style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white
+                      ),),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   child: Image.asset(
                     ImageConstants.gneppLogo,
                     width: 90,
@@ -349,7 +359,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   )
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   child: Image.asset(
                     ImageConstants.pharmacy_council_logo,
                     width: 90,
@@ -360,10 +370,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
               ],
             ),
           ),
-          
-
-        ],
-      ),
-    );
+              ],
+            ),
+          );
   }
 }
