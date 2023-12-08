@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
+import 'package:healthker/constants/imageconstants.dart';
 
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({
@@ -24,24 +25,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // return GestureDetector(
-    //     if (!snapshot.hasData) {
-    //       return Scaffold(
-    //         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-    //         body: Center(
-    //           child: SizedBox(
-    //             width: 50,
-    //             height: 50,
-    //             child: CircularProgressIndicator(
-    //               valueColor: AlwaysStoppedAnimation<Color>(
-    //                 FlutterFlowTheme.of(context).primary,
-    //               ),
-    //             ),
-    //           ),
-    //         ),
-    //       );
-    //     }
-        // final homePageUsersRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: backgroundColor,
@@ -60,7 +43,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       children: [
                         Card(
                           clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color: FlutterFlowTheme.of(context).primary,
+                          color: Colors.black,
                           elevation: 2,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40),
@@ -71,7 +54,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               width: 60,
                               height: 60,
                               clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
                               child: Image.asset(
@@ -80,10 +63,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             ),
                           ),
                         ),
-                        wrapWithModel(
-                          model: _model.mainLogoModel,
-                          updateCallback: () => setState(() {}),
-                          child: MainLogoWidget(),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                          child:AppTexts.GetStarted('Welcome', 30, Colors.black),
                         ),
                       ],
                     ),
@@ -93,37 +83,21 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
-                          child: Text(
-                            'Good Morning',
-                            style: FlutterFlowTheme.of(context).displaySmall,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
+                        const Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                           child: Text(
-                            homePageUsersRecord.displayName,
-                            style: FlutterFlowTheme.of(context)
-                                .headlineMedium
-                                .override(
+                           "Display Name",
+                            style: TextStyle(
                                   fontFamily: 'Outfit',
                                   fontWeight: FontWeight.bold,
+                                  color: Colors.white
                                 ),
                           ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
                           child: Image.asset(
-                            'assets/images/waving-hand-sign_emoji-modifier-fitzpatrick-type-5_1f44b_1f3fe.png',
+                            ImageConstants.buying,
                             width: 36,
                             height: 36,
                             fit: BoxFit.cover,
@@ -133,301 +107,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
-                    child: StreamBuilder<List<AppointmentsRecord>>(
-                      stream: queryAppointmentsRecord(
-                        queryBuilder: (appointmentsRecord) => appointmentsRecord
-                            .where(
-                              'appointmentPerson',
-                              isEqualTo: currentUserReference,
-                            )
-                            .orderBy('appointmentTime'),
-                        limit: 1,
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50,
-                              height: 50,
-                              child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  FlutterFlowTheme.of(context).primary,
-                                ),
-                              ),
-                            ),
-                          );
-                        }
-                        List<AppointmentsRecord>
-                            nextAppointmentSectionAppointmentsRecordList =
-                            snapshot.data!;
-                        if (nextAppointmentSectionAppointmentsRecordList
-                            .isEmpty) {
-                          return Center(
-                            child: Image.asset(
-                              'assets/images/noUpcomingAppointments.png',
-                              width: MediaQuery.sizeOf(context).width * 0.8,
-                            ),
-                          );
-                        }
-                        return Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(
-                              nextAppointmentSectionAppointmentsRecordList
-                                  .length, (nextAppointmentSectionIndex) {
-                            final nextAppointmentSectionAppointmentsRecord =
-                                nextAppointmentSectionAppointmentsRecordList[
-                                    nextAppointmentSectionIndex];
-                            return Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
-                              child: StreamBuilder<AppointmentsRecord>(
-                                stream: AppointmentsRecord.getDocument(
-                                    nextAppointmentSectionAppointmentsRecord
-                                        .reference),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50,
-                                        height: 50,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  final appointmentCardAppointmentsRecord =
-                                      snapshot.data!;
-                                  return InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'appointmentDetails',
-                                        queryParameters: {
-                                          'appointmentDetails': serializeParam(
-                                            appointmentCardAppointmentsRecord
-                                                .reference,
-                                            ParamType.DocumentReference,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                    },
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.86,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 4,
-                                            color: Color(0x230E151B),
-                                            offset: Offset(0, 2),
-                                          )
-                                        ],
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 12, 12, 12),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                4, 0, 0, 0),
-                                                    child: Text(
-                                                      nextAppointmentSectionAppointmentsRecord
-                                                          .appointmentType,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .headlineSmall,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Icon(
-                                                  Icons.chevron_right_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .grayLight,
-                                                  size: 24,
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                4, 4, 0, 0),
-                                                    child: AutoSizeText(
-                                                      nextAppointmentSectionAppointmentsRecord
-                                                          .appointmentDescription,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 8, 0, 0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Card(
-                                                    clipBehavior: Clip
-                                                        .antiAliasWithSaveLayer,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              20),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  8, 4, 8, 4),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        8,
-                                                                        4,
-                                                                        2,
-                                                                        4),
-                                                            child: Text(
-                                                              dateTimeFormat(
-                                                                  'MMMEd',
-                                                                  nextAppointmentSectionAppointmentsRecord
-                                                                      .appointmentTime!),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        2,
-                                                                        4,
-                                                                        8,
-                                                                        4),
-                                                            child: Text(
-                                                              dateTimeFormat(
-                                                                  'jm',
-                                                                  nextAppointmentSectionAppointmentsRecord
-                                                                      .appointmentTime!),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodySmall,
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                8, 0, 0, 0),
-                                                    child: Text(
-                                                      'For',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
-                                                    ),
-                                                  ),
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  4, 0, 0, 0),
-                                                      child: Text(
-                                                        nextAppointmentSectionAppointmentsRecord
-                                                            .appointmentName,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Plus Jakarta Sans',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
-                            );
-                          }),
-                        );
-                      },
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -443,7 +129,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   height: 100,
                                   decoration: BoxDecoration(
                                     color:
-                                        FlutterFlowTheme.of(context).tertiary,
+                                        Colors.white.withOpacity(0.2),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   child: InkWell(
@@ -452,43 +138,45 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        barrierColor: Color(0x00000000),
-                                        context: context,
-                                        builder: (context) {
-                                          return Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: Container(
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  1,
-                                              child: BookAppointmentWidget(
-                                                userProfile: homePageUsersRecord
-                                                    .reference,
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      ).then((value) => safeSetState(() {}));
+                                      // await showModalBottomSheet(
+                                      //   isScrollControlled: true,
+                                      //   backgroundColor: Colors.transparent,
+                                      //   barrierColor: Color(0x00000000),
+                                      //   context: context,
+                                      //   builder: (context) {
+                                      //     return Padding(
+                                      //       padding: MediaQuery.viewInsetsOf(
+                                      //           context),
+                                      //       child: Container(
+                                      //         height: MediaQuery.sizeOf(context)
+                                      //                 .height *
+                                      //             1,
+                                      //         child:
+                                      //          BookAppointmentWidget(
+                                      //           userProfile: homePageUsersRecord
+                                      //               .reference,
+                                      //         ),
+                                      //       ),
+                                      //     );
+                                      //   },
+                                      // ).then((value) => safeSetState(() {})
+                                      // );
                                     },
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   15, 0, 0, 0),
                                           child: Image.asset(
-                                            'assets/images/iconCalendar.png',
+                                            ImageConstants.buying,
                                             width: 60,
                                             height: 60,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
-                                        Expanded(
+                                        const Expanded(
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -503,15 +191,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 Text(
                                                   'Book Appointment',
                                                   textAlign: TextAlign.start,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .headlineSmall
-                                                      .override(
+                                                  style: TextStyle(
                                                         fontFamily: 'Outfit',
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
+                                                            Colors.white,
                                                         fontSize: 19,
                                                       ),
                                                 ),
@@ -521,13 +204,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 0, 0, 0, 8),
-                                                    child: AutoSizeText(
+                                                    child: Text(
                                                       'Schedule an appointment with our licensed professional.',
                                                       style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmall
-                                                              .override(
+                                                          TextStyle(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
                                                                 color: Color(
@@ -547,14 +227,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                                    const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await launchURL('tel:1234567890');
+                                    // await launchURL('tel:1234567890');
                                   },
                                   child: Material(
                                     color: Colors.transparent,
@@ -567,8 +247,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           0.86,
                                       height: 100,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                        color:Colors.black,
                                         borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
@@ -576,16 +255,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     15, 0, 0, 0),
                                             child: Image.asset(
-                                              'assets/images/iconPhone.png',
+                                              ImageConstants.call_center,
                                               width: 60,
                                               height: 60,
                                               fit: BoxFit.cover,
                                             ),
                                           ),
-                                          Expanded(
+                                          const Expanded(
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(10, 15, 10, 0),
@@ -599,14 +278,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   Text(
                                                     'Call the Office',
                                                     textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .headlineSmall
-                                                        .override(
+                                                    style: TextStyle(
                                                           fontFamily: 'Outfit',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .alternate,
+                                                          color: Colors.white,
                                                         ),
                                                   ),
                                                   Expanded(
@@ -615,13 +289,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0, 0, 0, 8),
-                                                      child: AutoSizeText(
+                                                      child: Text(
                                                         'Give us a call in order to schedule your appointment.',
                                                         style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodySmall
-                                                                .override(
+                                                            TextStyle(
                                                                   fontFamily:
                                                                       'Plus Jakarta Sans',
                                                                   color: Color(
@@ -642,15 +313,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                                    const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await launchURL(
-                                        'mailto:contact@health.ai.demo');
+                                    // await launchURL(
+                                    //     'mailto:contact@health.ai.demo');
                                   },
                                   child: Material(
                                     color: Colors.transparent,
@@ -663,8 +334,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           0.86,
                                       height: 100,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondary,
+                                        color: Colors.black,
                                         borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
@@ -672,16 +342,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     15, 0, 0, 0),
                                             child: Image.asset(
-                                              'assets/images/iconEmail.png',
+                                              ImageConstants.complain,
                                               width: 60,
                                               height: 60,
                                               fit: BoxFit.cover,
                                             ),
                                           ),
-                                          Expanded(
+                                          const Expanded(
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(10, 15, 10, 0),
@@ -695,14 +365,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   Text(
                                                     'Email Us',
                                                     textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .headlineSmall
-                                                        .override(
+                                                    style: TextStyle(
                                                           fontFamily: 'Outfit',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .alternate,
+                                                          color:Colors.white,
                                                         ),
                                                   ),
                                                   Expanded(
@@ -711,13 +376,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0, 0, 0, 8),
-                                                      child: AutoSizeText(
+                                                      child: Text(
                                                         'Send us an email and we will get back to you within 2 days.',
                                                         style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodySmall
-                                                                .override(
+                                                            TextStyle(
                                                                   fontFamily:
                                                                       'Plus Jakarta Sans',
                                                                   color: Color(
@@ -747,7 +409,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             ),
           ),
         );
-      },
-    );
+      }
   }
-}
+
