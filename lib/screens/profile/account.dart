@@ -51,7 +51,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           width: 90,
                           height: 60,
                           decoration: BoxDecoration(
-                            color: secondaryColor,
+                            color: Colors.white,
                             shape: BoxShape.circle,
                             border: Border.all(
                               color: const Color(0xFF39D2C0),
@@ -64,7 +64,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               borderRadius: BorderRadius.circular(30),
                               child: const Icon(
                                 Icons.person,
-                                color: primaryColor,
+                                color: backgroundColor,
                                 size: 50
                               )
                             ),
@@ -105,7 +105,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   width: double.infinity,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: backgroundColor,
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -123,7 +123,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           child: Padding(
                             padding:
                                 const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                            child: AppTexts.GetStarted("Personal Info", 15, textSecondaryColor)
+                            child: AppTexts.GetStarted("Personal Info", 15, textColor)
                           ),
                         ),
                         const Align(
@@ -145,7 +145,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   width: double.infinity,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: backgroundColor,
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -163,7 +163,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           child: Padding(
                             padding:
                                 const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                            child:AppTexts.GetStarted("Link insurance company", 15, textSecondaryColor)
+                            child:AppTexts.GetStarted("Link insurance company", 15, textColor)
                           ),
                         ),
                         const Align(
@@ -185,7 +185,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   width: double.infinity,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: backgroundColor,
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -196,21 +196,21 @@ class _AccountScreenState extends State<AccountScreen> {
                       children: [
                         const Icon(
                           Icons.location_on_rounded,
-                          color:textSecondaryColor,
+                          color: Color(0xFF57636C),
                           size: 24,
                         ),
                         Expanded(
                           child: Padding(
                             padding:
                                 const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                            child:AppTexts.GetStarted("Addresses", 15, textSecondaryColor)
+                            child:AppTexts.GetStarted("Addresses", 15, textColor)
                           ),
                         ),
                         const Align(
                           alignment: AlignmentDirectional(0.90, 0.00),
                           child: Icon(
                             Icons.arrow_forward_ios,
-                            color: Color(0xFF57636C),
+                            color:textColor,
                             size: 18,
                           ),
                         ),
@@ -225,7 +225,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   width: double.infinity,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: backgroundColor,
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -236,14 +236,14 @@ class _AccountScreenState extends State<AccountScreen> {
                       children: [
                         const Icon(
                           Icons.add_home,
-                          color: textSecondaryColor,
+                          color:  Color(0xFF57636C),
                           size: 24,
                         ),
                         Expanded(
                           child: Padding(
                             padding:
                                 const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                            child: AppTexts.GetStarted("Preferred facilities", 15, textSecondaryColor)
+                            child: AppTexts.GetStarted("Preferred facilities", 15, textColor)
                           ),
                         ),
                         const Align(
@@ -261,7 +261,7 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 0, 10),
-                child: AppTexts.GetStarted("Account settings", 15, textSecondaryColor)
+                child: AppTexts.GetStarted("Account settings", 15, textColor)
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
@@ -269,7 +269,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   width: double.infinity,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: backgroundColor,
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -280,14 +280,14 @@ class _AccountScreenState extends State<AccountScreen> {
                       children: [
                         const Icon(
                           Icons.notification_add,
-                          color:textSecondaryColor,
+                          color: Color(0xFF57636C),
                           size: 24,
                         ),
                         Expanded(
                           child: Padding(
                             padding:
                                 const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                            child:AppTexts.GetStarted('Notification settings', 15, textSecondaryColor)
+                            child:AppTexts.GetStarted('Notification settings', 15, textColor)
                           ),
                         ),
                         const Align(
@@ -309,7 +309,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   width: double.infinity,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: backgroundColor,
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -320,14 +320,14 @@ class _AccountScreenState extends State<AccountScreen> {
                       children: [
                         const Icon(
                           Icons.location_searching,
-                          color: textSecondaryColor,
+                          color: Color(0xFF57636C),
                           size: 24,
                         ),
                         Expanded(
                           child: Padding(
                             padding:
                                 const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                            child:AppTexts.GetStarted('Locations settings', 15, textSecondaryColor)
+                            child:AppTexts.GetStarted('Locations settings', 15, textColor)
                           ),
                         ),
                         const Align(
@@ -349,7 +349,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   width: double.infinity,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: backgroundColor,
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -367,7 +367,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           child: Padding(
                             padding:
                                 const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                            child: AppTexts.GetStarted("Share App", 15, textSecondaryColor)
+                            child: AppTexts.GetStarted("Share App", 15, textColor)
                           ),
                         ),
                         const Align(
@@ -389,7 +389,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   width: double.infinity,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: backgroundColor,
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
@@ -407,7 +407,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           child: Padding(
                             padding:
                                 const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                            child: AppTexts.GetStarted("Rate app", 15, textSecondaryColor)
+                            child: AppTexts.GetStarted("Rate app", 15, textColor)
                           ),
                         ),
                         const Icon(
