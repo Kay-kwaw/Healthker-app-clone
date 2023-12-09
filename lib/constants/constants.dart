@@ -62,16 +62,16 @@ class AppTexts {
 }
 
   // ignore: non_constant_identifier_names
-  static Widget GetStarted(String text, double fontSize, Color color,) {
-    return Text(
-      text,
-      style: TextStyle(
-        fontFamily: 'KumbhSans',
-        color: color,
-        fontSize: fontSize,
-      ),
-    );
-}
+                static Widget GetStarted(String text, double fontSize, Color color,) {
+                  return Text(
+                    text,
+                    style: TextStyle(
+                      fontFamily: 'KumbhSans',
+                      color: color,
+                      fontSize: fontSize,
+                    ),
+                  );
+              }
   
   // ignore: non_constant_identifier_names
                 static Widget GnepImage() {
@@ -96,10 +96,20 @@ class AppTexts {
         static Widget goodhands() {
            return Container(
                             width: 396,
-                            height: 131,
+                            height: 110,
                             decoration: BoxDecoration(
-                              color:primaryColor,
+                              color:backgroundColor,
                               borderRadius: BorderRadius.circular(10),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color:Colors.black,
+                                  offset: Offset(0, 3),
+                                  spreadRadius: 1,
+                                  blurRadius: 1,
+                                  
+                                )
+                              ]
+                              
                             ),
                             child: Stack(
                               children: [
@@ -116,13 +126,13 @@ class AppTexts {
                                   ),
                                 ),
                                 const Align(
-                              alignment: AlignmentDirectional(-0.81, -0.68),
+                              alignment: AlignmentDirectional(-0.84, -0.68),
                               child: Text(
                                 'You are in good \nhands with us',
                                 style:TextStyle(
                                   fontFamily: 'KumbhSans',
                                   color: Colors.white,
-                                  fontSize: 20,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 )
                               ),
@@ -130,7 +140,7 @@ class AppTexts {
                             const Align(
                               alignment: AlignmentDirectional(-0.80, 0.57),
                               child: Text(
-                                'We are delighted to \nprovide the best of service',
+                                'We are delighted to provide\nthe best of service',
                                 style: TextStyle(
                                   fontFamily: 'KumbhSans-meduim',
                                   color: Colors.white,

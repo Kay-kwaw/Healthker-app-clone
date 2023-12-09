@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthker/constants/constants.dart';
 import 'package:healthker/screens/Dashboard/dashboard.dart';
 import 'package:healthker/screens/Order/cart_screen.dart';
 import 'package:healthker/screens/Order/order_screen.dart';
@@ -46,6 +47,7 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      backgroundColor: backgroundColor,
       currentIndex: currentIndex,
       onTap: onTap,
       items: const [

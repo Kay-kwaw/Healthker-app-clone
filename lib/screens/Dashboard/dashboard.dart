@@ -25,7 +25,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
           ),
           action: IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const  CartScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const  CartScreen())
+              );
             },
             icon: const Icon(
               Icons.shopping_cart_outlined,
@@ -53,6 +54,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                         style: TextStyle(
                           fontFamily: 'KumbhSans',
                           fontSize: 22,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -64,6 +66,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                         textAlign: TextAlign.start,
                         style: TextStyle(
                           fontFamily: 'KumbhSans',
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -91,7 +94,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                   const EdgeInsetsDirectional.fromSTEB(
                                                       15, 0, 0, 0),
                                               child: Image.asset(
-                                                ImageConstants.my_black_booking,
+                                                ImageConstants.buying,
                                                 width: 60,
                                                 height: 60,
                                                 fit: BoxFit.cover,
