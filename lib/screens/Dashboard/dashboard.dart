@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/constants.dart';
-import 'package:healthker/constants/gridview_constant.dart';
+import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/screens/Order/cart_screen.dart';
 
 class DashboardWidget extends StatefulWidget {
@@ -16,6 +15,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
  Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: backgroundColor,
         appBar: AppTexts.appBar(
           'Current location',
           Colors.black,
@@ -43,7 +43,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(15, 15, 20, 20),
+                      padding: const EdgeInsetsDirectional.fromSTEB(15, 15, 20, 10),
                       child: AppTexts.goodhands()
                     ),
                     const Padding(
@@ -69,12 +69,298 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                     ),
                     Padding(
                       padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
-                      child: Grid.grid(),
+                      child: Material(
+                                      color: Colors.transparent,
+                                      elevation: 3,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Container(
+                                        width: MediaQuery.sizeOf(context).width *
+                                            0.86,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                          color:Colors.black,
+                                          borderRadius: BorderRadius.circular(8),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsetsDirectional.fromSTEB(
+                                                      15, 0, 0, 0),
+                                              child: Image.asset(
+                                                ImageConstants.my_black_booking,
+                                                width: 60,
+                                                height: 60,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                             Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(10, 15, 10, 0),
+                                                child: Column(
+                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                   AppTexts.GetStarted(
+                                                      'Find Pharmacy',
+                                                      15,
+                                                      Colors.white),
+                                                    const Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 0, 0, 8),
+                                                        child: Text(
+                                                          'Give us a call in order to schedule your appointment.',
+                                                          style:
+                                                              TextStyle(
+                                                                    fontFamily:
+                                                                        'Plus Jakarta Sans',
+                                                                    color: Color(
+                                                                        0xB4FFFFFF),
+                                                                  ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ), 
+                      // Grid.grid(),
                     ),
-                    const SizedBox(
-                      height: 20,
+                    Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                      child: Material(
+                                      color: Colors.transparent,
+                                      elevation: 3,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Container(
+                                        width: MediaQuery.sizeOf(context).width *
+                                            0.86,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                          color:Colors.black,
+                                          borderRadius: BorderRadius.circular(8),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsetsDirectional.fromSTEB(
+                                                      15, 0, 0, 0),
+                                              child: Image.asset(
+                                                ImageConstants.my_black_booking,
+                                                width: 60,
+                                                height: 60,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                             Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(10, 15, 10, 0),
+                                                child: Column(
+                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                   AppTexts.GetStarted(
+                                                      'Find Pharmacy',
+                                                      15,
+                                                      Colors.white),
+                                                    const Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 0, 0, 8),
+                                                        child: Text(
+                                                          'Give us a call in order to schedule your appointment.',
+                                                          style:
+                                                              TextStyle(
+                                                                    fontFamily:
+                                                                        'Plus Jakarta Sans',
+                                                                    color: Color(
+                                                                        0xB4FFFFFF),
+                                                                  ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ), 
+                      // Grid.grid(),
                     ),
-                  
+                    Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                      child: Material(
+                                      color: Colors.transparent,
+                                      elevation: 3,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Container(
+                                        width: MediaQuery.sizeOf(context).width *
+                                            0.86,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                          color:Colors.black,
+                                          borderRadius: BorderRadius.circular(8),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsetsDirectional.fromSTEB(
+                                                      15, 0, 0, 0),
+                                              child: Image.asset(
+                                                ImageConstants.my_black_booking,
+                                                width: 60,
+                                                height: 60,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                             Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(10, 15, 10, 0),
+                                                child: Column(
+                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                   AppTexts.GetStarted(
+                                                      'Find Pharmacy',
+                                                      15,
+                                                      Colors.white),
+                                                    const Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 0, 0, 8),
+                                                        child: Text(
+                                                          'Give us a call in order to schedule your appointment.',
+                                                          style:
+                                                              TextStyle(
+                                                                    fontFamily:
+                                                                        'Plus Jakarta Sans',
+                                                                    color: Color(
+                                                                        0xB4FFFFFF),
+                                                                  ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ), 
+                      // Grid.grid(),
+                    ),
+                    Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                      child: Material(
+                                      color: Colors.transparent,
+                                      elevation: 3,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Container(
+                                        width: MediaQuery.sizeOf(context).width *
+                                            0.86,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                          color:Colors.black,
+                                          borderRadius: BorderRadius.circular(8),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsetsDirectional.fromSTEB(
+                                                      15, 0, 0, 0),
+                                              child: Image.asset(
+                                                ImageConstants.my_black_booking,
+                                                width: 60,
+                                                height: 60,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                             Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(10, 15, 10, 0),
+                                                child: Column(
+                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                   AppTexts.GetStarted(
+                                                      'Find Pharmacy',
+                                                      15,
+                                                      Colors.white),
+                                                    const Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 0, 0, 8),
+                                                        child: Text(
+                                                          'Give us a call in order to schedule your appointment.',
+                                                          style:
+                                                              TextStyle(
+                                                                    fontFamily:
+                                                                        'Plus Jakarta Sans',
+                                                                    color: Color(
+                                                                        0xB4FFFFFF),
+                                                                  ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ), 
+                      // Grid.grid(),
+                    ),
+                    
+                    
                   ],
                 ),
             ],

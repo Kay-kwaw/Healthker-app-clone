@@ -21,7 +21,7 @@ class AppTexts {
         action,
       ],
       leading: icon,
-      backgroundColor: primaryColor,
+      backgroundColor: backgroundColor,
        elevation: 2,
     );
   }
@@ -33,7 +33,7 @@ class AppTexts {
     Color? textColor,
     
   }) {
-    return Container(
+    return SizedBox(
       width: 300,
       height: 50,
       child: ElevatedButton(
@@ -74,76 +74,76 @@ class AppTexts {
 }
   
   // ignore: non_constant_identifier_names
-  static Widget GnepImage() {
-    return Image.asset(
-      'assets/images/gnepp_logo.png',
-      width: 80,
-      height: 60,
-      fit: BoxFit.cover,
-    );
-  }
-  // ignore: non_constant_identifier_names
-  static Widget PharmcacyImage() {
-    return Image.asset(
-      'assets/images/pharmacy_council_logo.png',
-      width: 50,
-      height: 50,
-      fit: BoxFit.cover,
-    );
-  }
+                static Widget GnepImage() {
+                  return Image.asset(
+                    'assets/images/gnepp_logo.png',
+                    width: 80,
+                    height: 60,
+                    fit: BoxFit.cover,
+                  );
+                }
+                // ignore: non_constant_identifier_names
+                static Widget PharmcacyImage() {
+                  return Image.asset(
+                    'assets/images/pharmacy_council_logo.png',
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.cover,
+                  );
+                }
 
-   
-  static Widget goodhands() {
-    return Container(
-                        width: 396,
-                        height: 151,
-                        decoration: BoxDecoration(
-                          color:primaryColor,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Stack(
-                          children: [
-                            Align(
-                              alignment: const AlignmentDirectional(0.85, -1.82),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: Image.asset(
-                                  'assets/images/pharmacist_lady.png',
-                                  width: 197,
-                                  height: 150,
-                                  fit: BoxFit.cover,
+                
+        static Widget goodhands() {
+           return Container(
+                            width: 396,
+                            height: 131,
+                            decoration: BoxDecoration(
+                              color:primaryColor,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Stack(
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.85, -1.82),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Image.asset(
+                                      'assets/images/pharmacist_lady.png',
+                                      width: 197,
+                                      height: 150,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 ),
+                                const Align(
+                              alignment: AlignmentDirectional(-0.81, -0.68),
+                              child: Text(
+                                'You are in good \nhands with us',
+                                style:TextStyle(
+                                  fontFamily: 'KumbhSans',
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                )
                               ),
                             ),
-                             const Align(
-      alignment: AlignmentDirectional(-0.81, -0.68),
-      child: Text(
-        'You are in good \nhands with us',
-        style:TextStyle(
-          fontFamily: 'KumbhSans',
-          color: Colors.white,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        )
-      ),
-    ),
-    const Align(
-      alignment: AlignmentDirectional(-0.80, 0.57),
-      child: Text(
-        'We are delighted to \nprovide the best of service',
-        style: TextStyle(
-          fontFamily: 'KumbhSans-meduim',
-          color: Colors.white,
-          fontSize: 13,
-        )
-      ),
-    ),
-                          ],
-                        ),
-                      );
-  }
-  
-  
-}
+                            const Align(
+                              alignment: AlignmentDirectional(-0.80, 0.57),
+                              child: Text(
+                                'We are delighted to \nprovide the best of service',
+                                style: TextStyle(
+                                  fontFamily: 'KumbhSans-meduim',
+                                  color: Colors.white,
+                                  fontSize: 13,
+                                )
+                              ),
+                            ),
+                                                ],
+                                                ),
+                                              );
+                          }
+                          
+                          
+                        }
 
 

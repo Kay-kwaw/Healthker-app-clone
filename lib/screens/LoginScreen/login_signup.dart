@@ -80,7 +80,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           Colors.black,
                                       labelPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              50, 0, 30, 0),
+                                              50, 0, 10, 0),
                                       labelStyle:
                                           TextStyle(
                                             fontFamily: "KumbhSans",
@@ -314,6 +314,27 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       labelText: 'Phone',
                                                       hintText:
                                                           'Phone',
+                                                      filled: true,
+                                                      fillColor:
+                                                          const Color.fromARGB(255, 14, 21, 27),
+                                                         border: OutlineInputBorder(
+                                                          borderSide: BorderSide.none,
+                                                            borderRadius: BorderRadius.circular(8),
+                                                            )
+                                                    ),
+                                                    style: const TextStyle(),
+                                                    
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(0, 12, 0, 0),
+                                                  child: TextFormField(
+                                                    obscureText: false,
+                                                    decoration:  InputDecoration(
+                                                      labelText: 'Date',
+                                                      hintText:
+                                                          'Date of birth',
                                                       filled: true,
                                                       fillColor:
                                                           const Color.fromARGB(255, 14, 21, 27),

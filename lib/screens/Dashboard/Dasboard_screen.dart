@@ -120,136 +120,55 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       children: [
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Material(
-                                color: Colors.transparent,
-                                elevation: 3,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Container(
-                                  width:
-                                      MediaQuery.sizeOf(context).width * 0.86,
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                    color:
-                                        Colors.white.withOpacity(0.2),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Material(
+                                  color: Colors.transparent,
+                                  elevation: 3,
+                                  shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   ),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      // await showModalBottomSheet(
-                                      //   isScrollControlled: true,
-                                      //   backgroundColor: Colors.transparent,
-                                      //   barrierColor: Color(0x00000000),
-                                      //   context: context,
-                                      //   builder: (context) {
-                                      //     return Padding(
-                                      //       padding: MediaQuery.viewInsetsOf(
-                                      //           context),
-                                      //       child: Container(
-                                      //         height: MediaQuery.sizeOf(context)
-                                      //                 .height *
-                                      //             1,
-                                      //         child:
-                                      //          BookAppointmentWidget(
-                                      //           userProfile: homePageUsersRecord
-                                      //               .reference,
-                                      //         ),
-                                      //       ),
-                                      //     );
-                                      //   },
-                                      // ).then((value) => safeSetState(() {})
-                                      // );
-                                    },
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  15, 0, 0, 0),
-                                          child: Image.asset(
-                                            ImageConstants.buying,
-                                            width: 60,
-                                            height: 60,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                         Expanded(
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    10, 15, 10, 0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                AppTexts.GetStarted(
-                                                    'Buy Drug / Upload Prescription',
-                                                    15,
-                                                    Colors.white),
-                                                const Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 8),
-                                                    child: Text(
-                                                      'Schedule an appointment with our licensed professional.',
-                                                      style:
-                                                          TextStyle(
-                                                                fontFamily:
-                                                                    'Plus Jakarta Sans',
-                                                                color: Color(
-                                                                    0xB4FFFFFF),
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    // await launchURL('tel:1234567890');
-                                  },
-                                  child: Material(
-                                    color: Colors.transparent,
-                                    elevation: 3,
-                                    shape: RoundedRectangleBorder(
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.86,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          Colors.white.withOpacity(0.2),
                                       borderRadius: BorderRadius.circular(8),
                                     ),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.86,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        color:Colors.black,
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        // await showModalBottomSheet(
+                                        //   isScrollControlled: true,
+                                        //   backgroundColor: Colors.transparent,
+                                        //   barrierColor: Color(0x00000000),
+                                        //   context: context,
+                                        //   builder: (context) {
+                                        //     return Padding(
+                                        //       padding: MediaQuery.viewInsetsOf(
+                                        //           context),
+                                        //       child: Container(
+                                        //         height: MediaQuery.sizeOf(context)
+                                        //                 .height *
+                                        //             1,
+                                        //         child:
+                                        //          BookAppointmentWidget(
+                                        //           userProfile: homePageUsersRecord
+                                        //               .reference,
+                                        //         ),
+                                        //       ),
+                                        //     );
+                                        //   },
+                                        // ).then((value) => safeSetState(() {})
+                                        // );
+                                      },
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -258,7 +177,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     15, 0, 0, 0),
                                             child: Image.asset(
-                                              ImageConstants.my_black_booking,
+                                              ImageConstants.buying,
                                               width: 60,
                                               height: 60,
                                               fit: BoxFit.cover,
@@ -266,173 +185,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           ),
                                            Expanded(
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(10, 15, 10, 0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                 AppTexts.GetStarted(
-                                                    'Find Pharmacy',
-                                                    15,
-                                                    Colors.white),
-                                                  const Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 0, 0, 8),
-                                                      child: Text(
-                                                        'Give us a call in order to schedule your appointment.',
-                                                        style:
-                                                            TextStyle(
-                                                                  fontFamily:
-                                                                      'Plus Jakarta Sans',
-                                                                  color: Color(
-                                                                      0xB4FFFFFF),
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    // await launchURL('tel:1234567890');
-                                  },
-                                  child: Material(
-                                    color: Colors.transparent,
-                                    elevation: 3,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.86,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        color:Colors.black,
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 0, 0),
-                                            child: Image.asset(
-                                              ImageConstants.complain,
-                                              width: 60,
-                                              height: 60,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                           Expanded(
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(10, 15, 10, 0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                 AppTexts.GetStarted(
-                                                    'Report Side-Effect',
-                                                    15,
-                                                    Colors.white),
-                                                  const Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 0, 0, 8),
-                                                      child: Text(
-                                                        'Give us a call in order to schedule your appointment.',
-                                                        style:
-                                                            TextStyle(
-                                                                  fontFamily:
-                                                                      'Plus Jakarta Sans',
-                                                                  color: Color(
-                                                                      0xB4FFFFFF),
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    // await launchURL(
-                                    //     'mailto:contact@health.ai.demo');
-                                  },
-                                  child: Material(
-                                    color: Colors.transparent,
-                                    elevation: 3,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.86,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        color: Colors.black,
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 0, 0),
-                                            child: Image.asset(
-                                              ImageConstants.call_center,
-                                              width: 60,
-                                              height: 60,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                           Expanded(
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(10, 15, 10, 0),
+                                              padding:
+                                                  const EdgeInsetsDirectional.fromSTEB(
+                                                      10, 15, 10, 0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -441,9 +196,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   AppTexts.GetStarted(
-                                                    'Help & Support Center',
-                                                    15,
-                                                    Colors.white),
+                                                      'Buy Drug / Upload Prescription',
+                                                      15,
+                                                      Colors.white),
                                                   const Expanded(
                                                     child: Padding(
                                                       padding:
@@ -451,7 +206,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               .fromSTEB(
                                                                   0, 0, 0, 8),
                                                       child: Text(
-                                                        'Send us an email and we will get back to you within 2 days.',
+                                                        'Schedule an appointment with our licensed professional.',
                                                         style:
                                                             TextStyle(
                                                                   fontFamily:
@@ -471,8 +226,255 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                                Padding(
+                                  padding:
+                                      const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      // await launchURL('tel:1234567890');
+                                    },
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      elevation: 3,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Container(
+                                        width: MediaQuery.sizeOf(context).width *
+                                            0.86,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                          color:Colors.black,
+                                          borderRadius: BorderRadius.circular(8),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsetsDirectional.fromSTEB(
+                                                      15, 0, 0, 0),
+                                              child: Image.asset(
+                                                ImageConstants.my_black_booking,
+                                                width: 60,
+                                                height: 60,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                             Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(10, 15, 10, 0),
+                                                child: Column(
+                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                   AppTexts.GetStarted(
+                                                      'Find Pharmacy',
+                                                      15,
+                                                      Colors.white),
+                                                    const Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 0, 0, 8),
+                                                        child: Text(
+                                                          'Give us a call in order to schedule your appointment.',
+                                                          style:
+                                                              TextStyle(
+                                                                    fontFamily:
+                                                                        'Plus Jakarta Sans',
+                                                                    color: Color(
+                                                                        0xB4FFFFFF),
+                                                                  ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      // await launchURL('tel:1234567890');
+                                    },
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      elevation: 3,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Container(
+                                        width: MediaQuery.sizeOf(context).width *
+                                            0.86,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                          color:Colors.black,
+                                          borderRadius: BorderRadius.circular(8),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsetsDirectional.fromSTEB(
+                                                      15, 0, 0, 0),
+                                              child: Image.asset(
+                                                ImageConstants.complain,
+                                                width: 60,
+                                                height: 60,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                             Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(10, 15, 10, 0),
+                                                child: Column(
+                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                   AppTexts.GetStarted(
+                                                      'Report Side-Effect',
+                                                      15,
+                                                      Colors.white),
+                                                    const Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 0, 0, 8),
+                                                        child: Text(
+                                                          'Give us a call in order to schedule your appointment.',
+                                                          style:
+                                                              TextStyle(
+                                                                    fontFamily:
+                                                                        'Plus Jakarta Sans',
+                                                                    color: Color(
+                                                                        0xB4FFFFFF),
+                                                                  ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      // await launchURL(
+                                      //     'mailto:contact@health.ai.demo');
+                                    },
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      elevation: 3,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Container(
+                                        width: MediaQuery.sizeOf(context).width *
+                                            0.86,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: BorderRadius.circular(8),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsetsDirectional.fromSTEB(
+                                                      15, 0, 0, 0),
+                                              child: Image.asset(
+                                                ImageConstants.call_center,
+                                                width: 60,
+                                                height: 60,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                             Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(10, 15, 10, 0),
+                                                child: Column(
+                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    AppTexts.GetStarted(
+                                                      'Help & Support Center',
+                                                      15,
+                                                      Colors.white),
+                                                    const Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 0, 0, 8),
+                                                        child: Text(
+                                                          'Send us an email and we will get back to you within 2 days.',
+                                                          style:
+                                                              TextStyle(
+                                                                    fontFamily:
+                                                                        'Plus Jakarta Sans',
+                                                                    color: Color(
+                                                                        0xB4FFFFFF),
+                                                                  ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
