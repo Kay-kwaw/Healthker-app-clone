@@ -13,6 +13,7 @@ class _OrderscreenState extends State<Orderscreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppTexts.appBar(
          'Orders',
           textColor,

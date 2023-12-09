@@ -12,6 +12,7 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      backgroundColor: backgroundColor,
        appBar: AppTexts.appBar(
          'User Details',
           textColor,
@@ -39,7 +40,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 child: Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(
-                    color: Colors.white,
+                    color: backgroundColor,
                   ),
                   child: Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),

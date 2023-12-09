@@ -80,7 +80,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       ),
                                       child: Container(
                                         width: MediaQuery.sizeOf(context).width *
-                                            0.86,
+                                            0.89,
                                         height: 100,
                                         decoration: BoxDecoration(
                                           color:Colors.black,
@@ -112,7 +112,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                    AppTexts.GetStarted(
-                                                      'Find Pharmacy',
+                                                      'Buy drug / Upload Prescription',
                                                       15,
                                                       Colors.white),
                                                     const Expanded(
@@ -153,7 +153,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       ),
                                       child: Container(
                                         width: MediaQuery.sizeOf(context).width *
-                                            0.86,
+                                            0.89,
                                         height: 100,
                                         decoration: BoxDecoration(
                                           color:Colors.black,
@@ -226,7 +226,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       ),
                                       child: Container(
                                         width: MediaQuery.sizeOf(context).width *
-                                            0.86,
+                                            0.89,
                                         height: 100,
                                         decoration: BoxDecoration(
                                           color:Colors.black,
@@ -240,7 +240,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                   const EdgeInsetsDirectional.fromSTEB(
                                                       15, 0, 0, 0),
                                               child: Image.asset(
-                                                ImageConstants.my_black_booking,
+                                                ImageConstants.complain,
                                                 width: 60,
                                                 height: 60,
                                                 fit: BoxFit.cover,
@@ -258,7 +258,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                    AppTexts.GetStarted(
-                                                      'Find Pharmacy',
+                                                      'Report Side-Effect',
                                                       15,
                                                       Colors.white),
                                                     const Expanded(
@@ -299,7 +299,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       ),
                                       child: Container(
                                         width: MediaQuery.sizeOf(context).width *
-                                            0.86,
+                                            0.89,
                                         height: 100,
                                         decoration: BoxDecoration(
                                           color:Colors.black,
@@ -313,7 +313,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                   const EdgeInsetsDirectional.fromSTEB(
                                                       15, 0, 0, 0),
                                               child: Image.asset(
-                                                ImageConstants.my_black_booking,
+                                                ImageConstants.call_center,
                                                 width: 60,
                                                 height: 60,
                                                 fit: BoxFit.cover,
@@ -331,7 +331,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                    AppTexts.GetStarted(
-                                                      'Find Pharmacy',
+                                                      'Help Center',
                                                       15,
                                                       Colors.white),
                                                     const Expanded(
