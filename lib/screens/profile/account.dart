@@ -80,7 +80,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               AppTexts.GetStarted(
                                 'kwaw kumi',
                                 18,
-                                textSecondaryColor
+                                textColor
                               ),
                               Padding(
                                 padding:
@@ -88,7 +88,7 @@ class _AccountScreenState extends State<AccountScreen> {
                                 child: AppTexts.GetStarted(
                                   '0549433446',
                                   14,
-                                  textSecondaryColor
+                                  textColor
                                 )
                               ),
                             ],

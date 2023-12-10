@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
-import 'package:healthker/screens/LoginScreen/login_signup.dart';
 
 class ForgotPasswordWidget extends StatefulWidget {
   const ForgotPasswordWidget({Key? key}) : super(key: key);
@@ -36,9 +35,6 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
           focusColor: Colors.transparent,
           hoverColor: Colors.transparent,
           highlightColor: Colors.transparent,
-          // onTap: () async {
-          //   Navigator.pop();
-          // },
           child: Icon(
             Icons.chevron_left_rounded,
             color:backgroundColor,
@@ -46,7 +42,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
           ),
         ),
         title: AppTexts.GetStarted("Forgot Password", 20, Colors.white),
-        actions: [],
+        actions: const [],
         centerTitle: true,
         elevation: 0,
       ),
@@ -79,7 +75,8 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                 children: [
                   Expanded(
                     child: Text(
-                      'Enter the email associated with your account and \n            we will send you a verification code.',
+                      'Enter the email associated with your account and we will send you a verification code.',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: "KumbhSans-medium",
                         color: Colors.white
@@ -90,7 +87,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
               child: TextFormField(
                                                     obscureText: true,
                                                     decoration:  InputDecoration(
@@ -114,6 +111,43 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                
               })
             ),
+             Row(
+               children: [
+                 Padding(padding: const EdgeInsetsDirectional.fromSTEB(30, 30, 0, 10),
+                             child:AppTexts.GetStarted("Remembered Password?", 16, textColor),
+                             ),
+                 const Padding(padding: EdgeInsetsDirectional.fromSTEB(10, 18, 0, 0),
+                             child:Text("Login", style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              decorationColor: primaryColor,
+                              color: primaryColor,
+                              fontSize: 17,
+                              fontFamily: "KumbhSans"
+
+                             ),),
+                             ),
+                 
+               ],
+             ),
+             Row(
+               children: [
+                 Padding(padding: const EdgeInsetsDirectional.fromSTEB(30, 30, 0, 10),
+                             child:AppTexts.GetStarted("Remembered Password?", 16, textColor),
+                             ),
+                 const Padding(padding: EdgeInsetsDirectional.fromSTEB(10, 18, 0, 0),
+                             child:Text("Login", style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              decorationColor: primaryColor,
+                              color: primaryColor,
+                              fontSize: 17,
+                              fontFamily: "KumbhSans"
+
+                             ),),
+                             ),
+                 
+               ],
+             ),
+           
           ],
         ),
       ),
