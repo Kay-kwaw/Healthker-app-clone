@@ -48,15 +48,23 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                         padding: const EdgeInsetsDirectional.fromSTEB(15, 15, 20, 10),
                         child: AppTexts.goodhands()
                       ),
-                      const Padding(
+                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
-                        child: Text(
-                          'Welcome! Kwaw',
-                          style: TextStyle(
-                            fontFamily: 'KumbhSans',
-                            fontSize: 22,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                        child: InkWell(
+                          onTap: (){
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Container(
+                              child: Text("Wodget working"),
+                            )));
+
+                          },
+                          child: const Text(
+                            'Welcome! Kwaw',
+                            style: TextStyle(
+                              fontFamily: 'KumbhSans',
+                              fontSize: 22,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -71,7 +79,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                           ),
                         ),
                       ),
-                        Grid.grid(),
+                        Grid.grid(context)
                     ],
                   ),
               ],
@@ -82,5 +90,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
         ),
       );
   }
+
 }
+
+
 

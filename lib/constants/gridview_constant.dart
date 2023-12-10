@@ -5,10 +5,9 @@ import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
 
 class Grid {
-  static Widget grid() {
+  static Widget grid(BuildContext context) {
     return ListView(
       padding: EdgeInsets.zero,
-     
       shrinkWrap: true,
       // physics: const NeverScrollableScrollPhysics(),
       scrollDirection: Axis.vertical,
@@ -22,66 +21,78 @@ class Grid {
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(8),
                                           ),
-                                          child: Container(
-                                            // width: MediaQuery.sizeOf(context).width *
-                                            //     0.89,
-                                            height: 100,
-                                            decoration: BoxDecoration(
-                                              color:const Color.fromARGB(255, 60, 92, 108),
-                                              borderRadius: BorderRadius.circular(8),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsetsDirectional.fromSTEB(
-                                                          15, 0, 0, 0),
-                                                  child: Image.asset(
-                                                    ImageConstants.buying,
-                                                    width: 60,
-                                                    height: 60,
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                                 Expanded(
-                                                  child: Padding(
-                                                    padding: const EdgeInsetsDirectional
-                                                        .fromSTEB(10, 15, 10, 0),
-                                                    child: Column(
-                                                      mainAxisSize: MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment.start,
-                                                      children: [
-                                                       AppTexts.GetStarted(
-                                                          'Buy drug / Upload Prescription',
-                                                          15,
-                                                          Colors.white),
-                                                        const Expanded(
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0, 0, 0, 8),
-                                                            child: Text(
-                                                              'Give us a call in order to schedule your appointment.',
-                                                              style:
-                                                                  TextStyle(
-                                                                        fontFamily:
-                                                                            'Plus Jakarta Sans',
-                                                                        color: Color(
-                                                                            0xB4FFFFFF),
-                                                                      ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                          child: InkWell(
+                                            onTap: (){
+                                               ScaffoldMessenger.of(context).showSnackBar(
+                                                            const SnackBar(content: Text("Default setting showing"))
+                                                           );
+                                            },
+                                            child: Container(
+                                              // width: MediaQuery.sizeOf(context).width *
+                                              //     0.89,
+                                              height: 100,
+                                              decoration: BoxDecoration(
+                                                color:const Color.fromARGB(255, 60, 92, 108),
+                                                borderRadius: BorderRadius.circular(8),
+                                              ),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional.fromSTEB(
+                                                            15, 0, 0, 0),
+                                                    child: Image.asset(
+                                                      ImageConstants.buying,
+                                                      width: 60,
+                                                      height: 60,
+                                                      fit: BoxFit.cover,
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                   Expanded(
+                                                    child: Padding(
+                                                      padding: const EdgeInsetsDirectional
+                                                          .fromSTEB(10, 15, 10, 0),
+                                                      child: Column(
+                                                        mainAxisSize: MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment.center,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment.start,
+                                                        children: [
+                                                         InkWell(
+                                                            onTap: (){
+                                                            
+                                                            },
+                                                           child: AppTexts.GetStarted(
+                                                              'Buy drug / Upload Prescription',
+                                                              15,
+                                                              Colors.white),
+                                                         ),
+                                                          const Expanded(
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0, 0, 0, 8),
+                                                              child: Text(
+                                                                'Give us a call in order to schedule your appointment.',
+                                                                style:
+                                                                    TextStyle(
+                                                                          fontFamily:
+                                                                              'Plus Jakarta Sans',
+                                                                          color: Color(
+                                                                              0xB4FFFFFF),
+                                                                        ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -184,11 +195,16 @@ class Grid {
                                                 padding:
                                                     const EdgeInsetsDirectional.fromSTEB(
                                                         15, 0, 0, 0),
-                                                child: Image.asset(
-                                                  ImageConstants.complain,
-                                                  width: 60,
-                                                  height: 60,
-                                                  fit: BoxFit.cover,
+                                                child: InkWell(
+                                                  onTap: (){
+                                                    
+                                                  },
+                                                  child: Image.asset(
+                                                    ImageConstants.complain,
+                                                    width: 60,
+                                                    height: 60,
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
                                               ),
                                                Expanded(
@@ -311,4 +327,3 @@ class Grid {
     );
   }
 }
-
