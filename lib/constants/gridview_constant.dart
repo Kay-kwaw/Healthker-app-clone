@@ -4,6 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
 
+class BottomSheetModel extends ChangeNotifier {
+  bool _isBottomSheetVisible = false;
+
+  bool get isBottomSheetVisible => _isBottomSheetVisible;
+
+  void showBottomSheet() {
+    _isBottomSheetVisible = true;
+    notifyListeners();
+  }
+
+  void hideBottomSheet() {
+    _isBottomSheetVisible = false;
+    notifyListeners();
+  }
+}
+
 class Grid {
   static Widget grid(BuildContext context) {
     return ListView(
@@ -23,9 +39,40 @@ class Grid {
                                           ),
                                           child: InkWell(
                                             onTap: (){
-                                               ScaffoldMessenger.of(context).showSnackBar(
-                                                            const SnackBar(content: Text("Default setting showing"))
-                                                           );
+                                              showModalBottomSheet(context: context, builder: (context) {
+                                                return Container(
+                                                  height: 300,
+                                                  child: Column(
+                                                    children: [
+                                                      const Padding(
+                                                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 0, 0,),
+                                                        child: Text("How do you want to purchase the medicine?", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
+                                                      ),
+                                                      ListTile(
+                                                        leading: const Icon(Icons.upload),
+                                                        title: const Text("Upload Prescription"),
+                                                        onTap: (){
+                                                          Navigator.pop(context);
+                                                        },
+                                                      ),
+                                                      ListTile(
+                                                        leading: const Icon(Icons.search),
+                                                        title: const Text("Search Medicine"),
+                                                        onTap: (){
+                                                          Navigator.pop(context);
+                                                        },
+                                                      ),
+                                                      ListTile(
+                                                        leading: const Icon(Icons.edit),
+                                                        title: const Text("Write Request"),
+                                                        onTap: (){
+                                                          Navigator.pop(context);
+                                                        },
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              }); 
                                             },
                                             child: Container(
                                               // width: MediaQuery.sizeOf(context).width *
@@ -218,10 +265,53 @@ class Grid {
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment.start,
                                                     children: [
-                                                     AppTexts.GetStarted(
-                                                        'Report Side-Effect',
-                                                        15,
-                                                        Colors.white),
+                                                     InkWell(
+                                                      onTap: (){
+                                                        ScaffoldMessenger.of(context).showSnackBar(
+                                                             SnackBar(
+                                                              content:
+                                                             Container(
+                                                              padding: EdgeInsets.all(16),
+                                                              height: 80,
+                                                              decoration: const BoxDecoration(
+                                                                color:Color.fromARGB(255, 233, 166, 166),
+                                                                borderRadius: BorderRadius.all(Radius.circular(20)),
+                                                              ),
+                                                              child: 
+                                                              const Row(
+                                                                children: [
+                                                                  SizedBox(width: 48),
+                                                                  Expanded(
+                                                                    child: Column(
+                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                      children: [
+                                                                        Row(
+                                                                          children: [
+                                                                            Text("Oh Snap!", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),),
+                                                                            Icon(Icons.error, color: Colors.red,)
+                                                                          ],
+                                                                        ),
+                                                                        Text("Coming soon", style: TextStyle(color: Colors.black),
+                                                                        maxLines: 2,
+                                                                        overflow: TextOverflow.ellipsis,
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              ),
+                                                              behavior: SnackBarBehavior.floating,
+                                                              backgroundColor: Colors.transparent,
+                                                              elevation: 0,
+                                                              )
+                                                           );
+                                                      },
+                                                       child: AppTexts.GetStarted(
+                                                          'Report Side-Effect',
+                                                          15,
+                                                          Colors.white),
+                                                     ),
                                                       const Expanded(
                                                         child: Padding(
                                                           padding:

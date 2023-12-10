@@ -45,6 +45,7 @@ dependencies:
   http: ^1.1.2
   cached_network_image: ^3.3.0
   textfield_datepicker: ^0.2.0
+  flutter_emoji: ^2.5.1
 
 dev_dependencies:
   flutter_test:
@@ -83,7 +84,7 @@ flutter:
     - assets/images/my_black_booking.png
     - assets/images/order.png
     - assets/images/waving.png
-   
+    - assets/images/bubble-chat-delay.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/screens/Forgotpassword/forgot_password_screen.dart';
@@ -218,7 +219,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                  Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(0, 15, 0, 0),
-                                                  child: AppTexts.buildElevatedButton(buttontext: 'Login', onPressed: (){})
+                                                  child: AppTexts.buildElevatedButton(buttontext: 'Login', onPressed: (){
+                                                    Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) => const Index(),
+                                                    ),
+                                                  );
+                                                  })
                                                 ),
                                                  
                                                                                               const Padding(
