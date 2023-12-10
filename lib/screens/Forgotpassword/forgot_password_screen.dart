@@ -30,19 +30,24 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
       appBar: AppBar(
         backgroundColor: backgroundColor,
         automaticallyImplyLeading: false,
-        leading: const InkWell(
+        leading:  InkWell(
           splashColor: Colors.transparent,
           focusColor: Colors.transparent,
           hoverColor: Colors.transparent,
           highlightColor: Colors.transparent,
-          child: Icon(
-            Icons.chevron_left_rounded,
-            color:backgroundColor,
-            size: 32,
+          child: InkWell(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: const Icon(
+              Icons.chevron_left_rounded,
+              color:textColor,
+              size: 32,
+            ),
           ),
         ),
         title: AppTexts.GetStarted("Forgot Password", 20, Colors.white),
-        actions: const [],
+        // actions: const [],
         centerTitle: true,
         elevation: 0,
       ),
@@ -111,12 +116,18 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                
               })
             ),
-             Row(
+             const Row(
                children: [
-                 Padding(padding: const EdgeInsetsDirectional.fromSTEB(30, 30, 0, 10),
-                             child:AppTexts.GetStarted("Remembered Password?", 16, textColor),
+                 Padding(padding: EdgeInsetsDirectional.fromSTEB(30, 30, 0, 10),
+                           child: Text("Remembered Password",
+                           style: TextStyle(
+                            fontFamily: "KumbhSans-medium",
+                            color: Colors.white,
+                            fontSize: 17
+                           ),),
+                            //  child:AppTexts.GetStarted("Remembered Password?", 16, textColor),
                              ),
-                 const Padding(padding: EdgeInsetsDirectional.fromSTEB(10, 18, 0, 0),
+                 Padding(padding: EdgeInsetsDirectional.fromSTEB(10, 18, 0, 0),
                              child:Text("Login", style: TextStyle(
                               decoration: TextDecoration.underline,
                               decorationColor: primaryColor,
@@ -129,13 +140,19 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                  
                ],
              ),
-             Row(
+             const Row(
                children: [
-                 Padding(padding: const EdgeInsetsDirectional.fromSTEB(30, 30, 0, 10),
-                             child:AppTexts.GetStarted("Remembered Password?", 16, textColor),
+                 Padding(padding: EdgeInsetsDirectional.fromSTEB(30, 10, 0, 10),
+                 child: Text("Don't have an account yet?", style: TextStyle(
+                  fontFamily: "KumbhSans-medium",
+                  fontSize: 17,
+                  color: textColor
+
+                 ),),
+                            //  child:AppTexts.GetStarted("Remembered Password?", 16, textColor),
                              ),
-                 const Padding(padding: EdgeInsetsDirectional.fromSTEB(10, 18, 0, 0),
-                             child:Text("Login", style: TextStyle(
+                 Padding(padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                             child:Text("Sign Up", style: TextStyle(
                               decoration: TextDecoration.underline,
                               decorationColor: primaryColor,
                               color: primaryColor,

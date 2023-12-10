@@ -1,4 +1,7 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
+import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
 
 class Grid {
@@ -20,35 +23,79 @@ class Grid {
             color:  const Color.fromARGB(255, 208, 122, 57),
             borderRadius: BorderRadius.circular(15),
           ),
-          child: Stack(
-            children: [
-               const Align(
-                alignment: AlignmentDirectional(-0.72, -0.77),             
-                  child: Text(
-                    'Buy drug \nUpload\nPrescription',
-                    style: TextStyle(
-                      fontFamily: 'KumbhSans',
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
-                  ),
-              ),
-              Align(
- alignment: const AlignmentDirectional(8.57, 1.18),
-  child: ClipRRect(
-    child: Padding(
-      padding:  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-      child: Image.asset(
-        ImageConstants.buying,
-        width: 167,
-        height: 120,
-        // fit: BoxFit.scaleDown,
-      ),
-    ),
-  ),
-)
-            ],
-          ),
+                       child: Padding(
+                        padding:  EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                        child: Material(
+                                        color: Colors.transparent,
+                                        elevation: 3,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(8),
+                                        ),
+                                        child: Container(
+                                          width: MediaQuery.sizeOf(context as BuildContext).width *
+                                              0.89,
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                            color:Colors.black,
+                                            borderRadius: BorderRadius.circular(8),
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsetsDirectional.fromSTEB(
+                                                        15, 0, 0, 0),
+                                                child: Image.asset(
+                                                  ImageConstants.complain,
+                                                  width: 60,
+                                                  height: 60,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                               Expanded(
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(10, 15, 10, 0),
+                                                  child: Column(
+                                                    mainAxisSize: MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.start,
+                                                    children: [
+                                                     AppTexts.GetStarted(
+                                                        'Report Side-Effect',
+                                                        15,
+                                                        Colors.white),
+                                                      const Expanded(
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0, 0, 0, 8),
+                                                          child: Text(
+                                                            'Give us a call in order to schedule your appointment.',
+                                                            style:
+                                                                TextStyle(
+                                                                      fontFamily:
+                                                                          'Plus Jakarta Sans',
+                                                                      color: Color(
+                                                                          0xB4FFFFFF),
+                                                                    ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ), 
+                        // Grid.grid(),
+                      ),
         ),
         Container(
           decoration: BoxDecoration(

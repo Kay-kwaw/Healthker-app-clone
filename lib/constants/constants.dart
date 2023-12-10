@@ -106,7 +106,6 @@ class AppTexts {
                                   offset: Offset(0, 3),
                                   spreadRadius: 1,
                                   blurRadius: 1,
-                                  
                                 )
                               ]
                               
