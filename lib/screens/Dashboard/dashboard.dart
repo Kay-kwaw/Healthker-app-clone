@@ -71,7 +71,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                           ),
                         ),
                       ),
-                        Grid.grid(context)
+                        Grid.grid(context),
                     ],
                   ),
               ],

@@ -6,12 +6,12 @@ import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/screens/LoginScreen/login_signup.dart';
 import 'package:healthker/screens/OnboardingScreen/onboardingscreen.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingWidget extends StatefulWidget {
   const OnboardingWidget({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _OnboardingWidgetState createState() => _OnboardingWidgetState();
 }
 
@@ -100,7 +100,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(4.0),
                                 shape: BoxShape.rectangle,
-                                color: _currentIndex == index ? const Color.fromARGB(255, 41, 120, 255) : Color.fromARGB(255, 200, 219, 253),
+                                color: _currentIndex == index ? const Color.fromARGB(255, 41, 120, 255) : const Color.fromARGB(255, 200, 219, 253),
                               ),
                             );
                           }),

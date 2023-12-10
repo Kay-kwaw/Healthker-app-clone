@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
+import 'package:healthker/constants/gridview_constant.dart';
 import 'package:healthker/constants/imageconstants.dart';
+import 'package:provider/provider.dart';
 
 class Orderscreen extends StatefulWidget {
   const Orderscreen({super.key});
@@ -48,12 +50,14 @@ class _OrderscreenState extends State<Orderscreen> {
               height: 10,
             
             ),
-            Text("You don't have orders yet"),
+            const Text("You don't have orders yet"),
             const SizedBox(
               height: 40,
             
             ),
-           AppTexts.buildElevatedButton(buttontext: "Buy Medicine", onPressed: (){})
+           AppTexts.buildElevatedButton(buttontext: "Buy Medicine", onPressed: (){
+            Provider.of<BottomSheetModel>(context, listen: false).showBottomSheet();
+           })
          ],
        )
     );

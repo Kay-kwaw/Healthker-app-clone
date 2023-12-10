@@ -19,7 +19,6 @@ class BottomSheetModel extends ChangeNotifier {
     notifyListeners();
   }
 }
-
 class Grid {
   static Widget grid(BuildContext context) {
     return ListView(
@@ -40,7 +39,7 @@ class Grid {
                                           child: InkWell(
                                             onTap: (){
                                               showModalBottomSheet(context: context, builder: (context) {
-                                                return Container(
+                                                return SizedBox(
                                                   height: 300,
                                                   child: Column(
                                                     children: [
@@ -220,7 +219,7 @@ class Grid {
                         // Grid.grid(),
                       ),
                     Padding(
-                        padding:  EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                        padding:  const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                         child: Material(
                                         color: Colors.transparent,
                                         elevation: 3,
@@ -271,7 +270,7 @@ class Grid {
                                                              SnackBar(
                                                               content:
                                                              Container(
-                                                              padding: EdgeInsets.all(16),
+                                                              padding: const EdgeInsets.all(16),
                                                               height: 80,
                                                               decoration: const BoxDecoration(
                                                                 color:Color.fromARGB(255, 233, 166, 166),
@@ -417,3 +416,4 @@ class Grid {
     );
   }
 }
+
