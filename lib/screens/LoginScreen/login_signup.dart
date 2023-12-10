@@ -70,10 +70,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                             Expanded(
                               child: Column(
                                 children: [
-                                  const Align(
+                                   const Align(
                                     alignment: Alignment(0, 0),
                                     child: TabBar(
                                       isScrollable: true,
+                                      dividerColor: Colors.transparent,
                                       labelColor:
                                           Colors.white,
                                       unselectedLabelColor:
@@ -91,11 +92,24 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           Colors.black,
                                       indicatorWeight: 3,
                                       tabs: [
-                                        Tab(
-                                          text: 'Login',
+                                        Row(
+                                          children: [
+                                            Tab(
+                                              text: 'Login',
+                                              
+                                            ),
+                                            Tab(
+                                              icon: Icon(Icons.person),
+                                            )
+                                          ],
                                         ),
-                                        Tab(
-                                          text: 'Register',
+                                        Row(
+                                          children: [
+                                            Tab(
+                                              text: 'Register',
+                                            ),
+                                            Icon(Icons.person)
+                                          ],
                                         ),
                                       ],
                                       // controller: _model.tabBarController,

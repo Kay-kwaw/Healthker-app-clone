@@ -1,9 +1,11 @@
 
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/screens/LoginScreen/login_signup.dart';
+import 'package:healthker/screens/OnboardingScreen/onboardingscreen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingWidget extends StatefulWidget {
@@ -14,6 +16,13 @@ class OnboardingWidget extends StatefulWidget {
 }
 
 class _OnboardingWidgetState extends State<OnboardingWidget> {
+  int _currentIndex =0;
+  late AnimationController _controller;
+  final List<CarouselItem> carouselItems = [
+     CarouselItem('Buying medicine just got easier', ImageConstants.man_pharmacist),
+     CarouselItem('Search drug or upload prescription', ImageConstants.man_with_phone),
+     CarouselItem('Pickup or get it Delivered', ImageConstants.delivery_man),
+  ];
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -58,248 +67,44 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                     children: [
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 20),
-                        child: PageView(
-                          controller: controller,
-                          scrollDirection: Axis.horizontal,
-                          children: [
-                            Container(
-                              width: 100,
-                              height: 100,
-                              decoration: const BoxDecoration(),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 20),
-                                        child: Image.asset(
-                                          ImageConstants.man_pharmacist,
-                                          width: 270,
-                                          height: 300,
-                                          fit: BoxFit.fitWidth,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 0, 20, 8),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            'Find a Pharmacy',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              fontFamily: "KumbhSans",
-                                              fontSize: 20,
-                                              color: Colors.white
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 0, 20, 8),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          child: Padding(
-                                            padding: EdgeInsets.all(8.0),
-                                            child: Text(
-                                              'Buying of medicine just got very easier.',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                fontFamily: 'KumbhSans',
-                                                fontSize: 16,
-                                                color: Colors.white
-                                              )
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              width: 100,
-                              height: 100,
-                              decoration: const BoxDecoration(),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 20),
-                                        child: Image.asset(
-                                          ImageConstants.man_with_phone,
-                                          width: 270,
-                                          height: 270,
-                                          fit: BoxFit.fitHeight,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        40, 0, 20, 8),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            'Search Drug',
-                                            textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                 fontFamily: "KumbhSans",
-                                              fontSize: 20,
-                                              color: Colors.white
-                                                
-                                              ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 0, 20, 8),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          child: Padding(
-                                            padding: EdgeInsets.all(8.0),
-                                            child: Text(
-                                              'Search drug or secure prescription for further assistance.',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                fontFamily: 'KumbhSans',
-                                                fontSize: 16,
-                                                color: Colors.white
-                                              )
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              width: 100,
-                              height: 100,
-                              decoration: const BoxDecoration(),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0, 30, 0, 30),
-                                        child: Image.asset(
-                                          ImageConstants.delivery_man,
-                                          width: 270,
-                                          height: 250,
-                                          fit: BoxFit.fitWidth,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 0, 20, 8),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            'Pick Up Or Delivery',
-                                            textAlign: TextAlign.center,
-                                            style:TextStyle(
-                                               fontFamily: "KumbhSans",
-                                              fontSize: 20,
-                                              color: Colors.white
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 0, 20, 8),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          child: Padding(
-                                            padding: EdgeInsets.all(12.0),
-                                            child: Text(
-                                              'Convenient pickup or seamless delivery options for your added convenience.',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                fontFamily: 'KumbhSans',
-                                                fontSize: 16,
-                                                color: Colors.white
-                                              )
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
+                        child: CarouselSlider(
+                          items: carouselItems.map((item) => _buildCarouselItem(item)).toList(),
+                          options: CarouselOptions(
+                              height: 400.0,
+                              enlargeCenterPage: true,
+                              enableInfiniteScroll: true,
+                              autoPlay: true,
+                              autoPlayInterval: const Duration(seconds: 2),
+                              autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                              pauseAutoPlayOnTouch: true,
+                              aspectRatio: 16/9,
+                              onPageChanged: (index, reason) {
+                                setState(() {
+                              _currentIndex = index;
+                                });
+                              },
+                          ),
                         ),
                       ),
                       Align(
                         alignment: const AlignmentDirectional(0.00, 1.00),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                          child: SmoothPageIndicator(
-                                      count: 3,
-                                      axisDirection: Axis.horizontal,
-                                      onDotClicked: (i) async {
-                                        await controller.animateToPage(
-                                          i,
-                                          duration: const Duration(milliseconds: 500),
-                                          curve: Curves.ease,
-                                        );
-                                      },
-                                      effect: WormEffect(
-                                        spacing: 8,
-                                        radius: 16,
-                                        dotWidth: 16,
-                                        dotHeight: 8,
-                                        dotColor: Colors.grey.shade400,   
-                                        activeDotColor: Color.fromARGB(255, 39, 53, 68),
-                                        paintStyle: PaintingStyle.fill,
-                                      ), controller: controller, 
-                                    ),
+                          child:Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(3, (index) {
+                            return Container(
+                              width: _currentIndex == index ? 25.0 : 18.0,
+                              height: 9.0,
+                              margin: const EdgeInsets.symmetric(horizontal: 4.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4.0),
+                                shape: BoxShape.rectangle,
+                                color: _currentIndex == index ? const Color.fromARGB(255, 41, 120, 255) : Color.fromARGB(255, 200, 219, 253),
+                              ),
+                            );
+                          }),
+                        ),
                           ),
                         ),
                     ],
@@ -384,3 +189,30 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
           );
   }
 }
+
+Widget _buildCarouselItem(CarouselItem item)  {
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        Image.asset(
+          item.imagePath,
+          width: 400,
+          height: 400, 
+        ),
+        Container(
+          padding: const EdgeInsets.all(20.0),
+          child: Text(
+            item.text,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 25.0,
+              color: Color.fromARGB(255, 255, 255, 255),
+              // fontWeight: FontWeight.bold,
+              fontFamily: 'KumbhSans',
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
