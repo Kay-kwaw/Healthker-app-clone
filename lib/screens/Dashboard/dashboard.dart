@@ -39,49 +39,52 @@ class _DashboardWidgetState extends State<DashboardWidget> {
           ),
           centerTitle: false
         ),
-        body:SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(15, 15, 20, 10),
-                        child: AppTexts.goodhands()
-                      ),
-                       const Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+        body:PopScope(
+          canPop: false,
+          child: SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(15, 15, 20, 10),
+                          child: AppTexts.goodhands()
+                        ),
+                         const Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                            child: Text(
+                              'Welcome! Kwaw',
+                              style: TextStyle(
+                                fontFamily: 'KumbhSans',
+                                fontSize: 22,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        const Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(26, 0, 0, 10),
                           child: Text(
-                            'Welcome! Kwaw',
+                            'Here are the actions for you',
+                            textAlign: TextAlign.start,
                             style: TextStyle(
                               fontFamily: 'KumbhSans',
-                              fontSize: 22,
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                      const Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(26, 0, 0, 10),
-                        child: Text(
-                          'Here are the actions for you',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontFamily: 'KumbhSans',
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                        Grid.grid(context),
-                    ],
-                  ),
-              ],
+                          Grid.grid(context),
+                      ],
+                    ),
+                ],
+              ),
             ),
+            
           ),
-          
         ),
         ),
       );
