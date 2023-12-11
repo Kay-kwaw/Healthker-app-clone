@@ -68,6 +68,16 @@ class Grid {
                                                           Navigator.pop(context);
                                                         },
                                                       ),
+                                                      Padding(
+                                                        padding: const EdgeInsetsDirectional.fromSTEB(180, 0, 0, 8),
+                                                        child: ListTile(
+                                                          leading: const Icon(Icons.cancel, size: 30,),
+                                                          title: const Text(""),
+                                                          onTap: (){
+                                                            Navigator.pop(context);
+                                                          },
+                                                        ),
+                                                      ),
                                                     ],
                                                   ),
                                                 );
@@ -219,7 +229,7 @@ class Grid {
                         // Grid.grid(),
                       ),
                     Padding(
-                        padding:  const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                        padding:  EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                         child: Material(
                                         color: Colors.transparent,
                                         elevation: 3,
@@ -270,7 +280,7 @@ class Grid {
                                                              SnackBar(
                                                               content:
                                                              Container(
-                                                              padding: const EdgeInsets.all(16),
+                                                              padding: EdgeInsets.all(16),
                                                               height: 80,
                                                               decoration: const BoxDecoration(
                                                                 color:Color.fromARGB(255, 233, 166, 166),
@@ -416,4 +426,3 @@ class Grid {
     );
   }
 }
-

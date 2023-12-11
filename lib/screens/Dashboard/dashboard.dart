@@ -19,10 +19,14 @@ class _DashboardWidgetState extends State<DashboardWidget> {
         appBar: AppTexts.appBar(
           'Current location',
           Colors.black,
-          const Icon(
+           const Icon(
             Icons.location_on_outlined,
             color: Colors.white,
           ),
+          leadingTap: (){
+             AppTexts.showBottomSheet(context);
+
+          },
           action: IconButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context)=> const  CartScreen())

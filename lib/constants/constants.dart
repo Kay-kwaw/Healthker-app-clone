@@ -7,7 +7,7 @@ const textSecondaryColor = Colors.black;
 const backgroundColor =  Color.fromARGB(255, 17, 29, 39);
 
 class AppTexts {
-  static AppBar appBar(String title, Color color, Icon icon, { required IconButton action, required bool centerTitle}) {
+  static AppBar appBar(String title, Color color, Icon icon,  { required IconButton action, required bool centerTitle, required Null Function() leadingTap}) {
     return AppBar(
       title: Text(
         title,
@@ -20,7 +20,13 @@ class AppTexts {
       actions: [
         action,
       ],
-      leading: icon,
+      leading: InkWell(
+        onTap: (){
+           if (leadingTap != null) {
+            leadingTap();
+          }
+        },
+        child: icon),
       backgroundColor: backgroundColor,
        elevation: 2,
     );
@@ -151,8 +157,30 @@ class AppTexts {
                                                 ),
                                               );
                           }
-                          
-                          
+                          static void showBottomSheet(BuildContext context) {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return Container(
+                                height: 500,
+                                width: double.infinity,
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Text("Where do you want it to be delivered to?", style: TextStyle(
+                                      fontSize: 20,
+                                      fontFamily: "KumbhSans"
+                                    ),
+                                    textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                              );
+                            },
+                          );
                         }
+                      }
+                          
+                          
+
+                        
 
 

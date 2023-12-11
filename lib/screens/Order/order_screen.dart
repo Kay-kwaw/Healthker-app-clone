@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/gridview_constant.dart';
 import 'package:healthker/constants/imageconstants.dart';
-import 'package:provider/provider.dart';
 
 class Orderscreen extends StatefulWidget {
   const Orderscreen({super.key});
@@ -30,7 +29,7 @@ class _OrderscreenState extends State<Orderscreen> {
               Icons.shopping_cart_outlined,
               color: Colors.white,
             ),
-          ),
+          ), leadingTap: () {  },
        ),
       body: 
        Column(
@@ -56,7 +55,7 @@ class _OrderscreenState extends State<Orderscreen> {
             
             ),
            AppTexts.buildElevatedButton(buttontext: "Buy Medicine", onPressed: (){
-            Provider.of<BottomSheetModel>(context, listen: false).showBottomSheet();
+            
            })
          ],
        )

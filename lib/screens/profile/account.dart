@@ -27,7 +27,7 @@ class _AccountScreenState extends State<AccountScreen> {
               Icons.shopping_cart_outlined,
               color: Colors.white,
             ),
-          ),
+          ), leadingTap: () {  },
        ),
       body: SafeArea(
           top: true,
