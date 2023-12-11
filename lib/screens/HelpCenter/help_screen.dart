@@ -215,12 +215,11 @@ class _HelpWidgetState extends State<HelpWidget>
                     ]
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         TextFormField(
-                          
                           autofocus: true,
                           obscureText: false,
                           decoration: const InputDecoration(
@@ -228,8 +227,8 @@ class _HelpWidgetState extends State<HelpWidget>
                             hintText:
                                 'Short Description of what is going on...',
                             
-                            contentPadding:
-                                EdgeInsetsDirectional.fromSTEB(16, 24, 16, 12),
+                            // contentPadding:
+                            //     EdgeInsetsDirectional.fromSTEB(16, 24, 16, 12),
                           ),
                           style:
                               const TextStyle(
@@ -237,14 +236,14 @@ class _HelpWidgetState extends State<HelpWidget>
                                       ),
                           maxLines: 16,
                           minLines: 6,
-                          cursorColor: Color(0xFF6F61EF),
+                          cursorColor: const Color(0xFF6F61EF),
                           
                         ),
                       ]
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 24, 0, 12),
+                    padding: const EdgeInsetsDirectional.fromSTEB(30, 24, 0, 12),
                     child: AppTexts.buildElevatedButton(
                       onPressed: () {
                         print('Button pressed ...');

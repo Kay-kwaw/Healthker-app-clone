@@ -7,56 +7,53 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize shared preferences
-  await initializeSharedPreferences();
-
-  runApp(const MyApp(initialRoute: '',));
+  runApp(const MyApp());
 }
 
-// Initialization of shared preferences
-Future<void> initializeSharedPreferences() async {
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key});
 
-  bool isFirstLaunch = prefs.getBool('isFirstLaunch') ?? true;
-  bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
 
-  if (isFirstLaunch) {
-    // Perform initial setup or show onboarding screen
-    prefs.setBool('isFirstLaunch', false);
-    navigateToOnboarding();
-  } else if (isLoggedIn) {
-    // User is authenticated, navigate to the main screen
-    navigateToIndex();
-  } else {
-    // User is not authenticated, stay on the onboarding screen or show login screen
-    navigateToOnboarding();
+class _MyAppState extends State<MyApp> {
+
+    Future<void> _saveAuthenticationStatus() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isAuthenticated', true);
   }
-}
 
-void navigateToOnboarding() {
-  runApp(const MyApp(initialRoute: '/onboarding'));
-}
-
-void navigateToIndex() {
-  runApp(const MyApp(initialRoute: '/index'));
-}
-
-class MyApp extends StatelessWidget {
-  final String initialRoute;
-
-  const MyApp({Key? key, required this.initialRoute}) : super(key: key);
-
+  Future<bool> _getAuthenticationStatus() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('isAuthenticated') ?? false;
+  }
+  
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: const Size(360, 690));
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: initialRoute,
-      routes: {
-        '/onboarding': (context) => const OnboardingWidget(),
-        '/index': (context) => const Index(),
-      },
+      home: FutureBuilder<bool>(
+        future: _getAuthenticationStatus(),
+        builder: (context, AsyncSnapshot<bool> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+           
+            bool isLoggedIn = snapshot.data!;
+
+            if (isLoggedIn) {
+            return const Index();
+          } else {
+            // Handle the case when the user is not logged in
+            return const OnboardingWidget();
+          }
+          } else {
+            // Handle loading state
+            return const Scaffold(body: Center(child: CircularProgressIndicator()));
+          }
+        },
+      ),
     );
   }
 }
