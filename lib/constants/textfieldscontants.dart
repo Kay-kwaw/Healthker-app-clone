@@ -32,7 +32,11 @@ class Fields{
                                                             )
                                                     ),
                                                     
-                                                    style: const TextStyle(),
+                                                    style: const TextStyle(
+                                                    
+                                                      fontFamily: 'KumbhSans',
+                                                      color: textColor
+                                                    ),
                                                   
                                                   ),
 
@@ -111,7 +115,11 @@ class Fields{
                                                             )
                                                     
                                                     ),
-                                                    style: const TextStyle(),
+                                                    style: const TextStyle(
+                                                   
+                                                      fontFamily: 'KumbhSans',
+                                                      color: textColor
+                                                    ),
                                                    
                                                   ),
       // child: TextFormField(

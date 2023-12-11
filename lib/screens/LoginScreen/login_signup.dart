@@ -10,6 +10,7 @@ import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/constants/textfieldscontants.dart';
 import 'package:healthker/screens/Forgotpassword/forgot_password_screen.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPageWidget extends StatefulWidget {
   const LoginPageWidget({Key? key}) : super(key: key);
@@ -24,6 +25,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+
+    Future<void> _saveAuthenticationStatus() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isAuthenticated', true);
+  }
+
+  Future<bool> _getAuthenticationStatus() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('isAuthenticated') ?? false;
+  }
 
   //Snipper of a login function that communicates with the API
   final String baseUrl = 'https://mobile-api-test.gnepplatform.com';
@@ -54,7 +65,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
       if (response.statusCode == 200) {
         //Json response is used to decode the response from the API and converts Json format to dart object and stored in the JsonResponse.
         final jsonResponse = jsonDecode(response.body);
-        // debugPrint('Decoded message: $jsonResponse');
+        if (jsonResponse['resp_code'] == '000') {
+        await _saveAuthenticationStatus(); // Save authentication status
+        return(
+          status: jsonResponse['resp_code'] == '000',
+          message: jsonResponse['resp_msg'] as String,
+        );
+      }// debugPrint('Decoded message: $jsonResponse');
         return(
           status: jsonResponse['resp_code'] == '000',
           message: jsonResponse['resp_msg'] as String,
@@ -261,8 +278,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                       // Close the loading dialog
                       // ignore: use_build_context_synchronously
                       Navigator.pop(context);
+                      final isAuthenticated = await _getAuthenticationStatus();
 
-                      if (loginResponse.status) {
+                      if (loginResponse.status && isAuthenticated) {
                         // ignore: use_build_context_synchronously
                         Navigator.push(
                           context,

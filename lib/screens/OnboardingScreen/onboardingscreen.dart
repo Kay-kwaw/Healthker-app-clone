@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/imageconstants.dart';
-import 'package:healthker/screens/LoginScreen/login.dart';
+// import 'package:healthker/screens/LoginScreen/login.dart';
 import 'package:healthker/constants/constants.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -113,7 +113,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         child: AppTexts.buildElevatedButton(
                           buttontext: "Login",
                          onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=> const LoginWidget()));
+                            // Navigator.push(context, MaterialPageRoute(builder: (context)=> const LoginWidget()));
                          },
                          buttonColor: primaryColor,
                           textColor: Colors.white,
