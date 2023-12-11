@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/screens/Dashboard/dashboard.dart';
-import 'package:healthker/screens/Order/cart_screen.dart';
 import 'package:healthker/screens/Order/order_screen.dart';
 import 'package:healthker/screens/profile/account.dart';
 

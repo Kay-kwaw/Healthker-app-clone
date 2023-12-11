@@ -28,7 +28,9 @@ class _CartScreenState extends State<CartScreen> {
               Icons.shopping_cart_outlined,
               color: Colors.white,
             ),
-          ), leadingTap: () {  },
+          ), leadingTap: () { 
+            Navigator.pop(context);
+           },
        ),
       body: 
        Column(

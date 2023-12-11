@@ -37,16 +37,18 @@ class _HelpWidgetState extends State<HelpWidget>
           textColor,
          centerTitle: true, 
          const Icon(
-            Icons.location_on_outlined,
+            Icons.arrow_back_ios_new_sharp,
             color: Colors.white,
           ),
           action: IconButton(
             onPressed: () {},
             icon: const Icon(
               Icons.shopping_cart_outlined,
-              color: Colors.white,
+              color: backgroundColor,
             ),
-          ), leadingTap: () {  },),
+          ), leadingTap: () {  
+            Navigator.pop(context);
+          },),
         body: SafeArea(
           top: true,
           child: Padding(

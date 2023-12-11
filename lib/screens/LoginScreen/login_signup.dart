@@ -1,10 +1,15 @@
 
 
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
+import 'package:healthker/constants/textfieldscontants.dart';
 import 'package:healthker/screens/Forgotpassword/forgot_password_screen.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPageWidget extends StatefulWidget {
   const LoginPageWidget({Key? key}) : super(key: key);
@@ -17,6 +22,61 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
     with TickerProviderStateMixin {
  
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
+  //Snipper of a login function that communicates with the API
+  final String baseUrl = 'https://mobile-api-test.gnepplatform.com';
+  //Representation of data as key pair values which consist of the API key and the value;
+  //baseApi is a map of key value pairs
+  Future<({String message, bool status})> login(
+      {context, required String email, required String password}) async {
+
+    final Map<String, String> loginRequest = {
+      "api_key": "d37e4e08a0fc40b39abf5ce36a8d70c75fe05b83",
+      "guid": "F83420D0-9A83-11E9-99B4-002590DD14B1",
+      "user": "mobile",
+      "passcode": "35c5f3f25f9fa1b503a1c016ae5f1c670d22f22d",
+      "method": "SIGNIN_REQUEST",
+      "email_address": email,
+      "password": password,
+    };
+    
+
+   
+    try {
+      final response = await http.post(Uri.parse(baseUrl),
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: jsonEncode(loginRequest));
+      if (response.statusCode == 200) {
+        //Json response is used to decode the response from the API and converts Json format to dart object and stored in the JsonResponse.
+        final jsonResponse = jsonDecode(response.body);
+        // debugPrint('Decoded message: $jsonResponse');
+        return(
+          status: jsonResponse['resp_code'] == '000',
+          message: jsonResponse['resp_msg'] as String,
+        );
+      } else {
+        if (kDebugMode) {
+          print('Error: ${response.statusCode}');
+        }
+        if (kDebugMode) {
+          print('Response: ${response.body}');
+        }
+
+        return (status: false, message: 'Could not log in');
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+
+      return (status: false, message: e.toString());
+    }
+  }
 
   @override
   void initState() {
@@ -109,7 +169,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             Tab(
                                               text: 'Register',
                                             ),
-                                            Icon(Icons.person)
+                                            Icon(Icons.person),
                                           ],
                                         ),
                                       ],
@@ -146,59 +206,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(0, 20, 0, 0),
-                                                  child: TextFormField(
-                                                    obscureText: false,
-                                                    decoration:  InputDecoration(
-                                                      labelText: 'Email Address',
-                                                      hintText:
-                                                          'Enter your email...',
-                                                      filled: true,
-                                                      fillColor:
-                                                          const Color.fromARGB(255, 14, 21, 27),
-                                                         border: OutlineInputBorder(
-                                                          borderSide: BorderSide.none,
-                                                            borderRadius: BorderRadius.circular(8),
-                                                            ),
-                                                            prefix: const Icon(
-                                                              Icons.email,
-                                                              color: Colors.white,
-                                                            )
-                                                    ),
-                                                    
-                                                    style: const TextStyle(),
-                                                  
-                                                  ),
+                                                  child:Fields.emailTextField(
+                                                    emailController
+                                                  )
                                                 ),
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(0, 12, 0, 0),
-                                                  child: TextFormField(
-                                                    obscureText: true,
-                                                    decoration:  InputDecoration(
-                                                      labelText: 'Password',
-                                                      hintText:
-                                                          'Enter your password...',
-                                                      filled: true,
-                                                      fillColor:
-                                                          const Color.fromARGB(255, 14, 21, 27),
-                                                         border: OutlineInputBorder(
-                                                          borderSide: BorderSide.none,
-                                                            borderRadius: BorderRadius.circular(8),),
-                                                            prefix: const Icon(
-                                                              Icons.password,
-                                                              color: Colors.white,
-                                                            ),
-                                                            suffix: InkWell(
-                                                              onTap: (){},
-                                                              child: const Icon(Icons.visibility,
-                                                              color: Colors.white,
-                                                              ),
-                                                            )
-                                                    
-                                                    ),
-                                                    style: const TextStyle(),
-                                                   
-                                                  ),
+                                                  child: Fields.passwordField(
+                                                    passwordController
+                                                  )
                                                 ),
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
@@ -219,14 +236,61 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                  Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(0, 15, 0, 0),
-                                                  child: AppTexts.buildElevatedButton(buttontext: 'Login', onPressed: (){
-                                                    Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) => const Index(),
-                                                    ),
-                                                  );
-                                                  })
+                                                  child: AppTexts.buildElevatedButton(buttontext: 'Login',
+                                                       onPressed: () async {
+                    // Show loading dialog
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (context) => const Center(
+                        child: CircularProgressIndicator(
+                          color: primaryColor,
+                        ),
+                      ),
+                    );
+
+                    try {
+                      final loginResponse = await login(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+
+
+                      debugPrint('This is my login Response: $loginResponse');
+
+                      // Close the loading dialog
+                      // ignore: use_build_context_synchronously
+                      Navigator.pop(context);
+
+                      if (loginResponse.status) {
+                        // ignore: use_build_context_synchronously
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Index(),
+                          ),
+                        );
+                      } else {
+                        // ignore: use_build_context_synchronously
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(loginResponse.message),
+                          ),
+                        );
+                      }
+                    } catch (e) {
+                      // Close the loading dialog in case of an error
+                      // ignore: use_build_context_synchronously
+                      Navigator.pop(context);
+
+                      // ignore: use_build_context_synchronously
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('An error occurred: $e'),
+                        ),
+                      );
+                    }
+                  },)
                                                 ),
                                                  
                                                                                               const Padding(

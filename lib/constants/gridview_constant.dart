@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
+import 'package:healthker/screens/HelpCenter/help_screen.dart';
 
 class BottomSheetModel extends ChangeNotifier {
   bool _isBottomSheetVisible = false;
@@ -358,66 +359,76 @@ class Grid {
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(8),
                                         ),
-                                        child: Container(
-                                          // width: MediaQuery.sizeOf(context).width *
-                                          //     0.89,
-                                          height: 100,
-                                          decoration: BoxDecoration(
-                                            color:Color.fromARGB(255, 193, 167, 167),
-                                            borderRadius: BorderRadius.circular(8),
-                                          ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsetsDirectional.fromSTEB(
-                                                        15, 0, 0, 0),
-                                                child: Image.asset(
-                                                  ImageConstants.call_center,
-                                                  width: 60,
-                                                  height: 60,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                               Expanded(
-                                                child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(10, 15, 10, 0),
-                                                  child: Column(
-                                                    mainAxisSize: MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment.start,
-                                                    children: [
-                                                     AppTexts.GetStarted(
-                                                        'Help Center',
-                                                        15,
-                                                        Colors.white),
-                                                      const Expanded(
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0, 0, 0, 8),
-                                                          child: Text(
-                                                            'Give us a call in order to schedule your appointment.',
-                                                            style:
-                                                                TextStyle(
-                                                                      fontFamily:
-                                                                          'Plus Jakarta Sans',
-                                                                      color: Color(
-                                                                          0xB4FFFFFF),
-                                                                    ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
+                                        child: InkWell(
+                                          onTap: (){
+                                            Navigator.push(context, MaterialPageRoute(builder: (context) => const HelpWidget()));
+                                          },
+                                          child: Container(
+                                            // width: MediaQuery.sizeOf(context).width *
+                                            //     0.89,
+                                            height: 100,
+                                            decoration: BoxDecoration(
+                                              color:const Color.fromARGB(255, 193, 167, 167),
+                                              borderRadius: BorderRadius.circular(8),
+                                            ),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsetsDirectional.fromSTEB(
+                                                          15, 0, 0, 0),
+                                                  child: Image.asset(
+                                                    ImageConstants.call_center,
+                                                    width: 60,
+                                                    height: 60,
+                                                    fit: BoxFit.cover,
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                                 Expanded(
+                                                  child: Padding(
+                                                    padding: const EdgeInsetsDirectional
+                                                        .fromSTEB(10, 15, 10, 0),
+                                                    child: Column(
+                                                      mainAxisSize: MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment.start,
+                                                      children: [
+                                                       InkWell(
+                                                      onTap: (){
+                                                        Navigator.push(context, MaterialPageRoute(builder: (context) => const HelpWidget()));
+                                                      },
+                                                         child: AppTexts.GetStarted(
+                                                            'Help Center',
+                                                            15,
+                                                            Colors.white),
+                                                       ),
+                                                        const Expanded(
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0, 0, 0, 8),
+                                                            child: Text(
+                                                              'Give us a call in order to schedule your appointment.',
+                                                              style:
+                                                                  TextStyle(
+                                                                        fontFamily:
+                                                                            'Plus Jakarta Sans',
+                                                                        color: Color(
+                                                                            0xB4FFFFFF),
+                                                                      ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ), 
