@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
+import 'package:healthker/screens/LoginScreen/login_signup.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -11,7 +12,7 @@ class AccountScreen extends StatefulWidget {
 class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: backgroundColor,
        appBar: AppTexts.appBar(
          'User Details',
@@ -421,42 +422,36 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
               
-              // Padding(
-              //   padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
-              //   child: Container(
-              //     width: double.infinity,
-              //     height: 40,
-              //     decoration: BoxDecoration(
-              //       color: Colors.white,
-              //       borderRadius: BorderRadius.circular(12),
-              //       shape: BoxShape.rectangle,
-              //     ),
-              //     child: Padding(
-              //       padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
-              //       child: Row(
-              //         mainAxisSize: MainAxisSize.max,
-              //         children: [
-              //           const Icon(
-              //             Icons.ios_share,
-              //             color: Color(0xFF57636C),
-              //             size: 24,
-              //           ),
-              //           Expanded(
-              //             child: Padding(
-              //               padding:
-              //                   EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-              //               child: AppTexts.GetStarted("Rate app", 15, textSecondaryColor)
-              //             ),
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //   ),
-              // ),
-            ],
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(50, 8, 8, 8),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                         Padding(
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(90, 0, 0, 0),
+                            child: AppTexts.GetStarted("Log Out", 18, textColor),
+                        ),
+                         InkWell(
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const LoginPageWidget(),
+                              ),
+                            );
+                          },
+                          child: Icon(Icons.logout_outlined, color: Colors.red,))
+                        
+                      ],
+                    ),
+                  ),
+                ),
+              ])
           ),
-        ),
-    );
+        );
   }
 }
 
