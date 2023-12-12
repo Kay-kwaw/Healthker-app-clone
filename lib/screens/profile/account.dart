@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/screens/LoginScreen/login_signup.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -432,18 +433,24 @@ class _AccountScreenState extends State<AccountScreen> {
                          Padding(
                             padding:
                                 const EdgeInsetsDirectional.fromSTEB(90, 0, 0, 0),
-                            child: AppTexts.GetStarted("Log Out", 18, textColor),
+                            child: InkWell(
+                              child: AppTexts.GetStarted("Log Out", 18, textColor)),
                         ),
                          InkWell(
-                          onTap: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const LoginPageWidget(),
-                              ),
-                            );
+                          onTap: () async{
+                            
+                          await logout();
+                          // Navigate to the login page
+                          // ignore: use_build_context_synchronously
+                         Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginPageWidget(),
+                    ),
+                    (Route<dynamic> route) => false, // This prevents going back to the AccountScreen
+                  );
                           },
-                          child: Icon(Icons.logout_outlined, color: Colors.red,))
+                          child: const Icon(Icons.logout_outlined, color: Colors.red,))
                         
                       ],
                     ),
@@ -452,6 +459,10 @@ class _AccountScreenState extends State<AccountScreen> {
               ])
           ),
         );
+  }
+  Future<void> logout() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isLoggedIn', false);
   }
 }
 
