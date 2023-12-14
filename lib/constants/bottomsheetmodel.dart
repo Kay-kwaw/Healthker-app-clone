@@ -114,3 +114,69 @@ class TopSheetUtils {
   }
 }
 
+class SearchSheetUtils {
+  static void showMedicinePurchaseOptions(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return SizedBox(
+          height: 330,
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 10, 0, 0,),
+                child: Text(
+                  "Filter by:",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.local_hospital_rounded),
+                title: const Text("Pharmacy name", style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Handle the action for "Upload Prescription"
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.location_on_outlined),
+                title: const Text("Area", style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Handle the action for "Search Medicine"
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.edit),
+                title: const Text("Region",style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Handle the action for "Write Request"
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.location_city),
+                title: const Text("Location", style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Handle the action for "Write Request"
+                },
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(180, 0, 0, 8),
+                child: ListTile(
+                  leading: const Icon(Icons.cancel, size: 30,),
+                  title: const Text(""),
+                  onTap: () {
+                    Navigator.pop(context);
+                    // Handle the action for closing the bottom sheet
+                  },
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}

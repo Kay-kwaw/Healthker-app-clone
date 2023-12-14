@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthker/constants/Index.dart';
+import 'package:healthker/constants/bottomsheetmodel.dart';
 import 'package:healthker/constants/constants.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -25,7 +26,7 @@ class _SearchScreenState extends State<SearchScreen> {
             Navigator.pop(context);
           },
           ),
-      body:  Padding(
+      body:   Padding(
         padding: EdgeInsets.all(8.0),
         child: Column(
           children: [
@@ -46,33 +47,41 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
                   const Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: Text("Filter by:", style: TextStyle(color: Colors.grey, fontSize: 16),
+                    child: Text("Filter by:", style: TextStyle(color: Color.fromARGB(255, 121, 121, 121), fontSize: 16),
                     textAlign: TextAlign.center,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 40, width:200,
-                    decoration: BoxDecoration(
-                      color: backgroundColor,
+                 Padding(
+                 padding: const EdgeInsets.all(8.0),
+                 child: OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: backgroundColor,
+                    side: const BorderSide(color: backgroundColor),
+                    shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                      child: const Text("Pharmacy", style: TextStyle(color: Colors.white, fontSize: 16),
-                    textAlign: TextAlign.center,
-                      )
-                    
-                    ),
-                    
-                    ),
+                  ),
+                  onPressed: (){
+                    SearchSheetUtils.showMedicinePurchaseOptions(context);
+                  }, 
+                  child: const Row(
+                    children: [
+                      Text("Pharmacy", style: TextStyle(color: Colors.white),),
+                      Icon(Icons.arrow_drop_down, color: Colors.white)
+                    ],
+                  )),
+                 )
                 ],
               ),
             ),
+            // const Padding(padding: EdgeInsets.all(8.0),
+            // child: Text("Pharmacy near you", style: TextStyle(color: Color.fromARGB(255, 121, 121, 121), fontSize: 16),)
+            // )
           ],
         ),
       ),
