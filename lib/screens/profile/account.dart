@@ -439,13 +439,28 @@ class _AccountScreenState extends State<AccountScreen> {
                          InkWell(
                           onTap: () async{
                             bool shouldLogout= await showDialog(context: context, builder: (context) => AlertDialog(
-                              title: const Text('Log Out'),
-                              content: const Text('Are you sure you want to log out?'),
-                              actions: [
-                                TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('No')),
-                                TextButton(onPressed: () => Navigator.pop(context, true), child: const Text('Yes')),
-                              ],));
-                            
+                            title: AppTexts.GetStarted("Log Out", 18, Colors.black),
+                            content: AppTexts.GetStarted("Are you sure you want to logout?", 15, Colors.black),
+                            actions: [
+                              TextButton(
+                                style: TextButton.styleFrom(
+                                  primary: Colors.white,
+                                  backgroundColor: backgroundColor,
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context, true); // User chooses Yes
+                                },
+                                child: const Text("Yes", style: TextStyle(color: Colors.white)),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context, false); // User chooses No
+                                },
+                                child: const Text("No"),
+                              ),
+                            ],
+                          ));
+                          if (shouldLogout){
                           await logout();
                          // ignore: use_build_context_synchronously
                          Navigator.pushAndRemoveUntil(
@@ -455,7 +470,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                     (Route<dynamic> route) => false, // This prevents going back to the AccountScreen
                   );
-                          },
+                               }     },
                           child: const Icon(Icons.logout_outlined, color: Colors.red,))
                         
                       ],
