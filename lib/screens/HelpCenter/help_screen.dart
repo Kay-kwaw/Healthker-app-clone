@@ -1,31 +1,30 @@
 
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/constants.dart';
 
 class HelpWidget extends StatefulWidget {
   const HelpWidget({Key? key}) : super(key: key);
+  
 
   @override
   // ignore: library_private_types_in_public_api
-  _HelpWidgetState createState() =>
-      _HelpWidgetState();
+  _HelpWidgetState createState() => _HelpWidgetState();
+     
 }
-
-class _HelpWidgetState extends State<HelpWidget>
-    with TickerProviderStateMixin {
+class _HelpWidgetState extends State<HelpWidget>{
 
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
   
-
+    int _currentIndex = 0;
   @override
   void initState() {
     super.initState();
    
   }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -71,6 +70,36 @@ class _HelpWidgetState extends State<HelpWidget>
                     padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                     child:AppTexts.GetStarted("Submit A Request", 20, Colors.black)
                   ),
+                  const SizedBox(height: 20,),
+                   Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                            // labelText: 'Subject',
+                            fillColor: textColor,
+                            filled: true,
+                            hintText:
+                            'Short Description of what is going on...',
+                          ),
+                          style:
+                              const TextStyle(
+                          fontFamily: "KumbhSans-meduim",
+                                      ),
+                          maxLines: 16,
+                          minLines: 6,
+                          cursorColor: const Color(0xFF6F61EF),
+                          
+                        ),
+                      ]
+                    ),
+                  ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -86,7 +115,7 @@ class _HelpWidgetState extends State<HelpWidget>
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(12),
                               border: Border.all(
-                                color: Color(0xFFE5E7EB),
+                                color: const Color(0xFFE5E7EB),
                                 width: 2,
                               ),
                             ),
@@ -110,7 +139,7 @@ class _HelpWidgetState extends State<HelpWidget>
                                       'Call Us',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        fontFamily: "KumbhSans-meduim",
+                                        fontFamily: "KumbhSans-medium",
                                       )
                                     ),
                                   ),
@@ -122,7 +151,7 @@ class _HelpWidgetState extends State<HelpWidget>
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                           child: Container(
                             width: 120,
                             constraints: const BoxConstraints(
@@ -132,7 +161,7 @@ class _HelpWidgetState extends State<HelpWidget>
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(12),
                               border: Border.all(
-                                color: Color(0xFFE5E7EB),
+                                color: const Color(0xFFE5E7EB),
                                 width: 2,
                               ),
                             ),
@@ -215,48 +244,25 @@ class _HelpWidgetState extends State<HelpWidget>
                     ]
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        TextFormField(
-                          autofocus: true,
-                          obscureText: false,
-                          decoration: const InputDecoration(
-                            labelText: 'Subject',
-                            hintText:
-                                'Short Description of what is going on...',
-                            
-                            // contentPadding:
-                            //     EdgeInsetsDirectional.fromSTEB(16, 24, 16, 12),
-                          ),
-                          style:
-                              const TextStyle(
-                                        fontFamily: "KumbhSans-meduim",
-                                      ),
-                          maxLines: 16,
-                          minLines: 6,
-                          cursorColor: const Color(0xFF6F61EF),
-                          
-                        ),
-                      ]
-                    ),
-                  ),
-                  Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(30, 24, 0, 12),
                     child: AppTexts.buildElevatedButton(
                       onPressed: () {
-                        print('Button pressed ...');
+                        if (kDebugMode) {
+                          print('Button pressed ...');
+                        }
                       },
                       buttontext: "Submit Request",
                       buttonColor: backgroundColor
                     ),
                   ),
                 ],
+                
               ),
             ),
           ),
         ),
+        bottomNavigationBar: MyBottomNavigationBar(currentIndex: _currentIndex, onTap: (int value) {  }, ),
+      
       ),
     );
   }

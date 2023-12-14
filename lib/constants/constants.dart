@@ -158,38 +158,5 @@ class AppTexts {
                                               );
                           }
 
-                          static void showBottomSheet(BuildContext context) {
-                          showModalBottomSheet(
-                            context: context,
-                            builder: (context) {
-                              return  Container(
-                                height: 500,
-                                width: double.infinity,
-                                  child: const Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: Column(
-                                      children: [
-                                        Text("Where do you want it to be delivered to?", style: TextStyle(
-                                          fontSize: 18,
-                                          fontFamily: "KumbhSans"
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        ),
-                                        ListTile(
-                                          trailing: Icon(Icons.location_on_outlined),
-                                          title: Center(child: Text("Use my current location")),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                              );
-                            },
-                          );
-                        }
-                      }
-                          
-                          
-
-                        
-
+}
 

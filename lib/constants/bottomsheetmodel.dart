@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class BottomSheetUtils {
@@ -58,3 +60,57 @@ class BottomSheetUtils {
     );
   }
 }
+
+
+
+class TopSheetUtils {
+  static void showMedicinePurchaseOptions(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return SizedBox(
+          height: 500,
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0,),
+                child: Text(
+                  "How do you want to purchase the medicine?",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const SizedBox(height: 20,),
+              _buildListTile(
+                icon: Icons.add_location_outlined,
+                title: "Use my current location",
+                onTap: () {
+                  // Navigator.pop(context);
+                  // Handle the action for "Upload Prescription"
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  static Widget _buildListTile({
+    required IconData icon,
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    return ListTile(
+      title: Row(
+        children: [
+          Icon(icon),
+          const SizedBox(width: 5),
+          Center(child: Text(title), ),
+        ],
+      ),
+      onTap: onTap,
+    );
+  }
+}
+
