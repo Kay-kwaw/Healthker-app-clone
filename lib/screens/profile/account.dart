@@ -29,7 +29,9 @@ class _AccountScreenState extends State<AccountScreen> {
               Icons.shopping_cart_outlined,
               color: Colors.white,
             ),
-          ), leadingTap: () {  },
+          ), leadingTap: () { 
+            Navigator.pop(context);
+           },
        ),
       body: SafeArea(
           top: true,
@@ -453,10 +455,14 @@ class _AccountScreenState extends State<AccountScreen> {
                                 child: const Text("Yes", style: TextStyle(color: Colors.white)),
                               ),
                               TextButton(
+                                style: TextButton.styleFrom(
+                                  primary: Colors.white,
+                                  backgroundColor: Colors.red,
+                                ),
                                 onPressed: () {
                                   Navigator.pop(context, false); // User chooses No
                                 },
-                                child: const Text("No"),
+                                child: const Text("No", style: TextStyle(color: Colors.white)),
                               ),
                             ],
                           ));
