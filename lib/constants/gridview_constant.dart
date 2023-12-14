@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:healthker/constants/bottomsheetmodel.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/imageconstants.dart';
 import 'package:healthker/screens/HelpCenter/help_screen.dart';
@@ -39,50 +40,7 @@ class Grid {
                                           ),
                                           child: InkWell(
                                             onTap: (){
-                                              showModalBottomSheet(context: context, builder: (context) {
-                                                return SizedBox(
-                                                  height: 300,
-                                                  child: Column(
-                                                    children: [
-                                                      const Padding(
-                                                        padding: EdgeInsetsDirectional.fromSTEB(20, 10, 0, 0,),
-                                                        child: Text("How do you want to purchase the medicine?", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
-                                                      ),
-                                                      ListTile(
-                                                        leading: const Icon(Icons.upload),
-                                                        title: const Text("Upload Prescription"),
-                                                        onTap: (){
-                                                          Navigator.pop(context);
-                                                        },
-                                                      ),
-                                                      ListTile(
-                                                        leading: const Icon(Icons.search),
-                                                        title: const Text("Search Medicine"),
-                                                        onTap: (){
-                                                          Navigator.pop(context);
-                                                        },
-                                                      ),
-                                                      ListTile(
-                                                        leading: const Icon(Icons.edit),
-                                                        title: const Text("Write Request"),
-                                                        onTap: (){
-                                                          Navigator.pop(context);
-                                                        },
-                                                      ),
-                                                      Padding(
-                                                        padding: const EdgeInsetsDirectional.fromSTEB(180, 0, 0, 8),
-                                                        child: ListTile(
-                                                          leading: const Icon(Icons.cancel, size: 30,),
-                                                          title: const Text(""),
-                                                          onTap: (){
-                                                            Navigator.pop(context);
-                                                          },
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
-                                              }); 
+                                               BottomSheetUtils.showMedicinePurchaseOptions(context);
                                             },
                                             child: Container(
                                               // width: MediaQuery.sizeOf(context).width *

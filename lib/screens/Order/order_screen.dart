@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthker/constants/bottomsheetmodel.dart';
 import 'package:healthker/constants/constants.dart';
 import 'package:healthker/constants/gridview_constant.dart';
 import 'package:healthker/constants/imageconstants.dart';
@@ -55,6 +56,7 @@ class _OrderscreenState extends State<Orderscreen> {
             
             ),
            AppTexts.buildElevatedButton(buttontext: "Buy Medicine", onPressed: (){
+            BottomSheetUtils.showMedicinePurchaseOptions(context);
             
            })
          ],
