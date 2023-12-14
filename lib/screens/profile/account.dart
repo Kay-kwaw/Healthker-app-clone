@@ -438,10 +438,16 @@ class _AccountScreenState extends State<AccountScreen> {
                         ),
                          InkWell(
                           onTap: () async{
+                            bool shouldLogout= await showDialog(context: context, builder: (context) => AlertDialog(
+                              title: const Text('Log Out'),
+                              content: const Text('Are you sure you want to log out?'),
+                              actions: [
+                                TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('No')),
+                                TextButton(onPressed: () => Navigator.pop(context, true), child: const Text('Yes')),
+                              ],));
                             
                           await logout();
-                          // Navigate to the login page
-                          // ignore: use_build_context_synchronously
+                         // ignore: use_build_context_synchronously
                          Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(

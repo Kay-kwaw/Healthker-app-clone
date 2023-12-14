@@ -39,9 +39,7 @@ class _MyAppState extends State<MyApp> {
         future: _getAuthenticationStatus(),
         builder: (context, AsyncSnapshot<bool> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-           
             bool isLoggedIn = snapshot.data!;
-
             if (isLoggedIn) {
             return const Index();
           } else {

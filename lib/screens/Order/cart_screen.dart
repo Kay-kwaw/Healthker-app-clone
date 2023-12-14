@@ -58,14 +58,14 @@ class _CartScreenState extends State<CartScreen> {
            AppTexts.buildElevatedButton(buttontext: "Buy Medicine", onPressed: (){})
          ],
        ),
-      bottomNavigationBar: MyBottomNavigationBar(
-        currentIndex: 1,
-        onTap: (index) {
-          setState(() {
-            index = 1;
-          });
-        },
-      )
+      // bottomNavigationBar: MyBottomNavigationBar(
+      //   currentIndex: 1,
+      //   onTap: (index) {
+      //     setState(() {
+      //       index = 1;
+      //     });
+      //   },
+      // )
     );
   }
 }

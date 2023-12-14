@@ -25,6 +25,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+    //these functions are used to persist and retrieve the authentication status 
+    //of the user locally on the device using the shared preferences mechanism. 
+    //The SharedPreferences class is commonly used for storing small pieces of data,
+    // such as app settings or authentication status, on the device between app sessions.
 
     Future<void> _saveAuthenticationStatus() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
