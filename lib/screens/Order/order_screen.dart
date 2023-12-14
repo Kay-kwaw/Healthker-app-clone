@@ -57,7 +57,6 @@ class _OrderscreenState extends State<Orderscreen> {
             ),
            AppTexts.buildElevatedButton(buttontext: "Buy Medicine", onPressed: (){
             BottomSheetUtils.showMedicinePurchaseOptions(context);
-            
            })
          ],
        )
