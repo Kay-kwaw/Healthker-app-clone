@@ -32,5 +32,6 @@
         "STEB",
         "textfieldscontants",
         "whatshot"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

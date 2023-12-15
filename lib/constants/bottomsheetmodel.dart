@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:healthker/screens/purchaseScreens/purchasescreen.dart';
 
 class BottomSheetUtils {
   static void showMedicinePurchaseOptions(BuildContext context) {
@@ -22,7 +23,12 @@ class BottomSheetUtils {
                 leading: const Icon(Icons.upload),
                 title: const Text("Upload Prescription"),
                 onTap: () {
-                  Navigator.pop(context);
+                 Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PurchaseScreen(),
+                          ),
+                        );
                   // Handle the action for "Upload Prescription"
                 },
               ),
