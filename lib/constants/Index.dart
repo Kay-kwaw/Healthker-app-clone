@@ -40,6 +40,7 @@ class _IndexState extends State<Index> {
  class MyBottomNavigationBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
+  
 
   const MyBottomNavigationBar({super.key, required this.currentIndex, required this.onTap});
 

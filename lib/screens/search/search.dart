@@ -79,9 +79,43 @@ class _SearchScreenState extends State<SearchScreen> {
                 ],
               ),
             ),
-            // const Padding(padding: EdgeInsets.all(8.0),
-            // child: Text("Pharmacy near you", style: TextStyle(color: Color.fromARGB(255, 121, 121, 121), fontSize: 16),)
-            // )
+            Expanded(
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Card(
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Icon(Icons.local_hospital_rounded),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Pharmacy Name", style: TextStyle(fontWeight: FontWeight.bold),),
+                                Text("Address"),
+                                Text("Distance"),
+                              ],
+                            ),
+                            Spacer(),
+                            Icon(Icons.arrow_forward_ios_rounded),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
