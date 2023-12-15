@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:healthker/screens/purchaseScreens/purchasescreen.dart';
+import 'package:healthker/screens/purchaseScreens/searchmedicine.dart';
 
 class BottomSheetUtils {
   static void showMedicinePurchaseOptions(BuildContext context) {
@@ -36,7 +37,12 @@ class BottomSheetUtils {
                 leading: const Icon(Icons.search),
                 title: const Text("Search Medicine"),
                 onTap: () {
-                  Navigator.pop(context);
+                   Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SearchMedicine(),
+                          ),
+                        );
                   // Handle the action for "Search Medicine"
                 },
               ),
@@ -86,13 +92,7 @@ class PurchaseSheetUtils {
                 leading: const Icon(Icons.camera_alt_outlined),
                 title: const Text("Camera"),
                 onTap: () {
-                //  Navigator.push(
-                //           context,
-                //           MaterialPageRoute(
-                //             builder: (context) => const PurchaseScreen(),
-                //           ),
-                //         );
-                  // Handle the action for "Upload Prescription"
+                
                 },
               ),
               ListTile(

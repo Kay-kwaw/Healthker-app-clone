@@ -3,19 +3,19 @@ import 'package:healthker/constants/Index.dart';
 import 'package:healthker/constants/bottomsheetmodel.dart';
 import 'package:healthker/constants/constants.dart';
 
-class PurchaseScreen extends StatefulWidget {
-  const PurchaseScreen({super.key});
+class SearchMedicine extends StatefulWidget {
+  const SearchMedicine({super.key});
 
   @override
-  State<PurchaseScreen> createState() => _PurchaseScreenState();
+  State<SearchMedicine> createState() => _SearchMedicineState();
 }
 
-class _PurchaseScreenState extends State<PurchaseScreen> {
+class _SearchMedicineState extends State<SearchMedicine> {
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppTexts.appBar("Purchase Instruction", backgroundColor, const Icon(Icons.arrow_back, color: Colors.white,), action:IconButton(
+      appBar: AppTexts.appBar("Search Instruction", backgroundColor, const Icon(Icons.arrow_back, color: Colors.white,), action:IconButton(
             onPressed: () {},
             icon: const Icon(
               Icons.shopping_cart_outlined,
@@ -129,21 +129,12 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                    child: Text("- Don't crop out any part of the prescription", style: TextStyle(fontFamily: "KumbhSans-medium", fontSize: 16),
                    ),
                  ),
-                 Padding(
-                   padding: EdgeInsets.all(8.0),
-                   child: Text("- Avoid blurred images", style: TextStyle(fontFamily: "KumbhSans-medium", fontSize: 16),
-                   ),
-                 ),
-                 Padding(
-                   padding: EdgeInsets.all(8.0),
-                   child: Text("- Prescription image should include details of\n          doctor and patient, clinic & visit date", style: TextStyle(fontFamily: "KumbhSans-medium", fontSize: 16),
-                   ),
-                 ),
+               
                ],
              ),
              ),
               Padding(padding: const EdgeInsetsDirectional.fromSTEB(0, 35, 0, 0),
-             child: AppTexts.buildElevatedButton(buttontext: "Upload Prescription",buttonColor: backgroundColor, onPressed: (){
+             child: AppTexts.buildElevatedButton(buttontext: "Search Medicine",buttonColor: backgroundColor, onPressed: (){
               PurchaseSheetUtils.showMedicinePurchaseOptions(context);
              })
              ),
