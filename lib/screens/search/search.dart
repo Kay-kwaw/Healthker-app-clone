@@ -12,6 +12,7 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
    int _currentIndex = 0;
+  String _selectedPharmacy = "";
   @override
   Widget build(BuildContext context) {
     return  Scaffold(

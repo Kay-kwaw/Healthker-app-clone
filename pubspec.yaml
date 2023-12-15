@@ -48,6 +48,7 @@ dependencies:
   flutter_emoji: ^2.5.1
   provider: ^6.1.1
   shared_preferences: ^2.2.2
+  google_maps_flutter: ^2.5.0
 
 dev_dependencies:
   flutter_test:
