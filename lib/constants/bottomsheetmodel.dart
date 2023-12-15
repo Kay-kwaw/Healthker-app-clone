@@ -66,6 +66,69 @@ class BottomSheetUtils {
     );
   }
 }
+class PurchaseSheetUtils {
+  static void showMedicinePurchaseOptions(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return SizedBox(
+          height: 300,
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 10, 0, 0,),
+                child: Text(
+                  "How do you want to Upload it?",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.camera_alt_outlined),
+                title: const Text("Camera"),
+                onTap: () {
+                //  Navigator.push(
+                //           context,
+                //           MaterialPageRoute(
+                //             builder: (context) => const PurchaseScreen(),
+                //           ),
+                //         );
+                  // Handle the action for "Upload Prescription"
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.browse_gallery_outlined),
+                title: const Text("Gallery"),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Handle the action for "Search Medicine"
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.file_copy_outlined),
+                title: const Text("File Manager"),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Handle the action for "Write Request"
+                },
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(180, 0, 0, 8),
+                child: ListTile(
+                  leading: const Icon(Icons.cancel, size: 30,),
+                  title: const Text(""),
+                  onTap: () {
+                    Navigator.pop(context);
+                    // Handle the action for closing the bottom sheet
+                  },
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
 
 
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:healthker/constants/Index.dart';
+import 'package:healthker/constants/bottomsheetmodel.dart';
 import 'package:healthker/constants/constants.dart';
 
 class PurchaseScreen extends StatefulWidget {
@@ -9,27 +11,31 @@ class PurchaseScreen extends StatefulWidget {
 }
 
 class _PurchaseScreenState extends State<PurchaseScreen> {
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppTexts.appBar("Purchase Instruction", backgroundColor, const Icon(Icons.arrow_back), action:IconButton(
+      appBar: AppTexts.appBar("Purchase Instruction", backgroundColor, const Icon(Icons.arrow_back, color: Colors.white,), action:IconButton(
             onPressed: () {},
             icon: const Icon(
               Icons.shopping_cart_outlined,
               color:backgroundColor,
             ),
-          ),  centerTitle: true, leadingTap: () {}),
+          ),  centerTitle: false, 
+          leadingTap: () {
+            Navigator.pop(context);
+          }),
           body:  Column(
             children: [
               const Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(10.0),
                 child: Text("How it works?", style: TextStyle(fontFamily: "KumbhSans", fontSize: 18),),
               ),
              Padding(padding: const EdgeInsets.all(10),
              child: Row(
                children: [
                  Padding(
-                   padding: const EdgeInsetsDirectional.fromSTEB(30,10,40,0),
+                   padding: const EdgeInsetsDirectional.fromSTEB(25,10,40,0),
                    child: Column(
                      children: [
                        Container(
@@ -109,9 +115,43 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                ],
              ),
              
-             )
+             ),
+             const Padding(padding: EdgeInsetsDirectional.fromSTEB(0,30,0,10),
+             child: Column(
+               children: [
+                 Padding(
+                   padding: EdgeInsets.all(8.0),
+                   child: Text("Valid prescription guide", style: TextStyle(fontFamily: "KumbhSans", fontSize: 18),
+                   ),
+                 ),
+                 Padding(
+                   padding: EdgeInsets.all(8.0),
+                   child: Text("- Don't crop out any part of the prescription", style: TextStyle(fontFamily: "KumbhSans-medium", fontSize: 16),
+                   ),
+                 ),
+                 Padding(
+                   padding: EdgeInsets.all(8.0),
+                   child: Text("- Avoid blurred images", style: TextStyle(fontFamily: "KumbhSans-medium", fontSize: 16),
+                   ),
+                 ),
+                 Padding(
+                   padding: EdgeInsets.all(8.0),
+                   child: Text("- Prescription image should include details of\n          doctor and patient, clinic & visit date", style: TextStyle(fontFamily: "KumbhSans-medium", fontSize: 16),
+                   ),
+                 ),
+               ],
+             ),
+             ),
+              Padding(padding: const EdgeInsetsDirectional.fromSTEB(0, 35, 0, 0),
+             child: AppTexts.buildElevatedButton(buttontext: "Upload Prescription", onPressed: (){
+              PurchaseSheetUtils.showMedicinePurchaseOptions(context);
+             })
+             ),
+             
             ],
+            
           ),
+          bottomNavigationBar: MyBottomNavigationBar(currentIndex: _currentIndex, onTap: (index){}),
     );
   }
 }
